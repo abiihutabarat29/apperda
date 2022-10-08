@@ -1203,7 +1203,7 @@ body {
   color: #fff !important;
 }
 .sidebar.sidebar-style-2 .nav.nav-warning > .nav-item.active > a {
-  background: #ffad46 !important;
+  background: #7f603b !important;
   box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.1),
     4px 4px 15px -5px rgba(255, 173, 70, 0.4) !important;
 }
@@ -5000,7 +5000,7 @@ label {
   background: #31ce36 !important;
 }
 .card-warning {
-  background: #ffad46 !important;
+  background: #7f603b !important;
 }
 .card-danger {
   background: #f25961 !important;
@@ -13638,6 +13638,15 @@ body[data-background-color="dark"] .board {
     #1572e8
   ) !important;
   background: linear-gradient(-45deg, #06418e, #1572e8) !important;
+}
+.bg-coklat-gradient {
+  background: #1572e8 !important;
+  background: -webkit-linear-gradient(
+    legacy-direction(-45deg),
+    #06418e,
+    #1572e8
+  ) !important;
+  background: linear-gradient(-45deg, #3f2b13, #7d5e37) !important;
 }
 .bg-secondary-gradient {
   background: #6861ce !important;

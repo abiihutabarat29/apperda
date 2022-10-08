@@ -2843,14 +2843,14 @@ fieldset:disabled a.btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #0093dd;
+    background-color:#7f603b ;
     border-color: #ffffff;
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #082c49;
-    border-color: #082c49;
+    background-color: #4c3519;
+    border-color: #4c3519;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -22324,7 +22324,7 @@ pre[class*=language-]:before {
     background-size: 100% 100%, 100% 100%;
     transition-duration: 0.3s;
     box-shadow: none;
-    background-image: linear-gradient(to top, #0093dd 2px, rgba(70, 128, 255, 0) 2px), linear-gradient(to top, #0093dd 1px, rgba(206, 212, 218, 0) 1px);
+    background-image: linear-gradient(to top, #7f603b 2px, rgba(70, 128, 255, 0) 2px), linear-gradient(to top, #7f603b 1px, rgba(206, 212, 218, 0) 1px);
 }
 
 .form-group {
@@ -22355,7 +22355,7 @@ pre[class*=language-]:before {
 .form-group.fill .floating-label {
     top: -10px;
     font-size: 0.75rem;
-    color: #0093dd;
+    color: #7f603b;
 }
 
 .spinner-border {

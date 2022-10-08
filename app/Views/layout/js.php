@@ -112,31 +112,6 @@
         return data;
     }
 
-    // api data kode kegiatan
-    // $('#kodekeg').on('change', (event) => {
-    //     getKode(event.target.value).then(kode => {
-    //         $('#namakegiatan').val(kode.nama_kegiatan);
-    //         $('#kodekegiatan').val(kode.kode_kegiatan);
-    //     });
-    // });
-    // async function getKode(id) {
-    //     let response = await fetch('/api/data-kegiatan/' + id)
-    //     let data = await response.json();
-    //     return data;
-    // }
-
-    // api data kode kegiatan 2
-    $('#id-kegiatan').on('change', (event) => {
-        getKode(event.target.value).then(kode => {
-            $('#kodekegiatan').val(kode.kode_kegiatan);
-            $('#namakegiatan').val(kode.nama_kegiatan);
-        });
-    });
-    async function getKode(id) {
-        let response = await fetch('/api/data-kegiatan/' + id)
-        let data = await response.json();
-        return data;
-    }
 
     $(".js-example-language").select2({
         theme: "bootstrap-5",
@@ -163,128 +138,12 @@
         e = e < 10 ? '0' + e : e;
         return e;
     }
-
-    //api data kegiatan search
-    // function dataKegiatan() {
-    //     $('#kode').select2({
-    //         minimumInputLength: 0,
-    //         allowClear: true,
-    //         theme: "bootstrap-5",
-    //         placeholder: '.::Pilih Kode Kegiatan::.',
-    //         ajax: {
-    //             dataType: 'json',
-    //             url: "<?= base_url('sppd/kegiatan') ?>",
-    //             delay: 150,
-    //             data: function(params) {
-    //                 return {
-    //                     search: params.term
-    //                 }
-    //             },
-    //             processResults: function(data, page) {
-    //                 return {
-    //                     results: data
-    //                 }
-    //             }
-    //         }
-    //     });
-    //     $(document).ready(function() {
-    //         $("#kode").change(function() {
-    //             var url = "<?= base_url('sppd/subkegiatan'); ?>/" + $(this).val();
-    //             $('#kodesub').load(url);
-    //             $('#kodesub').select2({
-    //                 theme: "bootstrap-5"
-    //             });
-    //             return false;
-    //         })
-    //     });
-    // }
-    // $(document).ready(function() {
-    //     dataKegiatan();
-    // });
-
-    // api data rekening
-    $('#koderek').on('change', (event) => {
-        getRekening(event.target.value).then(kode => {
-            $('#koderekening').val(kode.kode_rek);
-            $('#namarek').val(kode.nama_rek);
-            $('#reksimda').val(kode.kode_rek_simda);
-        });
-    });
-    async function getRekening(id) {
-        let response = await fetch('/api/data-rekening/' + id)
-        let data = await response.json();
-        return data;
-    }
-
-    //API data kegiatan fect sub kegiatan
-    // $('#kodekeg').on('change', function() {
-    //     var idKegiatan = $(this).val();
-    //     var url = "<?= base_url('sppd/fetch-subkegiatan'); ?>/" + idKegiatan;
-    //     $('.subnama').load(url);
-    //     $('.subnama').select2({
-    //         theme: "bootstrap-5"
-    //     });
-    //     return false;
-    // })
-
-    // api data sub kegiatan
-    $('#id-sub').on('change', (event) => {
-        getIdSub(event.target.value).then(idsub => {
-            $('#kodesubkeg').val(idsub.kode_sub);
-            $('#namasubkeg').val(idsub.nama_sub);
-        });
-    });
     async function getIdSub(id) {
         let response = await fetch('/api/data-sub-kegiatan/' + id)
         let data = await response.json();
         return data;
     }
 
-    //Add more
-    // $(document).ready(function() {
-    //     var i = 1;
-    //     $('#add_field').click(function() {
-    //         i++;
-    //         $('#dynamic_field_append').append(
-    //             '<div class="col-md-12"  id="row_remove' + i + '" >' +
-    //             '<div class="row">' +
-    //             '<div class="col-md-8">' +
-    //             '<div class="form-group">' +
-    //             '<label>Nama Sub Kegiatan ' + i + ' <span class="text-danger">*</span></label>' +
-    //             '<select class="form-control subnama namasubm" id="' + i + '" name="namasub" style="width: 100%"></select>' +
-    //             '</div>' +
-    //             '<input type="text" class="form-control" id="kodesubkegm' + i + '" name="kodesubkeg[]">' +
-    //             '<input type="text" class="form-control" id="namasubkegm' + i + '" name="namasubkeg[]">' +
-    //             '</div>' +
-    //             '<div class="form-group">' +
-    //             '</br>' +
-    //             '<div class="col-md-4 mt-2">' +
-    //             '<button type="button" name="remove" id="' + i + '" class="btn btn-danger btn-sm btn_remove"><i class="fas fa-plus"></i> Hapus Sub</button>' +
-    //             '</div>' +
-    //             '</div>' +
-    //             '</div>' +
-    //             '</div>'
-    //         );
-    //     });
-    //     $(document).on('click', '.btn_remove', function() {
-    //         var button_id = $(this).attr("id");
-    //         $('#row_remove' + button_id + '').remove();
-    //     });
-    //     // api data sub kegiatan more
-    //     $(document).on('change', '.namasubm', (event) => {
-    //         var select_id = $(".namasubm").attr("id");
-    //         console.log(select_id);
-    //         getIdSub(event.target.value).then(idsub => {
-    //             $('#kodesubkegm' + select_id + '').val(idsub.kode_sub);
-    //             $('#namasubkegm' + select_id + '').val(idsub.nama_sub);
-    //         });
-    //     });
-    //     async function getIdSub(id) {
-    //         let response = await fetch('/api/data-sub-kegiatan/' + id)
-    //         let data = await response.json();
-    //         return data;
-    //     }
-    // });
     function previewImg() {
         const foto = document.querySelector('#foto');
         const img = document.querySelector('.img-preview');

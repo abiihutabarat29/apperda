@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <ul class="nav nav-primary">
+            <ul class="nav nav-warning">
                 <!-- Service uri -->
                 <?php $request = \Config\Services::request(); ?>
                 <!-- =========== -->
@@ -56,12 +56,7 @@
                 </li>
                 <?php if (session()->get('level') == '1') { ?>
                     <li class="nav-item <?= ($request->uri->getSegment(1) == 'data-user' or
-                                            $request->uri->getSegment(1) == 'data-bagian' or
-                                            $request->uri->getSegment(1) == 'data-anggaran' or
-                                            $request->uri->getSegment(1) == 'data-gu' or
-                                            $request->uri->getSegment(1) == 'data-kegiatan' or
-                                            $request->uri->getSegment(1) == 'data-sub-kegiatan' or
-                                            $request->uri->getSegment(1) == 'data-kode-rekening') ? 'active' : ""; ?>">
+                                            $request->uri->getSegment(1) == 'data-bagian') ? 'active' : ""; ?>">
                         <a data-toggle="collapse" href="#base">
                             <i class="fas fa-layer-group"></i>
                             <p>Master Data</p>
@@ -79,58 +74,15 @@
                                         <span class="sub-item">Data Bagian</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="<?= base_url('data-anggaran') ?>">
-                                        <span class="sub-item">Data Anggaran</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url('data-gu') ?>">
-                                        <span class="sub-item">Data GU</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url('data-kegiatan') ?>">
-                                        <span class="sub-item">Data Kegiatan</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url('data-sub-kegiatan') ?>">
-                                        <span class="sub-item">Data Sub Kegiatan</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url('data-kode-rekening') ?>">
-                                        <span class="sub-item">Data Kode Rekening</span>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
-                    </li>
-                    <li class="nav-item <?= ($request->uri->getSegment(1) == 'data-sppd') ? 'active' : ""; ?>">
-                        <a href="<?= base_url('data-sppd') ?>">
-                            <i class="fas fa-file"></i>
-                            <p>SPJ SPPD</p>
-                        </a>
-                    </li>
-                    <li class="nav-item <?= ($request->uri->getSegment(1) == 'data-spjkegiatan') ? 'active' : ""; ?>">
-                        <a href="<?= base_url('data-spjkegiatan') ?>">
-                            <i class="fas fa-file"></i>
-                            <p>SPJ Kegiatan</p>
-                        </a>
                     </li>
                 <?php } ?>
                 <?php if (session()->get('level') == '2') { ?>
                     <li class="nav-item <?= ($request->uri->getSegment(1) == 'sppd') ? 'active' : ""; ?>">
                         <a href="<?= base_url('sppd') ?>">
                             <i class="fas fa-file"></i>
-                            <p>SPJ SPPD</p>
-                        </a>
-                    </li>
-                    <li class="nav-item <?= ($request->uri->getSegment(1) == 'kegiatan') ? 'active' : ""; ?>">
-                        <a href="<?= base_url('kegiatan') ?>">
-                            <i class="fas fa-file"></i>
-                            <p>SPJ Kegiatan</p>
+                            <p>PERDA</p>
                         </a>
                     </li>
                 <?php } ?>

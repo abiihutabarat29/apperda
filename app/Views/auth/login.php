@@ -10,7 +10,7 @@
     <meta name="keywords" content="">
     <meta name="author" content="Phoenixcoded" />
     <!-- Favicon icon -->
-    <link rel="shortcut icon" href="<?= base_url(); ?>/template/assets/login/images/logo.png" type="image/ico">
+    <link rel="shortcut icon" href="<?= base_url(); ?>/template/assets/login/images/logo-dpr.png" type="image/ico">
     <!-- vendor css -->
     <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/login/css/style.css">
 
@@ -25,7 +25,7 @@
                     <div class="swal-login" data-swal="<?= session()->getFlashdata('m'); ?>"></div>
                     <div class="swal-logout" data-swal="<?= session()->getFlashdata('ml'); ?>"></div>
                     <div class="card-body">
-                        <img src="<?= base_url(); ?>/template/assets/login/images/logo.png" alt="" class="img-fluid" width="100">
+                        <img src="<?= base_url(); ?>/template/assets/login/images/logo-dpr.png" alt="" class="img-fluid" width="100">
                         <form action="/auth/verify" method="post">
                             <?= csrf_field(); ?>
                             <div class="form-group mt-5 mb-4">
@@ -48,7 +48,7 @@
         </div><br>
 
         <center>
-            <small class="text text-black"><b>SIPKAN</b></small>
+            <small class="text text-black"><b>Perda</b></small>
         </center>
         <center>
             <small class="text text-black"><b>Versi 1.0</b></small>

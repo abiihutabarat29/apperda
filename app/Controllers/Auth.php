@@ -16,7 +16,7 @@ class Auth extends BaseController
     public function index()
     {
         $data = array(
-            'title' => 'SIPKAN | Login',
+            'title' => 'PERDA',
             'validation' => \Config\Services::validation()
         );
         return view('auth/login', $data);
