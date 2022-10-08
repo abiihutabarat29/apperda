@@ -49,7 +49,7 @@ $routes->post('data-user/save', 'User::save');
 $routes->get('data-user/(:num)', 'User::delete/$1');
 $routes->get('data-user/edit/(:segment)', 'User::edit/$1');
 $routes->add('data-user/update/(:segment)', 'User::update/$1');
-//Routes Data Sekolah
+//Routes Data Instansi
 $routes->get('/data-instansi', 'DataInstansi::data');
 $routes->get('/data-instansi/add', 'DataInstansi::add');
 $routes->add('/data-instansi/save', 'DataInstansi::save');
@@ -60,7 +60,13 @@ $routes->add('/data-instansi/update/(:segment)', 'DataInstansi::update/$1');
 $routes->get('/my-profil', 'MyProfil::myprofil');
 $routes->get('/my-profil/edit/(:segment)', 'MyProfil::edit/$1');
 $routes->add('/my-profil/update/(:segment)', 'MyProfil::update/$1');
-
+//Routes Perda
+$routes->get('/perda', 'DataPerda::data');
+$routes->get('/perda/add', 'DataPerda::add');
+$routes->add('/perda/save', 'DataPerda::save');
+$routes->delete('/perda/(:num)', 'DataPerda::delete/$1');
+$routes->get('/perda/edit/(:segment)', 'DataPerda::edit/$1');
+$routes->add('/perda/update/(:segment)', 'DataPerda::update/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

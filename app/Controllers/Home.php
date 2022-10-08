@@ -8,6 +8,7 @@ class Home extends BaseController
     {
         $data = array(
             'title'          => 'Dashboard',
+            'appname'        => 'SISTEM INFORMASI PERATURAN DAERAH',
             'isi'            => 'home',
         );
         return view('layout/wrapper', $data);

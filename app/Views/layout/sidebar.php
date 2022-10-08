@@ -79,9 +79,9 @@
                     </li>
                 <?php } ?>
                 <?php if (session()->get('level') == '2') { ?>
-                    <li class="nav-item <?= ($request->uri->getSegment(1) == 'sppd') ? 'active' : ""; ?>">
-                        <a href="<?= base_url('sppd') ?>">
-                            <i class="fas fa-file"></i>
+                    <li class="nav-item <?= ($request->uri->getSegment(1) == 'perda') ? 'active' : ""; ?>">
+                        <a href="<?= base_url('perda') ?>">
+                            <i class="fas fa-copy"></i>
                             <p>PERDA</p>
                         </a>
                     </li>

@@ -59,6 +59,8 @@ class Filters extends BaseConfig
                 'home', 'home/*',
                 'my-profil',
                 'my-profil/*',
+                'perda',
+                'perda/*',
             ]],
         ],
     ];
