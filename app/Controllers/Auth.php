@@ -49,8 +49,8 @@ class Auth extends BaseController
                     //jika data cocok
                     session()->set('log', true);
                     session()->set('id', $cek['id']);
-                    session()->set('id_bagian', $cek['id_bagian']);
-                    session()->set('nama_bagian', $cek['nama_bagian']);
+                    session()->set('id_instansi', $cek['id_instansi']);
+                    session()->set('instansi', $cek['instansi']);
                     session()->set('nik', $cek['nik']);
                     session()->set('nama', $cek['nama']);
                     session()->set('nohp', $cek['nohp']);
@@ -81,7 +81,7 @@ class Auth extends BaseController
         session()->remove('log');
         session()->remove('id');
         session()->remove('id_bagian');
-        session()->remove('nama_bagian');
+        session()->remove('instansi');
         session()->remove('nik');
         session()->remove('nama');
         session()->remove('nohp');

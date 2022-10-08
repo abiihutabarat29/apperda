@@ -3,17 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
-use App\Models\BagianModel;
+use App\Models\InstansiModel;
 use CodeIgniter\Config\Config;
 
 class User extends BaseController
 {
     protected $userModel;
-    protected $bagianModel;
+    protected $instansiModel;
     public function __construct()
     {
         $this->userModel = new UserModel();
-        $this->bagianModel = new BagianModel();
+        $this->instansiModel = new InstansiModel();
     }
     public function user()
     {
@@ -28,12 +28,12 @@ class User extends BaseController
     }
     public function add()
     {
-        $bagian = $this->bagianModel->findAll();
+        $instansi = $this->instansiModel->findAll();
         $data = array(
             'titlebar' => 'Data User',
             'title' => 'Form Tambah Data User',
             'isi' => 'master/user/add',
-            'bagian' => $bagian,
+            'instansi' => $instansi,
             'validation' => \Config\Services::validation()
         );
         return view('layout/wrapper', $data);
@@ -42,10 +42,10 @@ class User extends BaseController
     {
         //Validasi input
         if (!$this->validate([
-            'idbagian' => [
+            'idinstansi' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Pilih Bagian.',
+                    'required' => 'Pilih Instansi.',
                 ]
             ],
             'nik' => [
@@ -121,8 +121,8 @@ class User extends BaseController
         $md5 = md5($this->request->getPost('password'));
         $password = password_hash($md5, PASSWORD_DEFAULT);
         $data = [
-            'id_bagian'           => $this->request->getPost('idbagian'),
-            'nama_bagian'         => $this->request->getPost('bagian'),
+            'id_instansi'          => $this->request->getPost('idinstansi'),
+            'instansi'             => $this->request->getPost('instansi'),
             'nik'                  => $this->request->getPost('nik'),
             'nama'                 => $this->request->getPost('nama'),
             'nohp'                 => $this->request->getPost('nohp'),
@@ -145,13 +145,13 @@ class User extends BaseController
     }
     public function edit($id)
     {
-        $bagian = $this->bagianModel->findAll();
+        $instansi = $this->instansiModel->findAll();
         $data = array(
             'titlebar' => 'Data User',
             'title' => 'Form Edit User',
             'isi' => 'master/user/edit',
             'validation' => \Config\Services::validation(),
-            'bagian' => $bagian,
+            'instansi' => $instansi,
             'data' => $this->userModel->where('id', $id)->first(),
         );
         return view('layout/wrapper', $data);
@@ -178,10 +178,10 @@ class User extends BaseController
         }
         //Validasi input
         if (!$this->validate([
-            'idbagian' => [
+            'idinstansi' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Pilih Bagian.',
+                    'required' => 'Pilih Instansi.',
                 ]
             ],
             'nik' => [
@@ -258,8 +258,8 @@ class User extends BaseController
         $password = password_hash($md5, PASSWORD_DEFAULT);
         $data = [
             'id'                   => $id,
-            'id_bagian'            => $this->request->getPost('idbagian'),
-            'nama_bagian'          => $this->request->getPost('bagian'),
+            'id_instansi'          => $this->request->getPost('idinstansi'),
+            'instansi'             => $this->request->getPost('instansi'),
             'nik'                  => $this->request->getPost('nik'),
             'nama'                 => $this->request->getPost('nama'),
             'nohp'                 => $this->request->getPost('nohp'),

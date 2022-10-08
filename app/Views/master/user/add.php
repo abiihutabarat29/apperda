@@ -32,22 +32,22 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group <?= ($validation->hasError('idbagian')) ? 'has-error' : ''; ?>">
-                                    <label>Pilih Bagian<span class="text-danger">*</span></label>
-                                    <select name="idbagian" id="idbagian" class="js-example-language" style="width: 100%">
-                                        <option selected disabled><?= (old('idbagian')) ? old('idbagian') : ".::Pilih Bagian::." ?></option>
-                                        <?php foreach ($bagian as $r) : ?>
-                                            <option value="<?= $r['id'] ?>"><?= $r['nama_bagian'] ?></option>
+                                <div class="form-group <?= ($validation->hasError('idinstansi')) ? 'has-error' : ''; ?>">
+                                    <label>Pilih Instansi<span class="text-danger">*</span></label>
+                                    <select name="idinstansi" id="idinstansi" class="js-example-language" style="width: 100%">
+                                        <option selected disabled><?= (old('idinstansi')) ? old('idinstansi') : ".::Pilih Instansi::." ?></option>
+                                        <?php foreach ($instansi as $r) : ?>
+                                            <option value="<?= $r['id'] ?>"><?= $r['instansi'] ?></option>
                                         <?php endforeach ?>
                                     </select>
                                     <small class="form-text text-danger">
-                                        <?= $validation->getError('idbagian'); ?></small>
+                                        <?= $validation->getError('idinstansi'); ?></small>
                                 </div>
                             </div>
                             <div class="col-md-6 pr-0">
                                 <div class="form-group">
-                                    <label>Nama Bagian<span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="namabagian" name="bagian" value="<?= old('bagian'); ?>" readonly>
+                                    <label>Nama Instansi<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="namainstansi" name="instansi" value="<?= old('instansi'); ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -111,7 +111,10 @@
                                     <label>Level<span class="text-danger">*</span></label>
                                     <select name="level" class="form-control">
                                         <option selected disabled><?= (old('level')) ? old('level') : ".::Pilih Level::." ?></option>
-                                        <option value="2">User Bagian</option>
+                                        <option value="2">User OPD</option>
+                                        <option value="3">Admin Hukum</option>
+                                        <option value="4">Admin DPR</option>
+                                        <option value="5">ketua Bapemperda</option>
                                     </select>
                                     <small class="form-text text-danger">
                                         <?= $validation->getError('level'); ?></small>

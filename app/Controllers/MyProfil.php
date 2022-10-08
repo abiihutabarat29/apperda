@@ -16,8 +16,8 @@ class MyProfil extends BaseController
     }
     public function myprofil()
     {
-        $idb = session()->get('id_bagian');
-        $profil = $this->userModel->where('id_bagian =', $idb)->first();
+        $idb = session()->get('id_instansi');
+        $profil = $this->userModel->where('id_instansi =', $idb)->first();
         $data = array(
             'titlebar' => 'Profil Saya',
             'title' => 'Profil Saya',
@@ -28,13 +28,13 @@ class MyProfil extends BaseController
     }
     public function edit($id)
     {
-        $idb = session()->get('id_bagian');
+        $idb = session()->get('id_instansi');
         $data = array(
             'titlebar' => 'Profil Saya',
             'title' => 'Form Edit Data Saya',
             'isi' => 'master/myprofil/edit',
             'validation' => \Config\Services::validation(),
-            'data' => $this->userModel->where('id', $id)->where('id_bagian', $idb)->first(),
+            'data' => $this->userModel->where('id', $id)->where('id_instansi', $idb)->first(),
         );
         return view('layout/wrapper', $data);
     }

@@ -56,7 +56,7 @@
                 </li>
                 <?php if (session()->get('level') == '1') { ?>
                     <li class="nav-item <?= ($request->uri->getSegment(1) == 'data-user' or
-                                            $request->uri->getSegment(1) == 'data-bagian') ? 'active' : ""; ?>">
+                                            $request->uri->getSegment(1) == 'data-instansi') ? 'active' : ""; ?>">
                         <a data-toggle="collapse" href="#base">
                             <i class="fas fa-layer-group"></i>
                             <p>Master Data</p>
@@ -66,12 +66,12 @@
                             <ul class="nav nav-collapse">
                                 <li>
                                     <a href="<?= base_url('data-user') ?>">
-                                        <span class="sub-item">Data User</span>
+                                        <span class="sub-item">User</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('data-bagian') ?>">
-                                        <span class="sub-item">Data Bagian</span>
+                                    <a href="<?= base_url('data-instansi') ?>">
+                                        <span class="sub-item">Instansi</span>
                                     </a>
                                 </li>
                             </ul>

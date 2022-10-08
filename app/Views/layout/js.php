@@ -72,18 +72,6 @@
         $('#add-row').DataTable({
             "pageLength": 5,
         });
-        // Add Row 1
-        $('#add-row-one').DataTable({
-            "pageLength": 10,
-        });
-        // Add Row 2
-        $('#add-row-two').DataTable({
-            "pageLength": 10,
-        });
-        // Add Row 3
-        $('#add-row-three').DataTable({
-            "pageLength": 10,
-        });
 
         var action =
             '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
@@ -100,14 +88,14 @@
         });
     });
 
-    // api data bagian
-    $('#idbagian').on('change', (event) => {
-        getBagian(event.target.value).then(nmbagian => {
-            $('#namabagian').val(nmbagian.nama_bagian);
+    // api data instansi
+    $('#idinstansi').on('change', (event) => {
+        getInstansi(event.target.value).then(nminstansi => {
+            $('#namainstansi').val(nminstansi.instansi);
         });
     });
-    async function getBagian(id) {
-        let response = await fetch('/api/data-bagian/' + id)
+    async function getInstansi(id) {
+        let response = await fetch('/api/data-instansi/' + id)
         let data = await response.json();
         return data;
     }

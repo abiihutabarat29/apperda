@@ -31,7 +31,7 @@
                     <div class="card-body">
                         <ul class="nav nav-pills nav-primary" id="pills-tab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="pills-sekolah-tab" data-toggle="pill" href="#pills-sekolah" role="tab" aria-controls="pills-sekolah" aria-selected="true">Bagian</a>
+                                <a class="nav-link active" id="pills-sekolah-tab" data-toggle="pill" href="#pills-sekolah" role="tab" aria-controls="pills-sekolah" aria-selected="true">Instansi</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="pills-kontak-tab" data-toggle="pill" href="#pills-kontak" role="tab" aria-controls="pills-kontak" aria-selected="false">Kontak</a>
@@ -49,8 +49,8 @@
                                         <?php if (session()->get('level') == '2') { ?>
                                             <div class="col-md-6 pr-0">
                                                 <div class="form-group">
-                                                    <label>Bagian</label>
-                                                    <input type="text" class="form-control" id="nama_bagian" name="nama_bagian" value="<?= $data['nama_bagian']; ?>" readonly>
+                                                    <label>Instansi</label>
+                                                    <input type="text" class="form-control" id="instansi" name="instansi" value="<?= $data['instansi']; ?>" readonly>
                                                 </div>
                                             </div>
                                         <?php } ?>

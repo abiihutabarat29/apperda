@@ -17,7 +17,7 @@
                     <h4 class="card-title">
                         <td><?= $title ?></td>
                     </h4>
-                    <a href="<?= base_url('data-bagian/add') ?>" class="btn btn-primary btn-round ml-auto btn-sm">
+                    <a href="<?= base_url('data-instansi/add') ?>" class="btn btn-primary btn-round ml-auto btn-sm">
                         <i class="fa fa-plus"></i>
                     </a>
                 </div>
@@ -28,7 +28,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 5%">No</th>
-                                <th>Nama Bagian</th>
+                                <th>Nama Instansi</th>
                                 <th style="width: 10%">Action</th>
                             </tr>
                         </thead>
@@ -37,10 +37,10 @@
                             foreach ($data as $key => $r) : ?>
                                 <tr>
                                     <td><?= $i++; ?></td>
-                                    <td><?= $r['nama_bagian']; ?></td>
+                                    <td><?= $r['instansi']; ?></td>
                                     <td>
                                         <div class="form-button-action">
-                                            <a href="/data-bagian/edit/<?= $r['id']; ?>" class="btn btn-link btn-primary btn-lg">
+                                            <a href="/data-instansi/edit/<?= $r['id']; ?>" class="btn btn-link btn-primary btn-lg">
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                             <a href="#" class="btn btn-link btn-lg btn-danger" title="Hapus Data" data-toggle='modal' data-target='#activateModal<?= $r['id'] ?>'>
@@ -60,7 +60,7 @@
 </div>
 <!-- Modal -->
 <?php foreach ($data as $r) { ?>
-    <form action="<?= base_url('data-bagian/' . $r['id']); ?>" method="post">
+    <form action="<?= base_url('data-instansi/' . $r['id']); ?>" method="post">
         <?= csrf_field(); ?>
         <div class="modal fade" id="activateModal<?= $r['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -72,7 +72,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Apa kamu yakin ingin menghapus data <span class="text-danger"><?= $r['nama_bagian'] ?></span> ini secara permanen ???
+                        Apa kamu yakin ingin menghapus data <span class="text-danger"><?= $r['instansi'] ?></span> ini secara permanen ???
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="_method" value="DELETE">

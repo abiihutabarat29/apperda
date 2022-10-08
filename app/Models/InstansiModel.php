@@ -4,13 +4,13 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class BagianModel extends Model
+class InstansiModel extends Model
 {
-    protected $table      = 'mod_bagian';
+    protected $table      = 'mod_instansi';
     protected $primaryKey = 'id';
     protected $useAutoIncrement = true;
     protected $useTimestamps = true;
     protected $allowedFields = [
-        'nama_bagian', 'userentry'
+        'instansi', 'userentry'
     ];
 }

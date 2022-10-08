@@ -57,11 +57,11 @@
                     <div class="card-body">
                         <div class="card-body">
                             <div class="card-list">
-                                <?php if (session()->get('level') == '2') { ?>
+                                <?php if (session()->get('level') != '1') { ?>
                                     <div class="item-list">
                                         <div class="info-user ml-3">
-                                            <h6 class="text-uppercase fw-bold mb-1">Bagian</h6>
-                                            <span class="text-muted"><?= $data['nama_bagian']; ?></span>
+                                            <h6 class="text-uppercase fw-bold mb-1">Instansi</h6>
+                                            <span class="text-muted"><?= $data['instansi']; ?></span>
                                         </div>
                                         <button class="btn btn-icon btn-success btn-round btn-xs">
                                             <i class="fa fa-check"></i>

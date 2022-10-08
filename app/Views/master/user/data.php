@@ -31,7 +31,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Bagian</th>
+                                <th>Instansi</th>
                                 <th>NIK</th>
                                 <th>Nama</th>
                                 <th>Username</th>
@@ -44,7 +44,7 @@
                             foreach ($data as $key => $r) : ?>
                                 <tr>
                                     <td><?= $i++; ?></td>
-                                    <td><?= $r['nama_bagian']; ?></td>
+                                    <td><?= $r['instansi']; ?></td>
                                     <td><?= $r['nik']; ?></td>
                                     <td><?= $r['nama']; ?></td>
                                     <td><?= $r['username']; ?></td>
