@@ -158,25 +158,22 @@ class DataPerda extends BaseController
                 ]
             ],
             'draf' => [
-                'rules' => 'uploaded[draf]|mime_in[draf,application/pdf]|max_size[draf,200]',
+                'rules' => 'mime_in[draf,application/pdf]|max_size[draf,200]',
                 'errors' => [
-                    'uploaded' => 'Draf Perda harus di upload.',
                     'mime_in' => 'Extension file yang diperbolehkan .pdf',
                     'max_size' => 'Ukuran File maksimal 200kb.'
                 ]
             ],
             'naskah' => [
-                'rules' => 'uploaded[naskah]|mime_in[naskah,application/pdf]|max_size[naskah,200]',
+                'rules' => 'mime_in[naskah,application/pdf]|max_size[naskah,200]',
                 'errors' => [
-                    'uploaded' => 'Naskah Akademik harus di upload.',
                     'mime_in' => 'Extension file yang diperbolehkan .pdf',
                     'max_size' => 'Ukuran File maksimal 200kb.'
                 ]
             ],
             'dokumen' => [
-                'rules' => 'uploaded[naskah]|mime_in[naskah,application/pdf]|max_size[naskah,200]',
+                'rules' => 'mime_in[naskah,application/pdf]|max_size[naskah,200]',
                 'errors' => [
-                    'uploaded' => 'Dokumen harus di upload.',
                     'mime_in' => 'Extension file yang diperbolehkan .pdf',
                     'max_size' => 'Ukuran File maksimal 200kb.'
                 ]
@@ -190,10 +187,12 @@ class DataPerda extends BaseController
         if ($draf->getError() == 4) {
             $r = $this->perdaModel->find($id);
             $fileNamedraf = $r['draf_perda'];
-        } elseif ($naskah->getError() == 4) {
+        }
+        if ($naskah->getError() == 4) {
             $r = $this->perdaModel->find($id);
             $fileNamenaskah = $r['naskah_akademik'];
-        } elseif ($dokumen->getError() == 4) {
+        }
+        if ($dokumen->getError() == 4) {
             $r = $this->perdaModel->find($id);
             $fileNamedokumen = $r['dokumen'];
         } else {
@@ -212,8 +211,8 @@ class DataPerda extends BaseController
             if (file_exists(ROOTPATH . 'public/media/draf-perda/' . $replacedraf)) {
                 unlink(ROOTPATH . 'public/media/draf-perda/' . $replacedraf);
             }
-            if (file_exists(ROOTPATH . 'public/media/naskah-akadmik/' . $replacenaskah)) {
-                unlink(ROOTPATH . 'public/media/naskah-akadmik/' . $replacenaskah);
+            if (file_exists(ROOTPATH . 'public/media/naskah-akademik/' . $replacenaskah)) {
+                unlink(ROOTPATH . 'public/media/naskah-akademik/' . $replacenaskah);
             }
             if (file_exists(ROOTPATH . 'public/media/dokumen/' . $replacedokumen)) {
                 unlink(ROOTPATH . 'public/media/dokumen/' . $replacedokumen);
@@ -223,7 +222,7 @@ class DataPerda extends BaseController
             'id'                 => $id,
             'judul_perda'        => $this->request->getPost('judul'),
             'dasar_hukum'        => $this->request->getPost('dasar'),
-            'draf_perda'         =>  $fileNamedraf,
+            'draf_perda'         => $fileNamedraf,
             'naskah_akademik'    => $fileNamenaskah,
             'dokumen'            => $fileNamedokumen,
         ];

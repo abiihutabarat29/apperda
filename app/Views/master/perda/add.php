@@ -64,7 +64,7 @@
                                         </div>
                                         <div class="item-list">
                                             <div class="info-user ml-3">
-                                                <span class="text-muted">2. Ukuran File yang diupload maksimal 200KB.</span>
+                                                <span class="text-muted">3. Ukuran File yang diupload maksimal 200KB.</span>
                                             </div>
                                             <button class="btn btn-icon btn-success btn-round btn-xs">
                                                 <i class="fa fa-check"></i>
@@ -86,7 +86,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group <?= ($validation->hasError('dasar')) ? 'has-error' : ''; ?>">
                                             <label>Dasar Hukum<span class="text-danger">*</span></label>
-                                            <textarea type="text" name="dasar" class="form-control" rows="4" autocomplete="off"><?= old('dasar'); ?></textarea>
+                                            <textarea type="text" name="dasar" class="form-control" rows="8" autocomplete="off"><?= old('dasar'); ?></textarea>
                                             <small class="form-text text-danger">
                                                 <?= $validation->getError('dasar'); ?></small>
                                         </div>
