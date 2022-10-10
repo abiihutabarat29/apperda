@@ -19,19 +19,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/login/fonts/boxicons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/login/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/login/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/css/demo.css" />
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Page CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/vendor/css/pages/page-auth.css" />
-    <script src="<?= base_url(); ?>/template/assets/vendor/js/helpers.js"></script>
+    <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/login/css/pages/page-auth.css" />
+    <script src="<?= base_url(); ?>/template/assets/login/js/helpers.js"></script>
     <script src="<?= base_url(); ?>/template/assets/js/config.js"></script>
 </head>
 
@@ -96,11 +96,11 @@
         </div>
     </div>
 
-    <script src="<?= base_url(); ?>/template/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="<?= base_url(); ?>/template/assets/vendor/libs/popper/popper.js"></script>
-    <script src="<?= base_url(); ?>/template/assets/vendor/js/bootstrap.js"></script>
-    <script src="<?= base_url(); ?>/template/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="<?= base_url(); ?>/template/assets/vendor/js/menu.js"></script>
+    <script src="<?= base_url(); ?>/template/assets/login/libs/jquery/jquery.js"></script>
+    <script src="<?= base_url(); ?>/template/assets/login/libs/popper/popper.js"></script>
+    <script src="<?= base_url(); ?>/template/assets/login/js/bootstrap.js"></script>
+    <script src="<?= base_url(); ?>/template/assets/login/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="<?= base_url(); ?>/template/assets/login/js/menu.js"></script>
     <script src="<?= base_url(); ?>/template/assets/js/main.js"></script>
 
     <!-- Bootstrap Notify -->
