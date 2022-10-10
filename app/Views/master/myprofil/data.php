@@ -34,11 +34,16 @@
                         <div class="user-profile text-center">
                             <div class="name"><?= $data['nama']; ?></div>
                             <div class="desc">NIK : <?= $data['nik']; ?></div>
-                            <div class="desc"> <?php if (session()->get('level') == '1') {
-                                                    echo "admin";
-                                                } else {
-                                                    echo "User Bagian";
-                                                } ?></div>
+                            <div class="desc">
+                                <?php if (session()->get('level') == '1') {
+                                    echo "Admin";
+                                } elseif (session()->get('level') == '2') {
+                                    echo "User Bagian";
+                                } elseif (session()->get('level') == '3') {
+                                    echo "Admin Hukum";
+                                }
+                                ?>
+                            </div>
                             <div class="view-profile">
                                 <a href="#" class="btn btn-primary btn-block"><?= $data['status'] == 1 ? 'Aktif' : 'Nonaktif' ?></a>
                             </div>

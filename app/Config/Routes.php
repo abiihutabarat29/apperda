@@ -67,6 +67,10 @@ $routes->add('/perda/save', 'DataPerda::save');
 $routes->delete('/perda/(:num)', 'DataPerda::delete/$1');
 $routes->get('/perda/edit/(:segment)', 'DataPerda::edit/$1');
 $routes->add('/perda/update/(:segment)', 'DataPerda::update/$1');
+//Routes Pengajuan Perda
+$routes->get('/pengajuan-perda', 'DataPerda::dataperda');
+$routes->get('/pengajuan-perda/verifikasi/(:segment)', 'DataPerda::verifikasi/$1');
+$routes->post('/pengajuan-perda/verify/(:segment)', 'DataPerda::verify/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

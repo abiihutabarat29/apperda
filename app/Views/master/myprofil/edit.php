@@ -46,7 +46,7 @@
                             <div class="tab-content mt-2 mb-3" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-sekolah" role="tabpanel" aria-labelledby="pills-sekolah-tab">
                                     <div class="card-body">
-                                        <?php if (session()->get('level') == '2') { ?>
+                                        <?php if (session()->get('level') != '1') { ?>
                                             <div class="col-md-6 pr-0">
                                                 <div class="form-group">
                                                     <label>Instansi</label>

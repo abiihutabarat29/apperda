@@ -19,6 +19,8 @@
                                     echo "Admin";
                                 } elseif (session()->get('level') == '2') {
                                     echo "User Bagian";
+                                } elseif (session()->get('level') == '3') {
+                                    echo "Admin Hukum";
                                 }
                                 ?>
                             </span>
@@ -83,6 +85,14 @@
                         <a href="<?= base_url('perda') ?>">
                             <i class="fas fa-copy"></i>
                             <p>PERDA</p>
+                        </a>
+                    </li>
+                <?php } ?>
+                <?php if (session()->get('level') == '3') { ?>
+                    <li class="nav-item <?= ($request->uri->getSegment(1) == 'pengajuan-perda') ? 'active' : ""; ?>">
+                        <a href="<?= base_url('pengajuan-perda') ?>">
+                            <i class="fas fa-copy"></i>
+                            <p>PENGAJUAN PERDA</p>
                         </a>
                     </li>
                 <?php } ?>
