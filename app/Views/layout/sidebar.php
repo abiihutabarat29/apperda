@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <ul class="nav nav-warning">
+            <ul class="nav nav-primary">
                 <!-- Service uri -->
                 <?php $request = \Config\Services::request(); ?>
                 <!-- =========== -->

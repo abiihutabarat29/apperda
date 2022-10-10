@@ -1,9 +1,9 @@
 <!-- Navbar Header -->
-<nav class="navbar navbar-header navbar-expand-lg" data-background-color="white">
+<nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue">
     <div class="container-fluid">
         <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
             <li class="nav-item dropdown hidden-caret">
-                <p class="text-black op-7 mt-3 mr-4"> <?= format_indo(date('Y-m-d')) ?> | <span id='jam'></span></p>
+                <p class="text-white op-7 mt-3 mr-4"> <?= format_indo(date('Y-m-d')) ?> | <span id='jam'></span></p>
             </li>
             <li class="nav-item dropdown hidden-caret">
                 <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">

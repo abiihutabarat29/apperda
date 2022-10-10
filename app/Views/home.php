@@ -1,4 +1,4 @@
-<div class="panel-header bg-coklat-gradient">
+<div class="panel-header bg-primary-gradient">
     <div class="page-inner py-5">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
             <div>
@@ -13,7 +13,7 @@
     <?php if (session()->get('level') == '1') { ?>
         <div class="row mt--2">
             <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-warning card-round">
+                <div class="card card-stats card-info card-round">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5">
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-warning card-round">
+                <div class="card card-stats card-info card-round">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5">
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-warning card-round">
+                <div class="card card-stats card-info card-round">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5">
@@ -70,7 +70,7 @@
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-warning card-round">
+                <div class="card card-stats card-info card-round">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5">

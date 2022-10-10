@@ -47,7 +47,7 @@
     <div class="wrapper">
         <div class="main-header">
             <!-- Logo Header -->
-            <div class="logo-header" data-background-color="white">
+            <div class="logo-header" data-background-color="blue">
                 <a href="<?= base_url('home'); ?>" class="logo">
                     <img src="<?= base_url(); ?>/template/assets/img/perda.png" alt="navbar brand" class="navbar-brand" />
                 </a>
