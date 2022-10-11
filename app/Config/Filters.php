@@ -23,6 +23,7 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'filteradmin' => \App\Filters\FilterAdmin::class,
         'filteruser' => \App\Filters\FilterUser::class,
+        'filterhukum' => \App\Filters\FilterHukum::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
     ];
@@ -39,6 +40,9 @@ class Filters extends BaseConfig
                 '/', 'auth/*',
             ]],
             'filteruser' => ['except' => [
+                '/', 'auth/*',
+            ]],
+            'filterhukum' => ['except' => [
                 '/', 'auth/*',
             ]],
         ],
@@ -61,6 +65,13 @@ class Filters extends BaseConfig
                 'my-profil/*',
                 'perda',
                 'perda/*',
+            ]],
+            'filterhukum' => ['except' => [
+                'home', 'home/*',
+                'my-profil',
+                'my-profil/*',
+                'pengajuan-perda',
+                'pengajuan-perda/*',
             ]],
         ],
     ];

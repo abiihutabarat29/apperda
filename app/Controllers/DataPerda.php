@@ -25,6 +25,17 @@ class DataPerda extends BaseController
 
         return view('layout/wrapper', $data);
     }
+    public function dataperda()
+    {
+        $perda = $this->perdaModel->where('status =', 0)->findAll();
+        $data = array(
+            'title' => 'Data Pengajuan Perda',
+            'data' => $perda,
+            'isi' => 'master/perda/datap'
+        );
+
+        return view('layout/wrapper', $data);
+    }
     public function add()
     {
         $data = array(
@@ -229,5 +240,40 @@ class DataPerda extends BaseController
         $this->perdaModel->save($data);
         session()->setFlashdata('m', 'Data berhasil diupdate');
         return redirect()->to(base_url('perda'));
+    }
+    public function verifikasi($id)
+    {
+        $perda = $this->perdaModel->where('status', 0)->where('id =', $id)->first();
+        $data = array(
+            'titlebar' => 'Verifikasi Pengajuan Perda',
+            'title' => 'Verifikasi Pengajuan Perda',
+            'data' => $perda,
+            'isi' => 'master/perda/verifikasi',
+            'validation' => \Config\Services::validation(),
+        );
+
+        return view('layout/wrapper', $data);
+    }
+    public function verify($id)
+    {
+        //Validasi input
+        if (!$this->validate([
+            'jenis' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Pilih Jenis Perda.',
+                ]
+            ],
+        ])) {
+            return redirect()->to(base_url('pengajuan-perda/verifikasi/' . $this->request->getPost('id')))->withInput();
+        }
+        $data = [
+            'id'             => $id,
+            'jenis_perda'    => $this->request->getPost('jenis'),
+            'status'         => 1,
+        ];
+        $this->perdaModel->save($data);
+        session()->setFlashdata('m', 'Data berhasil diverifikasi');
+        return redirect()->to(base_url('pengajuan-perda'));
     }
 }

@@ -70,6 +70,11 @@ $routes->add('/perda/update/(:segment)', 'DataPerda::update/$1');
 
 // Routes Slideshow
 $routes->get('data-slideshow', 'Slideshow::index');
+
+//Routes Pengajuan Perda
+$routes->get('/pengajuan-perda', 'DataPerda::dataperda');
+$routes->get('/pengajuan-perda/verifikasi/(:segment)', 'DataPerda::verifikasi/$1');
+$routes->post('/pengajuan-perda/verify/(:segment)', 'DataPerda::verify/$1');
 /*
 
 
