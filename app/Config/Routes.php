@@ -67,7 +67,13 @@ $routes->add('/perda/save', 'DataPerda::save');
 $routes->delete('/perda/(:num)', 'DataPerda::delete/$1');
 $routes->get('/perda/edit/(:segment)', 'DataPerda::edit/$1');
 $routes->add('/perda/update/(:segment)', 'DataPerda::update/$1');
+
+// Routes Slideshow
+$routes->get('data-slideshow', 'Slideshow::index');
 /*
+
+
+
  * --------------------------------------------------------------------
  * Additional Routing
  * --------------------------------------------------------------------

@@ -77,7 +77,29 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a data-toggle="collapse" href="#setting">
+                            <i class="fa fa-cog"></i>
+                            <p>App Setting</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="setting">
+                            <ul class="nav nav-collapse">
+                                <li>
+                                    <a href="<?= base_url('data-slideshow') ?>">
+                                        <span class="sub-item">SLideshow</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <span class="sub-item">Keangotaan</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                 <?php } ?>
+
                 <?php if (session()->get('level') == '2') { ?>
                     <li class="nav-item <?= ($request->uri->getSegment(1) == 'perda') ? 'active' : ""; ?>">
                         <a href="<?= base_url('perda') ?>">

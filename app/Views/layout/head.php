@@ -67,14 +67,14 @@
             </div>
             <!-- End Logo Header -->
             <!--  Preloader Start -->
-            <!-- <div id="preloader-active">
+            <div id="preloader-active">
                 <div class="preloader d-flex align-items-center justify-content-center">
                     <div class="preloader-inner relative">
                         <div class="preloader-circle"></div>
                         <div class="preloader-img pere-text">
-                            <img src="<?= base_url("/template/assets/login/images/logo-sekolah.svg") ?>" width="80px" alt="">
+                            <img src="<?= base_url("/template/assets/img/icon-logo.png") ?>" width="80px" alt="">
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <!-- Preloader End
