@@ -24,7 +24,7 @@
                             <div class="col-7 col-stats">
                                 <div class="numbers">
                                     <p class="card-category">Instansi</p>
-                                    <h4 class="card-title"></h4>
+                                    <h4 class="card-title"><?= $instansi ?></h4>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                             <div class="col-7 col-stats">
                                 <div class="numbers">
                                     <p class="card-category">Account User</p>
-                                    <h4 class="card-title"></h4>
+                                    <h4 class="card-title"><?= $user ?></h4>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                             <div class="col-7 col-stats">
                                 <div class="numbers">
                                     <p class="card-category">Propemperda</p>
-                                    <h4 class="card-title"></h4>
+                                    <h4 class="card-title"><?= $perdap ?></h4>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                             <div class="col-7 col-stats">
                                 <div class="numbers">
                                     <p class="card-category">Non-Propemperda</p>
-                                    <h4 class="card-title"></h4>
+                                    <h4 class="card-title"><?= $perdanp ?></h4>
                                 </div>
                             </div>
                         </div>
