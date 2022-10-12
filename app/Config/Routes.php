@@ -76,6 +76,10 @@ $routes->get('data-slideshow', 'Slideshow::index');
 $routes->get('/pengajuan-perda', 'DataPerda::dataperda');
 $routes->get('/pengajuan-perda/verifikasi/(:segment)', 'DataPerda::verifikasi/$1');
 $routes->post('/pengajuan-perda/verify/(:segment)', 'DataPerda::verify/$1');
+$routes->get('/pengajuan-perda/review/(:segment)', 'DataPerda::reviewp/$1');
+//Routes Perda Terverifikasi
+$routes->get('/perda-terverifikasi', 'DataPerda::dataperdav');
+$routes->get('/perda-terverifikasi/review/(:segment)', 'DataPerda::reviewv/$1');
 /*
 
 

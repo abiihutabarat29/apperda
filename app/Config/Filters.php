@@ -56,6 +56,8 @@ class Filters extends BaseConfig
                 'data-instansi/*',
                 'api/data-instansi',
                 'api/data-instansi/*',
+                'perda-terverifikasi',
+                'perda-terverifikasi/*',
                 'my-profil',
                 'my-profil/*',
             ]],

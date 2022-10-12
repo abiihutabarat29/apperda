@@ -57,6 +57,12 @@
                     <h4 class="text-section">Menu</h4>
                 </li>
                 <?php if (session()->get('level') == '1') { ?>
+                    <li class="nav-item <?= ($request->uri->getSegment(1) == 'perda-terverifikasi') ? 'active' : ""; ?>">
+                        <a href="<?= base_url('/perda-terverifikasi') ?>">
+                            <i class="fas fa-clipboard-check"></i>
+                            <p>PERDA TERVERIFIKASI</p>
+                        </a>
+                    </li>
                     <li class="nav-item <?= ($request->uri->getSegment(1) == 'data-user' or
                                             $request->uri->getSegment(1) == 'data-instansi') ? 'active' : ""; ?>">
                         <a data-toggle="collapse" href="#base">
@@ -89,7 +95,7 @@
                             <ul class="nav nav-collapse">
                                 <li>
                                     <a href="<?= base_url('data-slideshow') ?>">
-                                        <span class="sub-item">SLideshow</span>
+                                        <span class="sub-item">Slideshow</span>
                                     </a>
                                 </li>
                                 <li>

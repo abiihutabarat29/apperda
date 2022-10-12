@@ -29,7 +29,7 @@
                                 <th style="width: 45%">Judul Perda</th>
                                 <th style="width: 10%">
                                     <center>
-                                        Status
+                                        Jenis Perda
                                     </center>
                                 </th>
                                 <th style="width: 10%">
@@ -47,29 +47,16 @@
                                     <td><?= $i++; ?></td>
                                     <td><?= $r['instansi']; ?></td>
                                     <td><?= $r['judul_perda']; ?></td>
-                                    <td>
-                                        <?php if ($r['status'] == 0) { ?>
-                                            <center>
-                                                <span class="badge badge-warning">menunggu verifikasi</span>
-                                            </center>
-                                        <?php } else { ?>
-                                            <center>
-                                                <span class="badge badge-success">terverifikasi</span>
-                                            </center>
-                                        <?php } ?>
-                                    </td>
+                                    <td><?= $r['jenis_perda']; ?></td>
                                     <td>
                                         <center>
                                             <div class="form-button-action">
-                                                <?php if ($r['status'] == 0) { ?>
-                                                    <a href="<?= base_url('pengajuan-perda/verifikasi/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
-                                                        <i class="fa fa-check-double"></i>&nbsp;&nbsp;Verifikasi
-                                                    </a>
-                                                <?php } else { ?>
-                                                    <a href="<?= base_url('pengajuan-perda/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
-                                                        <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Review
-                                                    </a>
-                                                <?php } ?>
+                                                <a href="<?= base_url('perda-terverifikasi/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
+                                                    <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Review
+                                                </a>
+                                                <a href="<?= base_url('perda-terverifikasi/dispo/' . $r['id']); ?>" class="btn btn-warning btn-xs mr-2">
+                                                    <i class="fas fa-exchange-alt"></i>&nbsp;&nbsp;Disposisi
+                                                </a>
                                             </div>
                                         </center>
                                     </td>
