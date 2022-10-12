@@ -276,4 +276,17 @@ class DataPerda extends BaseController
         session()->setFlashdata('m', 'Data berhasil diverifikasi');
         return redirect()->to(base_url('pengajuan-perda'));
     }
+    public function review($id)
+    {
+        $perda = $this->perdaModel->where('id =', $id)->first();
+        $data = array(
+            'titlebar' => 'Review Perda',
+            'title' => 'Review Perda',
+            'data' => $perda,
+            'isi' => 'master/perda/review',
+            'validation' => \Config\Services::validation(),
+        );
+
+        return view('layout/wrapper', $data);
+    }
 }

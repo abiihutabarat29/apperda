@@ -70,6 +70,9 @@
                                                         <i class="fas fa-trash"></i>
                                                     </a>
                                                 <?php } else { ?>
+                                                    <a href="<?= base_url('perda/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
+                                                        <i class="fa fa-info-circle"></i>
+                                                    </a>
                                                     <a href="#" class="btn btn-danger btn-xs" title="Hapus Data" data-toggle='modal' data-target='#activateModal<?= $r['id'] ?>'>
                                                         <i class="fas fa-trash"></i>
                                                     </a>

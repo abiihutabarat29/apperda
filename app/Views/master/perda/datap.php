@@ -25,6 +25,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 5%">No</th>
+                                <th style="width: 20%">Instansi</th>
                                 <th style="width: 45%">Judul Perda</th>
                                 <th style="width: 10%">
                                     <center>
@@ -44,6 +45,7 @@
                             ?>
                                 <tr>
                                     <td><?= $i++; ?></td>
+                                    <td><?= $r['instansi']; ?></td>
                                     <td><?= $r['judul_perda']; ?></td>
                                     <td>
                                         <?php if ($r['status'] == 0) { ?>
