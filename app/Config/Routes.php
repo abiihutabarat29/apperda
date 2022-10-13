@@ -69,7 +69,10 @@ $routes->get('/perda/edit/(:segment)', 'DataPerda::edit/$1');
 $routes->add('/perda/update/(:segment)', 'DataPerda::update/$1');
 
 // Routes Slideshow
-$routes->get('data-slideshow', 'Slideshow::index');
+$routes->get('/data-slideshow', 'Slideshow::slideshow');
+$routes->get('/data-slideshow/add', 'Slideshow::add');
+$routes->post('/data-slideshow/save', 'SLideshow::save');
+$routes->get('/data-slideshow/(:num)', 'Slideshow::delete/$1');
 
 //Routes Pengajuan Perda
 $routes->get('/pengajuan-perda', 'DataPerda::dataperda');

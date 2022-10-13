@@ -58,6 +58,8 @@ class Filters extends BaseConfig
                 'api/data-instansi/*',
                 'my-profil',
                 'my-profil/*',
+                'data-slideshow',
+                'data-slideshow/*',
             ]],
             'filteruser' => ['except' => [
                 'home', 'home/*',
