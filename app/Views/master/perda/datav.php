@@ -17,9 +17,6 @@
                     <h4 class="card-title">
                         <td><?= $title ?></td>
                     </h4>
-                    <a href="<?= base_url('perda/add') ?>" class="btn btn-primary btn-round ml-auto btn-sm">
-                        <i class="fa fa-plus"></i>
-                    </a>
                 </div>
             </div>
             <div class="card-body">
@@ -28,10 +25,11 @@
                         <thead>
                             <tr>
                                 <th style="width: 5%">No</th>
+                                <th style="width: 20%">Instansi</th>
                                 <th style="width: 45%">Judul Perda</th>
                                 <th style="width: 10%">
                                     <center>
-                                        Status
+                                        Jenis Perda
                                     </center>
                                 </th>
                                 <th style="width: 10%">
@@ -47,36 +45,18 @@
                             ?>
                                 <tr>
                                     <td><?= $i++; ?></td>
+                                    <td><?= $r['instansi']; ?></td>
                                     <td><?= $r['judul_perda']; ?></td>
-                                    <td>
-                                        <?php if ($r['status'] == 0) { ?>
-                                            <center>
-                                                <span class="badge badge-warning">menunggu verifikasi</span>
-                                            </center>
-                                        <?php } else { ?>
-                                            <center>
-                                                <span class="badge badge-success">terverifikasi</span>
-                                            </center>
-                                        <?php } ?>
-                                    </td>
+                                    <td><?= $r['jenis_perda']; ?></td>
                                     <td>
                                         <center>
                                             <div class="form-button-action">
-                                                <?php if ($r['status'] == 0) { ?>
-                                                    <a href="/perda/edit/<?= $r['id']; ?>" class="btn btn-primary btn-xs mr-2">
-                                                        <i class="fa fa-edit"></i>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-xs" title="Hapus Data" data-toggle='modal' data-target='#activateModal<?= $r['id'] ?>'>
-                                                        <i class="fas fa-trash"></i>
-                                                    </a>
-                                                <?php } else { ?>
-                                                    <a href="<?= base_url('perda/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
-                                                        <i class="fa fa-info-circle"></i>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-xs" title="Hapus Data" data-toggle='modal' data-target='#activateModal<?= $r['id'] ?>'>
-                                                        <i class="fas fa-trash"></i>
-                                                    </a>
-                                                <?php } ?>
+                                                <a href="<?= base_url('perda-terverifikasi/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
+                                                    <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Review
+                                                </a>
+                                                <a href="<?= base_url('perda-terverifikasi/dispo/' . $r['id']); ?>" class="btn btn-warning btn-xs mr-2">
+                                                    <i class="fas fa-exchange-alt"></i>&nbsp;&nbsp;Disposisi
+                                                </a>
                                             </div>
                                         </center>
                                     </td>

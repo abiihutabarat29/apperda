@@ -27,11 +27,22 @@ class DataPerda extends BaseController
     }
     public function dataperda()
     {
-        $perda = $this->perdaModel->where('status =', 0)->findAll();
+        $perda = $this->perdaModel->where('status =', 0)->orWhere('jenis_perda =', 'Non-Propemperda')->findAll();
         $data = array(
             'title' => 'Data Pengajuan Perda',
             'data' => $perda,
             'isi' => 'master/perda/datap'
+        );
+
+        return view('layout/wrapper', $data);
+    }
+    public function dataperdav()
+    {
+        $perda = $this->perdaModel->where('status =', 1)->where('jenis_perda =', 'Propemperda')->findAll();
+        $data = array(
+            'title' => 'Perda Terverifikasi',
+            'data' => $perda,
+            'isi' => 'master/perda/datav'
         );
 
         return view('layout/wrapper', $data);
@@ -275,5 +286,44 @@ class DataPerda extends BaseController
         $this->perdaModel->save($data);
         session()->setFlashdata('m', 'Data berhasil diverifikasi');
         return redirect()->to(base_url('pengajuan-perda'));
+    }
+    public function review($id)
+    {
+        $perda = $this->perdaModel->where('id =', $id)->first();
+        $data = array(
+            'titlebar' => 'Review Perda',
+            'title' => 'Review Perda',
+            'data' => $perda,
+            'isi' => 'master/perda/review',
+            'validation' => \Config\Services::validation(),
+        );
+
+        return view('layout/wrapper', $data);
+    }
+    public function reviewv($id)
+    {
+        $perda = $this->perdaModel->where('status =', 1)->where('jenis_perda =', 'Propemperda')->where('id =', $id)->first();
+        $data = array(
+            'titlebar' => 'Review Perda Terverifikasi',
+            'title' => 'Review Perda Terverifikasi',
+            'data' => $perda,
+            'isi' => 'master/perda/reviewv',
+            'validation' => \Config\Services::validation(),
+        );
+
+        return view('layout/wrapper', $data);
+    }
+    public function reviewp($id)
+    {
+        $perda = $this->perdaModel->where('status =', 1)->where('jenis_perda =', 'Non-Propemperda')->where('id =', $id)->first();
+        $data = array(
+            'titlebar' => 'Review Pengajuan Perda',
+            'title' => 'Review Pengajuan Perda',
+            'data' => $perda,
+            'isi' => 'master/perda/reviewp',
+            'validation' => \Config\Services::validation(),
+        );
+
+        return view('layout/wrapper', $data);
     }
 }

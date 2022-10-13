@@ -33,9 +33,13 @@
                                     </p>
                                     <p class="text-muted">
                                         <?php if (session()->get('level') == '1') {
-                                            echo "Admin";
+                                            echo "Admin DPR";
                                         } elseif (session()->get('level') == '2') {
-                                            echo "User Bagian";
+                                            echo "User Instansi";
+                                        } elseif (session()->get('level') == '3') {
+                                            echo "Admin Hukum";
+                                        } elseif (session()->get('level') == '4') {
+                                            echo "Ketua Bapemperda";
                                         }
                                         ?>
                                     </p>

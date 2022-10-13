@@ -25,6 +25,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 5%">No</th>
+                                <th style="width: 20%">Instansi</th>
                                 <th style="width: 45%">Judul Perda</th>
                                 <th style="width: 10%">
                                     <center>
@@ -44,6 +45,7 @@
                             ?>
                                 <tr>
                                     <td><?= $i++; ?></td>
+                                    <td><?= $r['instansi']; ?></td>
                                     <td><?= $r['judul_perda']; ?></td>
                                     <td>
                                         <?php if ($r['status'] == 0) { ?>
@@ -59,9 +61,15 @@
                                     <td>
                                         <center>
                                             <div class="form-button-action">
-                                                <a href="<?= base_url('pengajuan-perda/verifikasi/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
-                                                    <i class="fa fa-check-double"></i>&nbsp;&nbsp;Verifikasi
-                                                </a>
+                                                <?php if ($r['status'] == 0) { ?>
+                                                    <a href="<?= base_url('pengajuan-perda/verifikasi/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
+                                                        <i class="fa fa-check-double"></i>&nbsp;&nbsp;Verifikasi
+                                                    </a>
+                                                <?php } else { ?>
+                                                    <a href="<?= base_url('pengajuan-perda/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
+                                                        <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Review
+                                                    </a>
+                                                <?php } ?>
                                             </div>
                                         </center>
                                     </td>

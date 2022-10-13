@@ -67,6 +67,7 @@ $routes->add('/perda/save', 'DataPerda::save');
 $routes->delete('/perda/(:num)', 'DataPerda::delete/$1');
 $routes->get('/perda/edit/(:segment)', 'DataPerda::edit/$1');
 $routes->add('/perda/update/(:segment)', 'DataPerda::update/$1');
+$routes->get('/perda/review/(:segment)', 'DataPerda::review/$1');
 
 // Routes Slideshow
 $routes->get('/data-slideshow', 'Slideshow::slideshow');
@@ -78,6 +79,10 @@ $routes->get('/data-slideshow/(:num)', 'Slideshow::delete/$1');
 $routes->get('/pengajuan-perda', 'DataPerda::dataperda');
 $routes->get('/pengajuan-perda/verifikasi/(:segment)', 'DataPerda::verifikasi/$1');
 $routes->post('/pengajuan-perda/verify/(:segment)', 'DataPerda::verify/$1');
+$routes->get('/pengajuan-perda/review/(:segment)', 'DataPerda::reviewp/$1');
+//Routes Perda Terverifikasi
+$routes->get('/perda-terverifikasi', 'DataPerda::dataperdav');
+$routes->get('/perda-terverifikasi/review/(:segment)', 'DataPerda::reviewv/$1');
 /*
 
 
