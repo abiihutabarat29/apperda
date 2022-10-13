@@ -15,6 +15,7 @@
 
     <div class="col-md-12">
         <div class="card">
+            <div class="swal" data-swal="<?= session()->getFlashdata('m'); ?>"></div>
             <div class="card-header">
                 <div class="d-flex align-items-center">
                     <h4 class="card-title">Daftar Slideshow</h4>
@@ -41,10 +42,10 @@
                                 <tr>
                                     <td><?= $i++; ?></td>
                                     <td><?= $value['keterangan']; ?></td>
-                                    <td><img src="<?= base_url('./media/slideshow/' . $value['gambar']) ?>" width="230px"></td>
+                                    <td><img src="<?= base_url('./media/slideshow/' . $value['gambar']) ?>" width="250px"></td>
                                     <td>
                                         <div class="form-button-action">
-                                            <a href="" class="btn btn-link btn-primary btn-lg" title="Edit Data">
+                                            <a href="/data-slideshow/edit/<?= $value['id']; ?>" class="btn btn-link btn-primary btn-lg" title="Edit Data">
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                             <a href="#" class="btn btn-link btn-lg btn-danger" title="Hapus Data" data-toggle='modal' data-target='#activateModal<?= $value['id'] ?>'>

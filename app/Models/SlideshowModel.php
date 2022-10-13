@@ -9,5 +9,5 @@ class SlideshowModel extends Model
     protected $table      = 'mod_slideshow';
     protected $primaryKey = 'id';
     protected $useTimestamps = true;
-    protected $allowedFields = ['keterangan', 'image'];
+    protected $allowedFields = ['keterangan', 'gambar'];
 }

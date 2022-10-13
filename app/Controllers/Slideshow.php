@@ -61,21 +61,67 @@ class Slideshow extends BaseController
         $gambar   = $this->request->getFile('gambar');
         $fileName = $gambar->getRandomName();
         $data = [
-            'keterangan'                 => $this->request->getPost('keterangan'),
+            'keterangan'                  => $this->request->getPost('keterangan'),
             'gambar'                      => $fileName,
         ];
-        // $gambar->move(ROOTPATH . '../public_html/media/slideshow/', $fileName);
+        $gambar->move(ROOTPATH . 'public/media/slideshow/', $fileName);
 
         $this->slideshowModel->save($data);
-        session()->setFlashdata('success', 'Data Berhasil Ditambahkan ke Database');
+        session()->setFlashdata('m', 'Data Berhasil Ditambahkan ke Database');
         return redirect()->to(base_url('data-slideshow'));
     }
 
 
     public function delete($id)
     {
+        $data = $this->slideshowModel->find($id);
+        $gambar = $data['gambar'];
+        if (file_exists(ROOTPATH . 'public/media/slideshow/' . $gambar)) {
+            unlink(ROOTPATH . 'public/media/slideshow/' . $gambar);
+        }
         $this->slideshowModel->delete($id);
         session()->setFlashdata('m', 'Data berhasil dihapus');
+        return redirect()->to(base_url('data-slideshow'));
+    }
+
+    public function edit($id)
+    {
+        $data = array(
+            'titlebar' => 'Data SLideshow',
+            'title' => 'Edit Data Slideshow',
+            'isi' => 'setting/slideshow/edit',
+            'validation' => \Config\Services::validation(),
+            'slideshow' => $this->slideshowModel->where('id', $id)->first(),
+        );
+        return view('layout/wrapper', $data);
+    }
+
+    public function update($id)
+    {
+        $validation = $this->validate([
+            'gambar' => 'uploaded[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/gif,image/png]|max_size[gambar,4096]'
+        ]);
+
+        if ($validation == FALSE) {
+            $this->slideshowModel->update($id, [
+                'keterangan'                 => $this->request->getPost('keterangan'),
+            ]);
+        } else {
+            $data = $this->slideshowModel->find($id);
+            $replace = $data['gambar'];
+            if (file_exists(ROOTPATH . 'public/media/slideshow/' . $replace)) {
+                unlink(ROOTPATH . 'public/media/slideshow/' . $replace);
+            }
+
+            $gambar   = $this->request->getFile('gambar');
+            $fileName = $gambar->getRandomName();
+            $this->slideshowModel->update($id, [
+                'keterangan'                 => $this->request->getPost('keterangan'),
+                'gambar'                     => $fileName,
+            ]);
+            $gambar->move(ROOTPATH . 'public/media/slideshow', $fileName);
+        }
+        session()->setFlashdata('m', 'Data Berhasil Di Edit');
         return redirect()->to(base_url('data-slideshow'));
     }
 }

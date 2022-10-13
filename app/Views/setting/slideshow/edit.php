@@ -24,35 +24,36 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <div class="swal" data-swal="<?= session()->getFlashdata('m'); ?>"></div>
                 <div class="card-header">
                     <div class="card-title"><?= $title ?></div>
                 </div>
-                <form action="<?= base_url('data-slideshow/save') ?>" method="post" enctype="multipart/form-data">
+                <form action="<?= base_url('data-slideshow/update/' . $slideshow['id']) ?>" method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
+                    <input type="hidden" name="id" value="<?= $slideshow['id'] ?>">
                     <div class=" card-body">
-                        <div class="col-md-12 pr-0">
+                        <div class="col-md-12">
                             <div class="form-group">
-                                <label>keterangan<span class="text-danger">*</span></label>
-                                <input name="keterangan" type="text" class="form-control" autocomplete="off" value="<?= old('keterangan'); ?>">
-                                <div class="form-group">
-                                    <label>Gambar<span class="text-danger">*</span></label>
-                                    <input type="file" name="gambar" class="form-control" id="file" onchange="readURL(this);" accept=".png, .jpg, .jpeg" />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <img id="blah" src="<?= base_url('media/no_image.jpg'); ?>" class="" width="280" height="180" />
-                                </div>
-                                <small class="form-text text-danger"></small>
+                                <label>Keterangan<span class="text-danger">*</span></label>
+                                <input name="keterangan" type="text" class="form-control" autocomplete="off" value="<?= (old('keterangan')) ? old('keterangan') : $slideshow['keterangan']; ?>">
                             </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group form-group-default <?= ($validation->hasError('foto')) ? 'has-error' : ''; ?>">
+                                <label>Gambar<span class="text-danger">*</span></label>
+                                <input type="file" name="gambar" class="form-control" id="gambar" onchange="readURL(this);" accept=".png, .jpg, .jpeg" />
+                                <small class="form-text text-danger"><?= $validation->getError('gambar'); ?></small>
+                            </div>
+                            <img id="blah" src="<?= base_url('media/slideshow/' . $slideshow['gambar']) ?>" class="" width="280" height="180" />
                         </div>
                     </div>
                     <div class="card-action">
                         <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Simpan</button>
                         <a href="<?= base_url('data-slideshow') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i> Kembali</a>
                     </div>
-                </form>
             </div>
+            </form>
         </div>
     </div>
+</div>
 </div>
 </div>
