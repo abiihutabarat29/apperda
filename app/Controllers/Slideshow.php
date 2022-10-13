@@ -50,25 +50,31 @@ class Slideshow extends BaseController
                 'errors' => [
                     'uploaded' => 'Lupa ko ngupload Gambarnya kan???',
                     'mime_in' => 'File Extention Harus Berupa jpg,jpeg,gif,png',
-                    'max_size' => 'Ukuran Gambar Jangan Lewat dari 4 MB'
+                    'max_size' => 'Ukuran Gambar Maks. 4 MB'
                 ]
             ]
         ])) {
-            session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->back()->withInput();
+            return redirect()->to(base_url('/data-slideshow/add/' . $this->request->getPost('id')))->withInput();
         }
-
         $gambar   = $this->request->getFile('gambar');
-        $fileName = $gambar->getRandomName();
-        $data = [
-            'keterangan'                  => $this->request->getPost('keterangan'),
-            'gambar'                      => $fileName,
-        ];
-        $gambar->move(ROOTPATH . 'public/media/slideshow/', $fileName);
+        if ($gambar->getError() == 4) {
+            $data = $this->slideshowModel->find();
+            $fileName = $data['gambar'];
+        } else {
+            $fileName = $gambar->getRandomName();
 
-        $this->slideshowModel->save($data);
-        session()->setFlashdata('m', 'Data Berhasil Ditambahkan ke Database');
-        return redirect()->to(base_url('data-slideshow'));
+            $gambar   = $this->request->getFile('gambar');
+            $fileName = $gambar->getRandomName();
+            $data = [
+                'keterangan'                  => $this->request->getPost('keterangan'),
+                'gambar'                      => $fileName,
+            ];
+            $gambar->move(ROOTPATH . 'public/media/slideshow/', $fileName);
+
+            $this->slideshowModel->save($data);
+            session()->setFlashdata('m', 'Data Berhasil Ditambahkan ke Database');
+            return redirect()->to(base_url('data-slideshow'));
+        }
     }
 
 
@@ -98,30 +104,48 @@ class Slideshow extends BaseController
 
     public function update($id)
     {
-        $validation = $this->validate([
-            'gambar' => 'uploaded[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/gif,image/png]|max_size[gambar,4096]'
-        ]);
+        if (!$this->validate([
+            'keterangan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama tidak boleh kosong.'
+                ]
+            ],
 
-        if ($validation == FALSE) {
-            $this->slideshowModel->update($id, [
-                'keterangan'                 => $this->request->getPost('keterangan'),
-            ]);
+            'gambar' => [
+                'rules' => 'mime_in[gambar,image/jpg,image/jpeg,image/png]|max_size[gambar,4098]',
+                'errors' => [
+                    'mime_in' => 'File extention hanya jpg, jpeg, png.',
+                    'is_image' => 'Upload hanya file foto.',
+                    'max_size' => 'Ukuran gambar maks. 4 MB.'
+                ]
+            ],
+        ])) {
+            return redirect()->to(base_url('/data-slideshow/edit/' . $this->request->getPost('id')))->withInput();
+        }
+        $gambar   = $this->request->getFile('gambar');
+        if ($gambar->getError() == 4) {
+            $data = $this->slideshowModel->find($id);
+            $fileName = $data['gambar'];
         } else {
+            $fileName = $gambar->getRandomName();
+            //move foto
+            $gambar->move(ROOTPATH . 'public/media/slideshow/', $fileName);
             $data = $this->slideshowModel->find($id);
             $replace = $data['gambar'];
             if (file_exists(ROOTPATH . 'public/media/slideshow/' . $replace)) {
-                unlink(ROOTPATH . 'public/media/slideshow/' . $replace);
+                if ($data['gambar'] != 'blank.png') {
+                    unlink(ROOTPATH . 'public/media/slideshow/' . $replace);
+                }
             }
-
-            $gambar   = $this->request->getFile('gambar');
-            $fileName = $gambar->getRandomName();
-            $this->slideshowModel->update($id, [
-                'keterangan'                 => $this->request->getPost('keterangan'),
-                'gambar'                     => $fileName,
-            ]);
-            $gambar->move(ROOTPATH . 'public/media/slideshow', $fileName);
         }
-        session()->setFlashdata('m', 'Data Berhasil Di Edit');
+        $data = [
+            'id'                   => $id,
+            'keterangan'                  => $this->request->getPost('keterangan'),
+            'gambar'                 => $fileName,
+        ];
+        $this->slideshowModel->save($data);
+        session()->setFlashdata('m', 'Data berhasil di update');
         return redirect()->to(base_url('data-slideshow'));
     }
 }

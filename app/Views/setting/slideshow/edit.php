@@ -32,9 +32,11 @@
                     <input type="hidden" name="id" value="<?= $slideshow['id'] ?>">
                     <div class=" card-body">
                         <div class="col-md-12">
-                            <div class="form-group">
+                            <div class="form-group <?= ($validation->hasError('keterangan')) ? 'has-error' : ''; ?>">
                                 <label>Keterangan<span class="text-danger">*</span></label>
                                 <input name="keterangan" type="text" class="form-control" autocomplete="off" value="<?= (old('keterangan')) ? old('keterangan') : $slideshow['keterangan']; ?>">
+                                <small class="form-text text-danger">
+                                    <?= $validation->getError('keterangan'); ?></small>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -43,7 +45,7 @@
                                 <input type="file" name="gambar" class="form-control" id="gambar" onchange="readURL(this);" accept=".png, .jpg, .jpeg" />
                                 <small class="form-text text-danger"><?= $validation->getError('gambar'); ?></small>
                             </div>
-                            <img id="blah" src="<?= base_url('media/slideshow/' . $slideshow['gambar']) ?>" class="" width="280" height="180" />
+                            <img id="show" src="<?= base_url('media/slideshow/' . $slideshow['gambar']) ?>" class="" width="280" height="180" />
                         </div>
                     </div>
                     <div class="card-action">
@@ -54,6 +56,4 @@
             </form>
         </div>
     </div>
-</div>
-</div>
 </div>

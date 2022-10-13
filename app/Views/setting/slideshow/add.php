@@ -32,27 +32,32 @@
                     <?= csrf_field(); ?>
                     <div class=" card-body">
                         <div class="col-md-12 pr-0">
-                            <div class="form-group">
+                            <div class="form-group <?= ($validation->hasError('keterangan')) ? 'has-error' : ''; ?>">
                                 <label>keterangan<span class="text-danger">*</span></label>
                                 <input name="keterangan" type="text" class="form-control" autocomplete="off" value="<?= old('keterangan'); ?>">
-                                <div class="form-group">
-                                    <label>Gambar<span class="text-danger">*</span></label>
-                                    <input type="file" name="gambar" class="form-control" id="file" onchange="readURL(this);" accept=".png, .jpg, .jpeg" />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <img id="blah" src="<?= base_url('media/no_image.jpg'); ?>" class="" width="280" height="180" />
-                                </div>
-                                <small class="form-text text-danger"></small>
+                                <small class="form-text text-danger">
+                                    <?= $validation->getError('keterangan'); ?></small>
                             </div>
+                            <div class="form-group <?= ($validation->hasError('gambar')) ? 'has-error' : ''; ?>">
+                                <label>Gambar<span class="text-danger">*</span></label>
+                                <input type="file" name="gambar" class="form-control" id="file" onchange="readURL(this);" accept=".png, .jpg, .jpeg" />
+                                <small class="form-text text-danger">
+                                    <?= $validation->getError('gambar'); ?></small>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <img id="show" src="<?= base_url('media/no_image.jpg'); ?>" class="" width="280" height="180" />
+                            </div>
+                            <small class="form-text text-danger"></small>
                         </div>
                     </div>
-                    <div class="card-action">
-                        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Simpan</button>
-                        <a href="<?= base_url('data-slideshow') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i> Kembali</a>
-                    </div>
-                </form>
             </div>
+            <div class="card-action">
+                <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Simpan</button>
+                <a href="<?= base_url('data-slideshow') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i> Kembali</a>
+            </div>
+            </form>
         </div>
     </div>
+</div>
 </div>
 </div>

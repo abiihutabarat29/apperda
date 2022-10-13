@@ -159,7 +159,7 @@
 
 <script>
     function readURL(input, id) {
-        id = id || '#blah';
+        id = id || '#show';
         if (input.files && input.files[0]) {
             var reader = new FileReader();
 
