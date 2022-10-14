@@ -62,6 +62,12 @@ class Filters extends BaseConfig
                 'my-profil/*',
                 'data-slideshow',
                 'data-slideshow/*',
+                'data-anggota',
+                'data-anggota/*',
+                'data-fraksi',
+                'data-fraksi/*',
+                'api/data-fraksi',
+                'api/data-fraksi/*',
             ]],
             'filteruser' => ['except' => [
                 'home', 'home/*',

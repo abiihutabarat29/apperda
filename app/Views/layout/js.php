@@ -99,6 +99,17 @@
         let data = await response.json();
         return data;
     }
+    // api data fraksi
+    $('#idfraksi').on('change', (event) => {
+        getFraksi(event.target.value).then(nmfraksi => {
+            $('#namafraksi').val(nmfraksi.fraksi);
+        });
+    });
+    async function getFraksi(id) {
+        let response = await fetch('/api/data-fraksi/' + id)
+        let data = await response.json();
+        return data;
+    }
 
 
     $(".js-example-language").select2({

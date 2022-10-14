@@ -103,8 +103,13 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="<?= base_url('data-anggota') ?>">
                                         <span class="sub-item">Keangotaan</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('data-fraksi') ?>">
+                                        <span class="sub-item">Fraksi</span>
                                     </a>
                                 </li>
                             </ul>
