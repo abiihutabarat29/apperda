@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2022 at 07:38 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Waktu pembuatan: 12 Okt 2022 pada 11.11
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,57 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mod_anggota`
---
-
-CREATE TABLE `mod_anggota` (
-  `id` int(11) NOT NULL,
-  `id_fraksi` int(11) NOT NULL,
-  `fraksi` varchar(255) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `jabatan` varchar(255) NOT NULL,
-  `foto` varchar(100) NOT NULL,
-  `created_at` varchar(100) DEFAULT NULL,
-  `updated_at` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `mod_anggota`
---
-
-INSERT INTO `mod_anggota` (`id`, `id_fraksi`, `fraksi`, `nama`, `jabatan`, `foto`, `created_at`, `updated_at`) VALUES
-(7, 10, '', 'aaa', 'aaa', 'blank.png', '2022-10-14 16:46:41', '2022-10-14 16:46:41'),
-(8, 13, '', 'sdsd', 'asdsadsa', 'blank.png', '2022-10-14 17:11:25', '2022-10-14 17:11:25');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mod_fraksi`
---
-
-CREATE TABLE `mod_fraksi` (
-  `id` int(11) NOT NULL,
-  `fraksi` varchar(255) NOT NULL,
-  `userentry` varchar(100) NOT NULL,
-  `created_at` varchar(100) DEFAULT NULL,
-  `updated_at` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `mod_fraksi`
---
-
-INSERT INTO `mod_fraksi` (`id`, `fraksi`, `userentry`, `created_at`, `updated_at`) VALUES
-(9, 'FRAKSI DEMOKRAT1', 'Abii Hutabarat', '2022-10-14 06:42:14', '2022-10-14 16:35:05'),
-(10, 'PDI-P', 'Abii Hutabarat', '2022-10-14 07:11:46', '2022-10-14 07:11:46'),
-(11, 'GOLKAR', 'Abii Hutabarat', '2022-10-14 07:31:24', '2022-10-14 07:31:24'),
-(13, 'FRAKSI PKS', 'Abii Hutabarat', '2022-10-14 15:34:20', '2022-10-14 15:34:20'),
-(14, 'sadsds', 'Abii Hutabarat', '2022-10-14 17:01:47', '2022-10-14 17:01:47');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mod_instansi`
+-- Struktur dari tabel `mod_instansi`
 --
 
 CREATE TABLE `mod_instansi` (
@@ -86,11 +36,12 @@ CREATE TABLE `mod_instansi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `mod_instansi`
+-- Dumping data untuk tabel `mod_instansi`
 --
 
 INSERT INTO `mod_instansi` (`id`, `instansi`, `userentry`, `created_at`, `updated_at`) VALUES
-(2, 'BAGIAN PROTOKOL', 'Abii Hutabarat', '2022-09-22 23:23:53', '2022-10-14'),
+(1, 'Bagian Umum', 'Abii Hutabarat', '2022-09-22 23:02:09', '2022-09-22'),
+(2, 'Bagian Protokol', 'Abii Hutabarat', '2022-09-22 23:23:53', '2022-09-22'),
 (3, 'Bagian Pemerintahan', 'Abii Hutabarat', '2022-09-22 23:30:40', '2022-09-22'),
 (4, 'Bagian Pembangunan', 'Abii Hutabarat', '2022-09-22 23:30:49', '2022-09-22'),
 (5, 'Bagian Hukum', 'Abii Hutabarat', '2022-09-22 23:30:58', '2022-09-22'),
@@ -101,7 +52,7 @@ INSERT INTO `mod_instansi` (`id`, `instansi`, `userentry`, `created_at`, `update
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mod_perda`
+-- Struktur dari tabel `mod_perda`
 --
 
 CREATE TABLE `mod_perda` (
@@ -121,32 +72,17 @@ CREATE TABLE `mod_perda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `mod_perda`
+-- Dumping data untuk tabel `mod_perda`
 --
 
 INSERT INTO `mod_perda` (`id`, `id_instansi`, `instansi`, `judul_perda`, `dasar_hukum`, `draf_perda`, `naskah_akademik`, `dokumen`, `jenis_perda`, `status`, `userentry`, `created_at`, `updated_at`) VALUES
 (2, 10, 'Dinas Komunikasi dan Informatika', 'Peraturan Testing hhhhhhhssdshjgjghjghjhg', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout hhhhhhhhdsdsdghjgj', '1665230958_575e342476be5ea4f5aa.pdf', '1665230256_b5f230cfaa5b9a5b5983.pdf', '1665230256_4a58ee7676c2e75d19f2.pdf', 'Propemperda', 1, 'Putri', '2022-10-08 18:23:46', '2022-10-10 18:59:01'),
-(3, 10, 'Dinas Komunikasi dan Informatika', 'Judul test', 'asdasdasd', '1665564365_d0abc0526ffef2af3a5c.pdf', '1665564365_b527427fcda98bec8f7d.pdf', '1665564365_9618ef10dc6409c4e515.pdf', 'Non-Propemperda', 1, 'Putri', '2022-10-12 15:46:05', '2022-10-12 15:48:45'),
-(4, 10, 'Dinas Komunikasi dan Informatika', 'testes', 'testes', '1665639316_e543ee757dd5740cd2b5.pdf', '1665639316_aa46ff210cc89e9f52a8.pdf', '1665639316_2efd0a2be994291eb5b9.pdf', NULL, 0, 'Putri', '2022-10-13 12:35:16', '2022-10-13 12:35:16');
+(3, 10, 'Dinas Komunikasi dan Informatika', 'Judul test', 'asdasdasd', '1665564365_d0abc0526ffef2af3a5c.pdf', '1665564365_b527427fcda98bec8f7d.pdf', '1665564365_9618ef10dc6409c4e515.pdf', 'Non-Propemperda', 1, 'Putri', '2022-10-12 15:46:05', '2022-10-12 15:48:45');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mod_slideshow`
---
-
-CREATE TABLE `mod_slideshow` (
-  `id` int(11) NOT NULL,
-  `keterangan` varchar(255) NOT NULL,
-  `gambar` varchar(100) NOT NULL,
-  `created_at` varchar(100) DEFAULT NULL,
-  `updated_at` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mod_user`
+-- Struktur dari tabel `mod_user`
 --
 
 CREATE TABLE `mod_user` (
@@ -167,7 +103,7 @@ CREATE TABLE `mod_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `mod_user`
+-- Dumping data untuk tabel `mod_user`
 --
 
 INSERT INTO `mod_user` (`id`, `id_instansi`, `instansi`, `nik`, `nama`, `nohp`, `email`, `username`, `password`, `foto`, `level`, `status`, `created_at`, `updated_at`) VALUES
@@ -180,77 +116,41 @@ INSERT INTO `mod_user` (`id`, `id_instansi`, `instansi`, `nik`, `nama`, `nohp`, 
 --
 
 --
--- Indexes for table `mod_anggota`
---
-ALTER TABLE `mod_anggota`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `mod_fraksi`
---
-ALTER TABLE `mod_fraksi`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `mod_instansi`
+-- Indeks untuk tabel `mod_instansi`
 --
 ALTER TABLE `mod_instansi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `mod_perda`
+-- Indeks untuk tabel `mod_perda`
 --
 ALTER TABLE `mod_perda`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `mod_slideshow`
---
-ALTER TABLE `mod_slideshow`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `mod_user`
+-- Indeks untuk tabel `mod_user`
 --
 ALTER TABLE `mod_user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `mod_anggota`
---
-ALTER TABLE `mod_anggota`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `mod_fraksi`
---
-ALTER TABLE `mod_fraksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT for table `mod_instansi`
+-- AUTO_INCREMENT untuk tabel `mod_instansi`
 --
 ALTER TABLE `mod_instansi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `mod_perda`
+-- AUTO_INCREMENT untuk tabel `mod_perda`
 --
 ALTER TABLE `mod_perda`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `mod_slideshow`
---
-ALTER TABLE `mod_slideshow`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
---
--- AUTO_INCREMENT for table `mod_user`
+-- AUTO_INCREMENT untuk tabel `mod_user`
 --
 ALTER TABLE `mod_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
