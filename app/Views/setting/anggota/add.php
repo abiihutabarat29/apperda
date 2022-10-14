@@ -27,7 +27,7 @@
                 <div class="card-header">
                     <div class="card-title"><?= $title ?></div>
                 </div>
-                <form action="<?= base_url('data-anggota/save') ?>" method="post">
+                <form action="<?= base_url('data-anggota/save') ?>" method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
                     <div class="card-body">
                         <div class="row">
@@ -61,10 +61,26 @@
                             <div class="col-md-6 pr-0">
                                 <div class="form-group <?= ($validation->hasError('jabatan')) ? 'has-error' : ''; ?>">
                                     <label>Jabatan<span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="jabatan" name="jabatan" autocomplete="off" value="<?= old('jabatan'); ?>">
+                                    <select name="jabatan" class="form-control">
+                                        <option selected disabled><?= (old('jabatan')) ? old('jabatan') : ".::Pilih Jabatan::." ?></option>
+                                        <option value="Ketua">Ketua</option>
+                                        <option value="Wakil Ketua">Wakil Ketua</option>
+                                        <option value="Sekretaris">Sekretaris</option>
+                                        <option value="Anggota">Anggota</option>
+                                    </select>
                                     <small class="form-text text-danger">
                                         <?= $validation->getError('jabatan'); ?></small>
                                 </div>
+                                <div class="form-group <?= ($validation->hasError('foto')) ? 'has-error' : ''; ?>">
+                                    <label>Foto<span class="text-danger">*</span></label>
+                                    <input type="file" name="foto" class="form-control" id="file" onchange="readURL(this);" accept=".png, .jpg, .jpeg" />
+                                    <small class="form-text text-danger">
+                                        <?= $validation->getError('foto'); ?></small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <img id="show" src="<?= base_url('media/no_image.jpg'); ?>" class="" width="280" height="180" />
+                                </div>
+                                <small class="form-text text-danger"></small>
                             </div>
                         </div>
                     </div>

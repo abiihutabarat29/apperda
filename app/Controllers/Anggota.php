@@ -51,10 +51,9 @@ class Anggota extends BaseController
                 ]
             ],
             'nama' => [
-                'rules' => 'required|alpha_space',
+                'rules' => 'required',
                 'errors' => [
                     'required' => 'Nama tidak boleh kosong',
-                    'alpha_space' => 'Nama harus huruf dan spasi.'
                 ]
             ],
             'jabatan' => [
@@ -63,27 +62,53 @@ class Anggota extends BaseController
                     'required' => 'jabatan tidak boleh kosong.',
                 ]
             ],
+            'foto' => [
+                'rules' => 'uploaded[foto]|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]|max_size[foto,4098]',
+                'errors' => [
+                    'uploaded' => 'Lupa ko ngupload Gambarnya kan???',
+                    'mime_in' => 'File Extention Harus Berupa jpg,jpeg,gif,png',
+                    'max_size' => 'Ukuran Gambar Maks. 4 MB'
+                ]
+            ]
         ])) {
             return redirect()->to('add')->withInput();
         }
-        $data = [
-            'id_fraksi'            => $this->request->getPost('idfraksi'),
-            'fraksi'               => $this->request->getPost('fraksi'),
-            'nama'                 => $this->request->getPost('nama'),
-            'jabatan'              => $this->request->getPost('jabatan'),
-            'foto'                 => 'blank.png',
-            'status'               => '1',
-        ];
-        $this->anggotaModel->save($data);
-        session()->setFlashdata('m', 'Data berhasil disimpan');
-        return redirect()->to(base_url('data-anggota'));
+
+        $foto   = $this->request->getFile('foto');
+        if ($foto->getError() == 4) {
+            $data = $this->anggotaModel->find();
+            $fileName = $data['foto'];
+        } else {
+            $fileName = $foto->getRandomName();
+
+            $foto   = $this->request->getFile('foto');
+            $fileName = $foto->getRandomName();
+            $data = [
+                'id_fraksi'            => $this->request->getPost('idfraksi'),
+                'fraksi'               => $this->request->getPost('fraksi'),
+                'nama'                 => $this->request->getPost('nama'),
+                'jabatan'              => $this->request->getPost('jabatan'),
+                'foto'                 => $fileName,
+            ];
+            $foto->move(ROOTPATH . 'public/media/fotoanggota/', $fileName);
+
+            $this->anggotaModel->save($data);
+            session()->setFlashdata('m', 'Data berhasil disimpan');
+            return redirect()->to(base_url('data-anggota'));
+        }
     }
     public function delete($id)
     {
-        $this->anggotaModel->delete->find($id);
+        $data = $this->anggotaModel->find($id);
+        $foto = $data['foto'];
+        if (file_exists(ROOTPATH . 'public/media/fotoanggota/' . $foto)) {
+            unlink(ROOTPATH . 'public/media/fotoanggota/' . $foto);
+        }
+        $this->anggotaModel->delete($id);
         session()->setFlashdata('m', 'Data berhasil dihapus');
         return redirect()->to(base_url('data-anggota'));
     }
+
     public function edit($id)
     {
         $fraksi = $this->fraksiModel->findAll();
