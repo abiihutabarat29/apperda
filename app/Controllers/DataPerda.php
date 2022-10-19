@@ -38,11 +38,22 @@ class DataPerda extends BaseController
     }
     public function dataperdav()
     {
-        $perda = $this->perdaModel->where('jenis_perda =', 'Propemperda')->findAll();
+        $perda = $this->perdaModel->where('status =', 2)->where('jenis_perda =', 'Propemperda')->findAll();
+        $data = array(
+            'title' => 'Verifikasi Perda',
+            'data' => $perda,
+            'isi' => 'master/perda/datav'
+        );
+
+        return view('layout/wrapper', $data);
+    }
+    public function dataperdapv()
+    {
+        $perda = $this->perdaModel->where('status =', 2)->where('jenis_perda =', 'Propemperda')->findAll();
         $data = array(
             'title' => 'Perda Terverifikasi',
             'data' => $perda,
-            'isi' => 'master/perda/datav'
+            'isi' => 'master/perda/datapv'
         );
 
         return view('layout/wrapper', $data);
@@ -300,6 +311,19 @@ class DataPerda extends BaseController
 
         return view('layout/wrapper', $data);
     }
+    public function verifikasipv($id)
+    {
+        $perda = $this->perdaModel->where('status =', 2)->where('jenis_perda =', 'Propemperda')->where('id =', $id)->first();
+        $data = array(
+            'titlebar' => 'Verifikasi Perda',
+            'title' => 'Verifikasi Perda',
+            'data' => $perda,
+            'isi' => 'master/perda/verifikasipv',
+            'validation' => \Config\Services::validation(),
+        );
+
+        return view('layout/wrapper', $data);
+    }
     public function verifyv($id)
     {
         $data = [
@@ -308,7 +332,7 @@ class DataPerda extends BaseController
         ];
         $this->perdaModel->save($data);
         session()->setFlashdata('m', 'Data berhasil diverifikasi');
-        return redirect()->to(base_url('perda-terverifikasi'));
+        return redirect()->to(base_url('verifikasi-perda'));
     }
     public function review($id)
     {

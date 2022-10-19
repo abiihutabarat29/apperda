@@ -59,10 +59,10 @@
                     <h4 class="text-section">Menu</h4>
                 </li>
                 <?php if (session()->get('level') == '1') { ?>
-                    <li class="nav-item <?= ($request->uri->getSegment(1) == 'perda-terverifikasi') ? 'active' : ""; ?>">
-                        <a href="<?= base_url('/perda-terverifikasi') ?>">
+                    <li class="nav-item <?= ($request->uri->getSegment(1) == 'verifikasi-perda') ? 'active' : ""; ?>">
+                        <a href="<?= base_url('verifikasi-perda') ?>">
                             <i class="fas fa-clipboard-check"></i>
-                            <p>PERDA TERVERIFIKASI</p>
+                            <p>VERIFIKASI PERDA</p>
                         </a>
                     </li>
                     <li class="nav-item <?= ($request->uri->getSegment(1) == 'data-user' or
@@ -129,6 +129,14 @@
                         <a href="<?= base_url('pengajuan-perda') ?>">
                             <i class="fas fa-copy"></i>
                             <p>PENGAJUAN PERDA</p>
+                        </a>
+                    </li>
+                <?php } ?>
+                <?php if (session()->get('level') == '4') { ?>
+                    <li class="nav-item <?= ($request->uri->getSegment(1) == 'perda-terverifikasi') ? 'active' : ""; ?>">
+                        <a href="<?= base_url('perda-terverifikasi') ?>">
+                            <i class="fas fa-copy"></i>
+                            <p>PERDA TERVERIFIKASI</p>
                         </a>
                     </li>
                 <?php } ?>

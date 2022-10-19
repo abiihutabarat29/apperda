@@ -73,7 +73,7 @@
             </div>
         </div>
     <?php } ?>
-    <?php if (session()->get('level') == '3') { ?>
+    <?php if (session()->get('level') == '3' or session()->get('level') == '4') { ?>
         <div class="row row-card-no-pd">
             <div class="col-sm-6 col-md-4">
                 <div class="card card-stats card-round">

@@ -56,7 +56,7 @@
                                                         <span class="badge badge-success">terverifikasi</span>
                                                     </center>
                                                 <?php } else { ?>
-                                                    <a href="<?= base_url('perda-terverifikasi/verifikasi/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
+                                                    <a href="<?= base_url('verifikasi-perda/verifikasi/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
                                                         <i class="fas fa-check-double"></i>&nbsp;&nbsp;Verifikasi
                                                     </a>
                                                 <?php } ?>

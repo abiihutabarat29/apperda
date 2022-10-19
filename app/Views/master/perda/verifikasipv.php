@@ -11,7 +11,7 @@
                 <i class="flaticon-right-arrow"></i>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url('pengajuan-perda') ?>"><?= $titlebar ?></a>
+                <a href="<?= base_url('perda-terverifikasi') ?>"><?= $titlebar ?></a>
             </li>
             <li class="separator">
                 <i class="flaticon-right-arrow"></i>
@@ -125,23 +125,26 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-contact-nobd" role="tabpanel" aria-labelledby="pills-contact-tab-nobd">
-                            <div class="card-body">
-                                <div class="col-md-12">
-                                    <h4><b>Konfirmasi Kelayakan Perda</b></h4>
-                                    <hr>
-                                    <div class="col-md-6 pr-0">
-                                        <div class="form-group">
-                                            <label>Jika data perda sudah layak untuk diajukan ke ketua bappemperda, tekan verifikasi.</label>
-                                        </div>
-                                    </div>
-                                    <div class="card-action">
-                                        <a href="#" class="btn btn-success btn-sm" title="Verifikasi" data-toggle='modal' data-target='#activateModalV<?= $data['id'] ?>'>
-                                            <i class="fas fa-check-double"></i>&nbsp;&nbsp;Verifikasi
-                                        </a>
-                                        <a href="<?= base_url('verifikasi-perda') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Kembali</a>
+                            <form action="<?= base_url('perda-terverifikasi/verify/' . $data['id']) ?>" method="post">
+                                <?= csrf_field(); ?>
+                                <input type="hidden" name="id" value="<?= $data['id']; ?>">
+                                <div class="col-md-6 pr-0">
+                                    <div class="form-group <?= ($validation->hasError('jenis')) ? 'has-error' : ''; ?>">
+                                        <label>Tentukan Jenis Perda<span class="text-danger">*</span></label>
+                                        <select name="jenis" class="form-control">
+                                            <option selected disabled><?= (old('jenis')) ? old('jenis') : ".::Pilih Jenis::." ?></option>
+                                            <option value="Propemperda">Propemperda</option>
+                                            <option value="Non-Propemperda">Non-Propemperda</option>
+                                        </select>
+                                        <small class="form-text text-danger">
+                                            <?= $validation->getError('jenis'); ?></small>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="card-action">
+                                    <button type="submit" class="btn btn-success btn-sm"> <i class="fas fa-check-double"></i>&nbsp;&nbsp;Verifikasi</button>
+                                    <a href="<?= base_url('perda-terverifikasi') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Kembali</a>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -150,28 +153,3 @@
     </div>
 </div>
 </div>
-<!-- Modal Verifikasi -->
-<form action="<?= base_url('verifikasi-perda/verif/' . $data['id']); ?>" method="post">
-    <?= csrf_field(); ?>
-    <input type="hidden" name="id" value="<?= $data['id']; ?>">
-    <div class="modal fade" id="activateModalV<?= $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Verifikasi</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Apakah data Perda dari <span class="text-danger"><b><?= $data['instansi']; ?></b></span> sudah layak ? <b>Konfirmasi</b> jika data sudah layak.
-                </div>
-                <div class="modal-footer">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-check-double"></i>&nbsp;&nbsp;Konfirmasi</button>
-                    <button class="btn btn-default btn-sm" type="button" data-dismiss="modal"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Kembali</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
