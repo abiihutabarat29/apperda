@@ -75,7 +75,11 @@
                                             </center>
                                         <?php } elseif ($r['status'] == 2) { ?>
                                             <center>
-                                                <span class="badge badge-success">terverfikasi</span>
+                                                <span class="badge badge-info">menunggu verifikasi ketua bapemperda</span>
+                                            </center>
+                                        <?php } else { ?>
+                                            <center>
+                                                <span class="badge badge-success">terverifikasi</span>
                                             </center>
                                         <?php } ?>
                                     </td>
@@ -88,6 +92,21 @@
                                                     </a>
                                                     <a href="#" class="btn btn-danger btn-xs" title="Hapus Data" data-toggle='modal' data-target='#activateModal<?= $r['id'] ?>'>
                                                         <i class="fas fa-trash"></i>
+                                                    </a>
+                                                <?php } elseif ($r['status'] == 1 && $r['jenis_perda'] == 'Propemperda') { ?>
+                                                    <a href="<?= base_url('perda/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
+                                                        <i class="fa fa-info-circle"></i>
+                                                    </a>
+                                                <?php } elseif ($r['status'] == 1 && $r['jenis_perda'] == 'Non-Propemperda') { ?>
+                                                    <a href="<?= base_url('perda/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
+                                                        <i class="fa fa-info-circle"></i>
+                                                    </a>
+                                                    <a href="#" class="btn btn-danger btn-xs" title="Hapus Data" data-toggle='modal' data-target='#activateModal<?= $r['id'] ?>'>
+                                                        <i class="fas fa-trash"></i>
+                                                    </a>
+                                                <?php } elseif ($r['status'] == 2) { ?>
+                                                    <a href="<?= base_url('perda/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
+                                                        <i class="fa fa-info-circle"></i>
                                                     </a>
                                                 <?php } else { ?>
                                                     <a href="<?= base_url('perda/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">

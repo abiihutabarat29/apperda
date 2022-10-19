@@ -53,6 +53,10 @@
                                             <div class="form-button-action">
                                                 <?php if ($r['status'] == 2) { ?>
                                                     <center>
+                                                        <span class="badge badge-info">menunggu verifikasi ketua bapemperda</span>
+                                                    </center>
+                                                <?php } elseif ($r['status'] == 3) { ?>
+                                                    <center>
                                                         <span class="badge badge-success">terverifikasi</span>
                                                     </center>
                                                 <?php } else { ?>

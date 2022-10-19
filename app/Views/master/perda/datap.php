@@ -52,7 +52,13 @@
                                     <td><?= $i++; ?></td>
                                     <td><?= $r['instansi']; ?></td>
                                     <td><?= $r['judul_perda']; ?></td>
-                                    <td><?= $r['jenis_perda']; ?></td>
+                                    <td><?php if ($r['jenis_perda'] == null) { ?>
+                                            <center>
+                                                <span class="badge badge-danger">belum terverifikasi</span>
+                                            </center>
+                                            <?php } else { ?><?= $r['jenis_perda']; ?>
+                                        <?php } ?>
+                                    </td>
                                     <td>
                                         <?php if ($r['status'] == 0) { ?>
                                             <center>
@@ -67,6 +73,10 @@
                                                 <span class="badge badge-success">terverifikasi</span>
                                             </center>
                                         <?php } elseif ($r['status'] == 2) { ?>
+                                            <center>
+                                                <span class="badge badge-info">menunggu verifikasi ketua bapemperda</span>
+                                            </center>
+                                        <?php } else { ?>
                                             <center>
                                                 <span class="badge badge-success">terverfikasi</span>
                                             </center>

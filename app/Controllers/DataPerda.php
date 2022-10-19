@@ -27,7 +27,7 @@ class DataPerda extends BaseController
     }
     public function dataperda()
     {
-        $perda = $this->perdaModel->where('status =', 0)->orWhere('status =', 1)->findAll();
+        $perda = $this->perdaModel->where('status =', 0)->orWhere('status =', 1)->orWhere('status =', 2)->findAll();
         $data = array(
             'title' => 'Data Pengajuan Perda',
             'data' => $perda,
@@ -38,7 +38,7 @@ class DataPerda extends BaseController
     }
     public function dataperdav()
     {
-        $perda = $this->perdaModel->where('status =', 2)->where('jenis_perda =', 'Propemperda')->findAll();
+        $perda = $this->perdaModel->where('jenis_perda =', 'Propemperda')->findAll();
         $data = array(
             'title' => 'Verifikasi Perda',
             'data' => $perda,
@@ -349,7 +349,7 @@ class DataPerda extends BaseController
     }
     public function reviewp($id)
     {
-        $perda = $this->perdaModel->where('status =', 1)->where('id =', $id)->first();
+        $perda = $this->perdaModel->where('id =', $id)->first();
         $data = array(
             'titlebar' => 'Review Pengajuan Perda',
             'title' => 'Review Pengajuan Perda',

@@ -34,7 +34,7 @@ class Home extends BaseController
             'perdanp'        => $this->perdaModel->where('jenis_perda =', 'Non-Propemperda')->countAllResults(),
             //Perda Masing-masing Instansi
             'perdapi'        => $this->perdaModel->where('id_instansi =', $idb)->where('jenis_perda =', 'Propemperda')->countAllResults(),
-            'perdanpi'       => $this->perdaModel->where('id_instansi =', $idb)->where('jenis_perda =', 'Propemperda')->countAllResults(),
+            'perdanpi'       => $this->perdaModel->where('id_instansi =', $idb)->where('jenis_perda =', 'Non-Propemperda')->countAllResults(),
         );
         return view('layout/wrapper', $data);
     }
