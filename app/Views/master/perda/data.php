@@ -31,6 +31,11 @@
                                 <th style="width: 45%">Judul Perda</th>
                                 <th style="width: 10%">
                                     <center>
+                                        Jenis Perda
+                                    </center>
+                                </th>
+                                <th style="width: 10%">
+                                    <center>
                                         Status
                                     </center>
                                 </th>
@@ -48,14 +53,32 @@
                                 <tr>
                                     <td><?= $i++; ?></td>
                                     <td><?= $r['judul_perda']; ?></td>
+                                    <td><?php if ($r['jenis_perda'] == null) { ?>
+                                            <center>
+                                                <span class="badge badge-danger">belum terverifikasi</span>
+                                            </center>
+                                        <?php } else { ?>
+                                            <center>
+                                                <span class="badge badge-info"><?= $r['jenis_perda']; ?></span>
+                                            </center>
+                                        <?php } ?>
+                                    </td>
                                     <td>
                                         <?php if ($r['status'] == 0) { ?>
                                             <center>
                                                 <span class="badge badge-warning">menunggu verifikasi</span>
                                             </center>
-                                        <?php } else { ?>
+                                        <?php } elseif ($r['status'] == 1 && $r['jenis_perda'] == 'Propemperda') { ?>
+                                            <center>
+                                                <span class="badge badge-info">menunggu verifikasi admin dpr</span>
+                                            </center>
+                                        <?php } elseif ($r['status'] == 1 && $r['jenis_perda'] == 'Non-Propemperda') { ?>
                                             <center>
                                                 <span class="badge badge-success">terverifikasi</span>
+                                            </center>
+                                        <?php } elseif ($r['status'] == 2) { ?>
+                                            <center>
+                                                <span class="badge badge-success">terverfikasi</span>
                                             </center>
                                         <?php } ?>
                                     </td>

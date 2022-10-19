@@ -27,6 +27,11 @@
                                 <th style="width: 5%">No</th>
                                 <th style="width: 20%">Instansi</th>
                                 <th style="width: 45%">Judul Perda</th>
+                                <th style="width: 15%">
+                                    <center>
+                                        Jenis Perda
+                                    </center>
+                                </th>
                                 <th style="width: 10%">
                                     <center>
                                         Status
@@ -47,14 +52,23 @@
                                     <td><?= $i++; ?></td>
                                     <td><?= $r['instansi']; ?></td>
                                     <td><?= $r['judul_perda']; ?></td>
+                                    <td><?= $r['jenis_perda']; ?></td>
                                     <td>
                                         <?php if ($r['status'] == 0) { ?>
                                             <center>
                                                 <span class="badge badge-warning">menunggu verifikasi</span>
                                             </center>
-                                        <?php } else { ?>
+                                        <?php } elseif ($r['status'] == 1 && $r['jenis_perda'] == 'Propemperda') { ?>
+                                            <center>
+                                                <span class="badge badge-info">menunggu verifikasi admin dpr</span>
+                                            </center>
+                                        <?php } elseif ($r['status'] == 1 && $r['jenis_perda'] == 'Non-Propemperda') { ?>
                                             <center>
                                                 <span class="badge badge-success">terverifikasi</span>
+                                            </center>
+                                        <?php } elseif ($r['status'] == 2) { ?>
+                                            <center>
+                                                <span class="badge badge-success">terverfikasi</span>
                                             </center>
                                         <?php } ?>
                                     </td>

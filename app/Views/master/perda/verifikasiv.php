@@ -11,7 +11,7 @@
                 <i class="flaticon-right-arrow"></i>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url('perda-terverifikasi') ?>"><?= $titlebar ?></a>
+                <a href="<?= base_url('pengajuan-perda') ?>"><?= $titlebar ?></a>
             </li>
             <li class="separator">
                 <i class="flaticon-right-arrow"></i>
@@ -39,14 +39,14 @@
                             <a class="nav-link" id="pills-profile-tab-nobd" data-toggle="pill" href="#pills-profile-nobd" role="tab" aria-controls="pills-profile-nobd" aria-selected="false">File Upload</a>
                         </li>
                         <li class="nav-item submenu">
-                            <a class="nav-link" id="pills-contact-tab-nobd" data-toggle="pill" href="#pills-contact-nobd" role="tab" aria-controls="pills-contact-nobd" aria-selected="true">Hasil Verifikasi</a>
+                            <a class="nav-link" id="pills-contact-tab-nobd" data-toggle="pill" href="#pills-contact-nobd" role="tab" aria-controls="pills-contact-nobd" aria-selected="true">Verifikasi</a>
                         </li>
                     </ul>
                     <div class="tab-content mt-2 mb-3" id="pills-without-border-tabContent">
                         <div class="tab-pane fade active show" id="pills-home-nobd" role="tabpanel" aria-labelledby="pills-home-tab-nobd">
                             <div class="col-md-12">
                                 <div class="card-body">
-                                    <h4><b>Perda Terverifikasi</b></h4>
+                                    <h4><b>Perda</b></h4>
                                     <hr>
                                     <div class="table-responsive table-hover table-sales">
                                         <table class="table">
@@ -127,29 +127,21 @@
                         <div class="tab-pane fade" id="pills-contact-nobd" role="tabpanel" aria-labelledby="pills-contact-tab-nobd">
                             <div class="card-body">
                                 <div class="col-md-12">
-                                    <h4><b>Jenis Perda</b></h4>
+                                    <h4><b>Konfirmasi Kelayakan Perda</b></h4>
                                     <hr>
-                                    <div class="table-responsive table-hover table-sales">
-                                        <table class="table">
-                                            <tr>
-                                                <td style="width: 15%">
-                                                    Jenis Perda
-                                                </td>
-                                                <td style="width: 0%">
-                                                    :
-                                                </td>
-                                                <td>
-                                                    <?= $data['jenis_perda']; ?>
-                                                    <button class="btn btn-link btn-success btn-sm p-0 mb-1">
-                                                        <i class="fa fa-check-circle"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                    <div class="col-md-6 pr-0">
+                                        <div class="form-group">
+                                            <label>Jika data perda sudah layak untuk diajukan ke ketua bappemperda, tekan verifikasi.</label>
+                                        </div>
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="#" class="btn btn-success btn-sm" title="Verifikasi" data-toggle='modal' data-target='#activateModalV<?= $data['id'] ?>'>
+                                            <i class="fas fa-check-double"></i>&nbsp;&nbsp;Verifikasi
+                                        </a>
+                                        <a href="<?= base_url('perda-terverifikasi') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Kembali</a>
                                     </div>
                                 </div>
                             </div>
-                            <a href="<?= base_url('perda-terverifikasi') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Kembali</a>
                         </div>
                     </div>
                 </div>
@@ -158,3 +150,28 @@
     </div>
 </div>
 </div>
+<!-- Modal Verifikasi -->
+<form action="<?= base_url('perda-terverifikasi/verif/' . $data['id']); ?>" method="post">
+    <?= csrf_field(); ?>
+    <input type="hidden" name="id" value="<?= $data['id']; ?>">
+    <div class="modal fade" id="activateModalV<?= $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Verifikasi</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Apakah data Perda dari <span class="text-danger"><b><?= $data['instansi']; ?></b></span> sudah layak ? <b>Konfirmasi</b> jika data sudah layak.
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-check-double"></i>&nbsp;&nbsp;Konfirmasi</button>
+                    <button class="btn btn-default btn-sm" type="button" data-dismiss="modal"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Kembali</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

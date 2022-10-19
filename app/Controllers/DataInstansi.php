@@ -95,7 +95,7 @@ class DataInstansi extends BaseController
         }
         $data = [
             'id'             => $id,
-            'instansi'    => $this->request->getPost('instansi'),
+            'instansi'       => $this->request->getPost('instansi'),
             'userentry'      => session()->get('nama'),
         ];
         $this->instansiModel->save($data);

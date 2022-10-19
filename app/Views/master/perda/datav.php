@@ -51,12 +51,15 @@
                                     <td>
                                         <center>
                                             <div class="form-button-action">
-                                                <a href="<?= base_url('perda-terverifikasi/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
-                                                    <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Review
-                                                </a>
-                                                <a href="<?= base_url('perda-terverifikasi/dispo/' . $r['id']); ?>" class="btn btn-warning btn-xs mr-2">
-                                                    <i class="fas fa-exchange-alt"></i>&nbsp;&nbsp;Disposisi
-                                                </a>
+                                                <?php if ($r['status'] == 2) { ?>
+                                                    <center>
+                                                        <span class="badge badge-success">terverifikasi</span>
+                                                    </center>
+                                                <?php } else { ?>
+                                                    <a href="<?= base_url('perda-terverifikasi/verifikasi/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
+                                                        <i class="fas fa-check-double"></i>&nbsp;&nbsp;Verifikasi
+                                                    </a>
+                                                <?php } ?>
                                             </div>
                                         </center>
                                     </td>

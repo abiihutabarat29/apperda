@@ -27,7 +27,7 @@ class DataPerda extends BaseController
     }
     public function dataperda()
     {
-        $perda = $this->perdaModel->where('status =', 0)->orWhere('jenis_perda =', 'Non-Propemperda')->findAll();
+        $perda = $this->perdaModel->where('status =', 0)->orWhere('status =', 1)->findAll();
         $data = array(
             'title' => 'Data Pengajuan Perda',
             'data' => $perda,
@@ -38,7 +38,7 @@ class DataPerda extends BaseController
     }
     public function dataperdav()
     {
-        $perda = $this->perdaModel->where('status =', 1)->where('jenis_perda =', 'Propemperda')->findAll();
+        $perda = $this->perdaModel->where('jenis_perda =', 'Propemperda')->findAll();
         $data = array(
             'title' => 'Perda Terverifikasi',
             'data' => $perda,
@@ -287,6 +287,29 @@ class DataPerda extends BaseController
         session()->setFlashdata('m', 'Data berhasil diverifikasi');
         return redirect()->to(base_url('pengajuan-perda'));
     }
+    public function verifikasiv($id)
+    {
+        $perda = $this->perdaModel->where('status =', 1)->where('jenis_perda =', 'Propemperda')->where('id =', $id)->first();
+        $data = array(
+            'titlebar' => 'Verifikasi Perda',
+            'title' => 'Verifikasi Perda',
+            'data' => $perda,
+            'isi' => 'master/perda/verifikasiv',
+            'validation' => \Config\Services::validation(),
+        );
+
+        return view('layout/wrapper', $data);
+    }
+    public function verifyv($id)
+    {
+        $data = [
+            'id'             => $id,
+            'status'         => 2,
+        ];
+        $this->perdaModel->save($data);
+        session()->setFlashdata('m', 'Data berhasil diverifikasi');
+        return redirect()->to(base_url('perda-terverifikasi'));
+    }
     public function review($id)
     {
         $perda = $this->perdaModel->where('id =', $id)->first();
@@ -300,22 +323,9 @@ class DataPerda extends BaseController
 
         return view('layout/wrapper', $data);
     }
-    public function reviewv($id)
-    {
-        $perda = $this->perdaModel->where('status =', 1)->where('jenis_perda =', 'Propemperda')->where('id =', $id)->first();
-        $data = array(
-            'titlebar' => 'Review Perda Terverifikasi',
-            'title' => 'Review Perda Terverifikasi',
-            'data' => $perda,
-            'isi' => 'master/perda/reviewv',
-            'validation' => \Config\Services::validation(),
-        );
-
-        return view('layout/wrapper', $data);
-    }
     public function reviewp($id)
     {
-        $perda = $this->perdaModel->where('status =', 1)->where('jenis_perda =', 'Non-Propemperda')->where('id =', $id)->first();
+        $perda = $this->perdaModel->where('status =', 1)->where('id =', $id)->first();
         $data = array(
             'titlebar' => 'Review Pengajuan Perda',
             'title' => 'Review Pengajuan Perda',
