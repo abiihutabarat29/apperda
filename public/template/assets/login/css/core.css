@@ -77,7 +77,7 @@ body {
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
   background-image: var(--bs-gradient);
- 
+
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(67, 89, 113, 0);
 }

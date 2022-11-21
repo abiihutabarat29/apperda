@@ -64,7 +64,7 @@
                                         </div>
                                         <div class="item-list">
                                             <div class="info-user ml-3">
-                                                <span class="text-muted">3. Ukuran File yang diupload maksimal 200KB.</span>
+                                                <span class="text-muted">3. Ukuran File yang diupload maksimal 5MB.</span>
                                             </div>
                                             <button class="btn btn-icon btn-success btn-round btn-xs">
                                                 <i class="fa fa-check"></i>
@@ -112,7 +112,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label>Dokumen Lain<span class="text-danger">*</span></label>
+                                        <label>Dokumen Pendukung Lainnya<span class="text-danger">*</span></label>
                                         <div class="form-group form-group-default <?= ($validation->hasError('dokumen')) ? 'has-error' : ''; ?>">
                                             <input type="file" name="dokumen" class="form-control-file" accept=".pdf">
                                             <small class="form-text text-danger">

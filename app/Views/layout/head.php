@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>PERDA</title>
+    <title>SIPENBARA</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
     <link rel="icon" href="<?= base_url(); ?>/template/assets/img/icon-logo.png" type="image/x-icon" />
     <!-- Fonts and icons -->
@@ -49,7 +49,7 @@
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="blue">
                 <a href="<?= base_url('home'); ?>" class="logo">
-                    <img src="<?= base_url(); ?>/template/assets/img/perda.png" alt="navbar brand" class="navbar-brand" />
+                    <img src="<?= base_url(); ?>/template/assets/img/sipenbara.png" alt="navbar brand" class="navbar-brand" width="200" />
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon">

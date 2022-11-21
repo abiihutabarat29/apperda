@@ -87,27 +87,27 @@ class DataPerda extends BaseController
                 ]
             ],
             'draf' => [
-                'rules' => 'uploaded[draf]|mime_in[draf,application/pdf]|max_size[draf,200]',
+                'rules' => 'uploaded[draf]|mime_in[draf,application/pdf]|max_size[draf,5000]',
                 'errors' => [
                     'uploaded' => 'Draf Perda harus di upload.',
                     'mime_in' => 'Extension file yang diperbolehkan .pdf',
-                    'max_size' => 'Ukuran File maksimal 200kb.'
+                    'max_size' => 'Ukuran File maksimal 5MB.'
                 ]
             ],
             'naskah' => [
-                'rules' => 'uploaded[naskah]|mime_in[naskah,application/pdf]|max_size[naskah,200]',
+                'rules' => 'uploaded[naskah]|mime_in[naskah,application/pdf]|max_size[naskah,5000]',
                 'errors' => [
                     'uploaded' => 'Naskah Akademik harus di upload.',
                     'mime_in' => 'Extension file yang diperbolehkan .pdf',
-                    'max_size' => 'Ukuran File maksimal 200kb.'
+                    'max_size' => 'Ukuran File maksimal 5MB.'
                 ]
             ],
             'dokumen' => [
-                'rules' => 'uploaded[dokumen]|mime_in[dokumen,application/pdf]|max_size[dokumen,200]',
+                'rules' => 'uploaded[dokumen]|mime_in[dokumen,application/pdf]|max_size[dokumen,5000]',
                 'errors' => [
                     'uploaded' => 'Dokumen harus di upload.',
                     'mime_in' => 'Extension file yang diperbolehkan .pdf',
-                    'max_size' => 'Ukuran File maksimal 200kb.'
+                    'max_size' => 'Ukuran File maksimal 5MB.'
                 ]
             ],
         ])) {
@@ -191,24 +191,24 @@ class DataPerda extends BaseController
                 ]
             ],
             'draf' => [
-                'rules' => 'mime_in[draf,application/pdf]|max_size[draf,200]',
+                'rules' => 'mime_in[draf,application/pdf]|max_size[draf,5000]',
                 'errors' => [
                     'mime_in' => 'Extension file yang diperbolehkan .pdf',
-                    'max_size' => 'Ukuran File maksimal 200kb.'
+                    'max_size' => 'Ukuran File maksimal 5MB.'
                 ]
             ],
             'naskah' => [
-                'rules' => 'mime_in[naskah,application/pdf]|max_size[naskah,200]',
+                'rules' => 'mime_in[naskah,application/pdf]|max_size[naskah,5000]',
                 'errors' => [
                     'mime_in' => 'Extension file yang diperbolehkan .pdf',
-                    'max_size' => 'Ukuran File maksimal 200kb.'
+                    'max_size' => 'Ukuran File maksimal 5MB.'
                 ]
             ],
             'dokumen' => [
-                'rules' => 'mime_in[naskah,application/pdf]|max_size[naskah,200]',
+                'rules' => 'mime_in[naskah,application/pdf]|max_size[naskah,5000]',
                 'errors' => [
                     'mime_in' => 'Extension file yang diperbolehkan .pdf',
-                    'max_size' => 'Ukuran File maksimal 200kb.'
+                    'max_size' => 'Ukuran File maksimal 5MB.'
                 ]
             ],
         ])) {
