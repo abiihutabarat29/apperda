@@ -111,9 +111,9 @@
                                     <label>Level<span class="text-danger">*</span></label>
                                     <select name="level" class="form-control">
                                         <option selected disabled><?= (old('level')) ? old('level') : ".::Pilih Level::." ?></option>
-                                        <option value="2">User OPD</option>
+                                        <option value="2">Admin OPD</option>
                                         <option value="3">Admin Hukum</option>
-                                        <option value="4">Ketua Bapemperda</option>
+                                        <option value="4">Admin Bapemperda</option>
                                     </select>
                                     <small class="form-text text-danger">
                                         <?= $validation->getError('level'); ?></small>

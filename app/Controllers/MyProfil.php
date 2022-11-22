@@ -16,8 +16,9 @@ class MyProfil extends BaseController
     }
     public function myprofil()
     {
+        $idu = session()->get('id');
         $idb = session()->get('id_instansi');
-        $profil = $this->userModel->where('id_instansi =', $idb)->first();
+        $profil = $this->userModel->where('id =', $idu)->where('id_instansi =', $idb)->first();
         $data = array(
             'titlebar' => 'Profil Saya',
             'title' => 'Profil Saya',

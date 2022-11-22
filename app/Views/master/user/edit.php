@@ -111,10 +111,9 @@
                                 <div class="form-group <?= ($validation->hasError('level')) ? 'has-error' : ''; ?>">
                                     <label>Level<span class="text-danger">*</span></label>
                                     <select name="level" class="form-control">
-                                        <option value="<?= $data['level'] ?>" <?= $data['level'] == 2 ? 'selected' : ''; ?>>User OPD</option>
+                                        <option value="<?= $data['level'] ?>" <?= $data['level'] == 2 ? 'selected' : ''; ?>>Admin OPD</option>
                                         <option value="<?= $data['level'] ?>" <?= $data['level'] == 3 ? 'selected' : ''; ?>>Admin Hukum</option>
-                                        <option value="<?= $data['level'] ?>" <?= $data['level'] == 4 ? 'selected' : ''; ?>>Admin DPR</option>
-                                        <option value="<?= $data['level'] ?>" <?= $data['level'] == 5 ? 'selected' : ''; ?>>Ketua Bapemperda</option>
+                                        <option value="<?= $data['level'] ?>" <?= $data['level'] == 4 ? 'selected' : ''; ?>>Admin Bapemperda</option>
                                     </select>
                                     <small class="form-text text-danger">
                                         <?= $validation->getError('level'); ?></small>

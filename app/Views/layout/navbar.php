@@ -33,13 +33,13 @@
                                     </p>
                                     <p class="text-muted">
                                         <?php if (session()->get('level') == '1') {
-                                            echo "Admin DPR";
+                                            echo "Admin Setwan";
                                         } elseif (session()->get('level') == '2') {
-                                            echo "User Instansi";
+                                            echo "Admin OPD";
                                         } elseif (session()->get('level') == '3') {
                                             echo "Admin Hukum";
                                         } elseif (session()->get('level') == '4') {
-                                            echo "Ketua Bapemperda";
+                                            echo "Admin Bapemperda";
                                         }
                                         ?>
                                     </p>

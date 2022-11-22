@@ -139,7 +139,7 @@ class User extends BaseController
     }
     public function delete($id)
     {
-        $this->userModel->delete->find($id);
+        $this->userModel->delete($id);
         session()->setFlashdata('m', 'Data berhasil dihapus');
         return redirect()->to(base_url('data-user'));
     }

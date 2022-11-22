@@ -20,8 +20,9 @@ class Home extends BaseController
     }
     public function index()
     {
+        $idu = session()->get('id');
         $idb = session()->get('id_instansi');
-        $profil = $this->userModel->where('id_instansi =', $idb)->first();
+        $profil = $this->userModel->where('id =', $idu)->where('id_instansi =', $idb)->first();
         $data = array(
             'title'          => 'Dashboard',
             'appname'        => 'SISTEM INFORMASI PERATURAN DAERAH',
@@ -29,7 +30,7 @@ class Home extends BaseController
             'data'           => $profil,
             'instansi'       => $this->instansiModel->countAllResults(),
             'user'           => $this->userModel->where('level !=', 1)->countAllResults(),
-            //Perda Admin DPR & Bagian Hukum
+            //Perda Admin Setwan, Ketua Bapemperda & Bagian Hukum
             'perdap'         => $this->perdaModel->where('jenis_perda =', 'Propemperda')->countAllResults(),
             'perdanp'        => $this->perdaModel->where('jenis_perda =', 'Non-Propemperda')->countAllResults(),
             //Perda Masing-masing Instansi
