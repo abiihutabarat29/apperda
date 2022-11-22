@@ -60,13 +60,9 @@
                                                 <center>
                                                     <span class="badge badge-info">menunggu verifikasi</span>
                                                 </center>
-                                            <?php } elseif ($r['status'] == 1 && $r['jenis_perda'] == 'Propemperda') { ?>
+                                            <?php } elseif ($r['status'] == 1) { ?>
                                                 <center>
-                                                    <span class="badge badge-info">menunggu verifikasi admin dpr</span>
-                                                </center>
-                                            <?php } elseif ($r['status'] == 1 && $r['jenis_perda'] == 'Non-Propemperda') { ?>
-                                                <center>
-                                                    <span class="badge badge-success">terverifikasi</span>
+                                                    <span class="badge badge-info">menunggu verifikasi admin setwan</span>
                                                 </center>
                                             <?php } elseif ($r['status'] == 2) { ?>
                                                 <center>
@@ -88,16 +84,9 @@
                                                         <a href="#" class="btn btn-danger btn-xs" title="Hapus Data" data-toggle='modal' data-target='#activateModal<?= $r['id'] ?>'>
                                                             <i class="fas fa-trash"></i>
                                                         </a>
-                                                    <?php } elseif ($r['status'] == 1 && $r['jenis_perda'] == 'Propemperda') { ?>
+                                                    <?php } elseif ($r['status'] == 1) { ?>
                                                         <a href="<?= base_url('perda/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
                                                             <i class="fa fa-info-circle"></i>
-                                                        </a>
-                                                    <?php } elseif ($r['status'] == 1 && $r['jenis_perda'] == 'Non-Propemperda') { ?>
-                                                        <a href="<?= base_url('perda/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
-                                                            <i class="fa fa-info-circle"></i>
-                                                        </a>
-                                                        <a href="#" class="btn btn-danger btn-xs" title="Hapus Data" data-toggle='modal' data-target='#activateModal<?= $r['id'] ?>'>
-                                                            <i class="fas fa-trash"></i>
                                                         </a>
                                                     <?php } elseif ($r['status'] == 2) { ?>
                                                         <a href="<?= base_url('perda/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">

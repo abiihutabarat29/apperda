@@ -147,9 +147,10 @@
                                             </tr>
                                         </table>
                                     </div>
+                                    <br>
+                                    <a href="<?= base_url('perda') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Kembali</a>
                                 </div>
                             </div>
-                            <a href="<?= base_url('perda') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Kembali</a>
                         </div>
                     </div>
                 </div>

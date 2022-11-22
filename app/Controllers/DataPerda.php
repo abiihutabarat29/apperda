@@ -38,7 +38,7 @@ class DataPerda extends BaseController
     }
     public function dataperdav()
     {
-        $perda = $this->perdaModel->where('jenis_perda =', 'Propemperda')->findAll();
+        $perda = $this->perdaModel->where('jenis_perda =', 'Propemperda')->orwhere('jenis_perda =', 'Non-Propemperda')->findAll();
         $data = array(
             'title' => 'Verifikasi Perda',
             'data' => $perda,
@@ -311,7 +311,7 @@ class DataPerda extends BaseController
     }
     public function verifikasiv($id)
     {
-        $perda = $this->perdaModel->where('status =', 1)->where('jenis_perda =', 'Propemperda')->where('id =', $id)->first();
+        $perda = $this->perdaModel->where('id =', $id)->where('status =', 1)->first();
         $data = array(
             'titlebar' => 'Verifikasi Perda',
             'title' => 'Verifikasi Perda',

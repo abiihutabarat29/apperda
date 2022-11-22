@@ -19,7 +19,7 @@
                                 <tr>
                                     <th style="width: 5%">No</th>
                                     <th style="width: 20%">Instansi</th>
-                                    <th style="width: 45%">Judul Perda</th>
+                                    <th style="width: 30%">Judul Perda</th>
                                     <th style="width: 10%">
                                         <center>
                                             Jenis Perda

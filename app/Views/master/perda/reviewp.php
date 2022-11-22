@@ -127,12 +127,12 @@
                         <div class="tab-pane fade" id="pills-contact-nobd" role="tabpanel" aria-labelledby="pills-contact-tab-nobd">
                             <div class="card-body">
                                 <div class="col-md-12">
-                                    <h4><b>Jenis Perda</b></h4>
+                                    <h4><b>Jenis Perda & Surat Bupati</b></h4>
                                     <hr>
                                     <div class="table-responsive table-hover table-sales">
                                         <table class="table">
                                             <tr>
-                                                <td style="width: 15%">
+                                                <td style="width: 5%">
                                                     Jenis Perda
                                                 </td>
                                                 <td style="width: 0%">
@@ -145,11 +145,23 @@
                                                     </button>
                                                 </td>
                                             </tr>
+                                            <tr>
+                                                <td style="width: 5%">
+                                                    Surat Bupati
+                                                </td>
+                                                <td style="width: 0%">
+                                                    :
+                                                </td>
+                                                <td style="width: 20%">
+                                                    <a href="<?= base_url() ?>/media/surat/<?= $data['surat']; ?>" target="blank"><button class="btn btn-info btn-xs"><i class="fa fa-download"></i>&nbsp;&nbsp;Download</button></a>
+                                                </td>
+                                            </tr>
                                         </table>
+                                        <br>
+                                        <a href="<?= base_url('pengajuan-perda') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Kembali</a>
                                     </div>
                                 </div>
                             </div>
-                            <a href="<?= base_url('pengajuan-perda') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Kembali</a>
                         </div>
                     </div>
                 </div>

@@ -57,13 +57,9 @@
                                                 <center>
                                                     <span class="badge badge-warning">menunggu verifikasi</span>
                                                 </center>
-                                            <?php } elseif ($r['status'] == 1 && $r['jenis_perda'] == 'Propemperda') { ?>
+                                            <?php } elseif ($r['status'] == 1) { ?>
                                                 <center>
-                                                    <span class="badge badge-info">menunggu verifikasi admin dpr</span>
-                                                </center>
-                                            <?php } elseif ($r['status'] == 1 && $r['jenis_perda'] == 'Non-Propemperda') { ?>
-                                                <center>
-                                                    <span class="badge badge-success">terverifikasi</span>
+                                                    <span class="badge badge-info">menunggu verifikasi admin setwan</span>
                                                 </center>
                                             <?php } elseif ($r['status'] == 2) { ?>
                                                 <center>
