@@ -113,7 +113,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    Dokumen Lainnya
+                                                    Dokumen Pendukung Lainnya
                                                 </td>
                                                 <td>
                                                     <a href="<?= base_url() ?>/media/dokumen/<?= $data['dokumen']; ?>" target="blank"><button class="btn btn-info btn-xs"><i class="fa fa-download"></i>&nbsp;&nbsp;Download</button></a>
@@ -125,19 +125,29 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-contact-nobd" role="tabpanel" aria-labelledby="pills-contact-tab-nobd">
-                            <form action="<?= base_url('pengajuan-perda/verify/' . $data['id']) ?>" method="post">
+                            <form action="<?= base_url('pengajuan-perda/verify/' . $data['id']) ?>" method="post" enctype="multipart/form-data">
                                 <?= csrf_field(); ?>
                                 <input type="hidden" name="id" value="<?= $data['id']; ?>">
-                                <div class="col-md-6 pr-0">
-                                    <div class="form-group <?= ($validation->hasError('jenis')) ? 'has-error' : ''; ?>">
-                                        <label>Tentukan Jenis Perda<span class="text-danger">*</span></label>
-                                        <select name="jenis" class="form-control">
-                                            <option selected disabled><?= (old('jenis')) ? old('jenis') : ".::Pilih Jenis::." ?></option>
-                                            <option value="Propemperda">Propemperda</option>
-                                            <option value="Non-Propemperda">Non-Propemperda</option>
-                                        </select>
-                                        <small class="form-text text-danger">
-                                            <?= $validation->getError('jenis'); ?></small>
+                                <div class="card-body">
+                                    <div class="col-md-6 pr-0">
+                                        <div class="form-group <?= ($validation->hasError('jenis')) ? 'has-error' : ''; ?>">
+                                            <label>Tentukan Jenis Perda<span class="text-danger">*</span></label>
+                                            <select name="jenis" class="form-control">
+                                                <option selected disabled><?= (old('jenis')) ? old('jenis') : ".::Pilih Jenis::." ?></option>
+                                                <option value="Propemperda">Propemperda</option>
+                                                <option value="Non-Propemperda">Non-Propemperda</option>
+                                            </select>
+                                            <small class="form-text text-danger">
+                                                <?= $validation->getError('jenis'); ?></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group <?= ($validation->hasError('lampiran')) ? 'has-error' : ''; ?>">
+                                            <label>Surat Bupati<span class="text-danger">*</span></label>
+                                            <input type="file" name="lampiran" class="form-control-file" accept=".pdf">
+                                            <small class="form-text text-danger">
+                                                <?= $validation->getError('lampiran'); ?></small>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="card-action">

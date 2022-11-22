@@ -113,7 +113,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    Dokumen Lainnya
+                                                    Dokumen Pendukung Lainnya
                                                 </td>
                                                 <td>
                                                     <a href="<?= base_url() ?>/media/dokumen/<?= $data['dokumen']; ?>" target="blank"><button class="btn btn-info btn-xs"><i class="fa fa-download"></i>&nbsp;&nbsp;Download</button></a>

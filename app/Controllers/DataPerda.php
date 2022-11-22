@@ -73,10 +73,9 @@ class DataPerda extends BaseController
         //Validasi input
         if (!$this->validate([
             'judul' => [
-                'rules' => 'required|alpha_space',
+                'rules' => 'required',
                 'errors' => [
                     'required' => 'Judul Perda wajib diisi.',
-                    'alpha_space' => 'Judul Perda hanya huruf dan spasi.',
                 ]
             ],
             'dasar' => [
@@ -286,15 +285,27 @@ class DataPerda extends BaseController
                     'required' => 'Pilih Jenis Perda.',
                 ]
             ],
+            'lampiran' => [
+                'rules' => 'uploaded[lampiran]|mime_in[lampiran,application/pdf]|max_size[lampiran,1000]',
+                'errors' => [
+                    'uploaded' => 'Surat harus di upload.',
+                    'mime_in' => 'Extension file yang diperbolehkan .pdf',
+                    'max_size' => 'Ukuran File maksimal 1MB.'
+                ]
+            ]
         ])) {
             return redirect()->to(base_url('pengajuan-perda/verifikasi/' . $this->request->getPost('id')))->withInput();
         }
+        $lampiran   = $this->request->getFile('lampiran');
+        $fileNameLampiran = $lampiran->getRandomName();
         $data = [
             'id'             => $id,
             'jenis_perda'    => $this->request->getPost('jenis'),
+            'surat'       => $fileNameLampiran,
             'status'         => 1,
         ];
         $this->perdaModel->save($data);
+        $lampiran->move(ROOTPATH . 'public/media/surat/', $fileNameLampiran);
         session()->setFlashdata('m', 'Data berhasil diverifikasi');
         return redirect()->to(base_url('pengajuan-perda'));
     }

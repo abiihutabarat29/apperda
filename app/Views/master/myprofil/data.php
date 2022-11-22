@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div class="d-flex align-items-center">
-                            <a href="<?= base_url('my-profil/edit/' . $data['id']) ?>" class="btn btn-warning ml-auto btn-sm">
+                            <a href="<?= base_url('my-profil/edit/' . $data['id']) ?>" class="btn btn-warning ml-auto mr-2 btn-sm">
                                 <i class="fa fa-edit"></i> Edit
                             </a>
                             <a href="<?= base_url('/home') ?>" class="btn btn-default ml-lg-1 btn-sm"><i class="fa fa-undo-alt"></i> Kembali</a>
