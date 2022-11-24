@@ -27,6 +27,11 @@
                                     </th>
                                     <th style="width: 10%">
                                         <center>
+                                            Status
+                                        </center>
+                                    </th>
+                                    <th style="width: 10%">
+                                        <center>
                                             Action
                                         </center>
                                     </th>
@@ -42,6 +47,17 @@
                                         <td><?= $r['judul_perda']; ?></td>
                                         <td><?= $r['jenis_perda']; ?></td>
                                         <td>
+                                            <?php if ($r['status'] == 3) { ?>
+                                                <center>
+                                                    <span class="badge badge-success">diterima</span>
+                                                </center>
+                                            <?php } else { ?>
+                                                <center>
+                                                    <p>belum ada</p>
+                                                </center>
+                                            <?php } ?>
+                                        </td>
+                                        <td>
                                             <center>
                                                 <div class="form-button-action">
                                                     <?php if ($r['status'] == 2) { ?>
@@ -50,7 +66,9 @@
                                                         </a>
                                                     <?php } else { ?>
                                                         <center>
-                                                            <span class="badge badge-success">terverifikasi</span>
+                                                            <a href="#" class="btn btn-info btn-xs mr-2">
+                                                                <i class="fas fa-calendar"></i>&nbsp;&nbsp;Jadwal Banmus
+                                                            </a>
                                                         </center>
                                                     <?php } ?>
                                                 </div>

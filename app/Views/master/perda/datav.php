@@ -27,6 +27,11 @@
                                     </th>
                                     <th style="width: 10%">
                                         <center>
+                                            Status
+                                        </center>
+                                    </th>
+                                    <th style="width: 10%">
+                                        <center>
                                             Action
                                         </center>
                                     </th>
@@ -42,20 +47,41 @@
                                         <td><?= $r['judul_perda']; ?></td>
                                         <td><?= $r['jenis_perda']; ?></td>
                                         <td>
+                                            <?php if ($r['status'] == 1) { ?>
+                                                <center>
+                                                    <span class="badge badge-warning">menunggu verifikasi</span>
+                                                </center>
+                                            <?php } elseif ($r['status'] == 2) { ?>
+                                                <center>
+                                                    <span class="badge badge-warning">menunggu verifikasi ketua</span>
+                                                </center>
+                                            <?php } elseif ($r['status'] == 3) { ?>
+                                                <center>
+                                                    <span class="badge badge-success">diterima</span>
+                                                </center>
+                                            <?php } elseif ($r['status'] == 4) { ?>
+                                                <center>
+                                                    <span class="badge badge-danger">ditolak</span>
+                                                </center>
+                                            <?php } ?>
+                                        </td>
+                                        <td>
                                             <center>
                                                 <div class="form-button-action">
-                                                    <?php if ($r['status'] == 2) { ?>
-                                                        <center>
-                                                            <span class="badge badge-info">menunggu verifikasi ketua bapemperda</span>
-                                                        </center>
-                                                    <?php } elseif ($r['status'] == 3) { ?>
-                                                        <center>
-                                                            <span class="badge badge-success">terverifikasi</span>
-                                                        </center>
-                                                    <?php } else { ?>
+                                                    <?php if ($r['status'] == 1) { ?>
                                                         <a href="<?= base_url('verifikasi-perda/verifikasi/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
                                                             <i class="fas fa-check-double"></i>&nbsp;&nbsp;Verifikasi
                                                         </a>
+                                                    <?php } elseif ($r['status'] == 2) { ?>
+                                                        <center>
+                                                            <span class="badge badge-info">menunggu verifikasi ketua</span>
+                                                        </center>
+                                                    <?php } elseif ($r['status'] == 3) { ?>
+                                                        <a href="#" class="btn btn-info btn-xs mr-2">
+                                                            <i class="fas fa-file"></i>&nbsp;&nbsp;Lengkapi Data
+                                                        </a>
+                                                    <?php } elseif ($r['status'] == 4) { ?>
+                                                        <p><i>no action</i></p>
                                                     <?php } ?>
                                                 </div>
                                             </center>

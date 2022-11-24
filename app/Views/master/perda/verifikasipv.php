@@ -39,6 +39,9 @@
                             <a class="nav-link" id="pills-profile-tab-nobd" data-toggle="pill" href="#pills-profile-nobd" role="tab" aria-controls="pills-profile-nobd" aria-selected="false">File Upload</a>
                         </li>
                         <li class="nav-item submenu">
+                            <a class="nav-link" id="pills-surat-tab-nobd" data-toggle="pill" href="#pills-surat-nobd" role="tab" aria-controls="pills-surat-nobd" aria-selected="false">Surat</a>
+                        </li>
+                        <li class="nav-item submenu">
                             <a class="nav-link" id="pills-contact-tab-nobd" data-toggle="pill" href="#pills-contact-nobd" role="tab" aria-controls="pills-contact-nobd" aria-selected="true">Verifikasi</a>
                         </li>
                     </ul>
@@ -113,7 +116,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    Dokumen Lainnya
+                                                    Dokumen Pendukung Lainnya
                                                 </td>
                                                 <td>
                                                     <a href="<?= base_url() ?>/media/dokumen/<?= $data['dokumen']; ?>" target="blank"><button class="btn btn-info btn-xs"><i class="fa fa-download"></i>&nbsp;&nbsp;Download</button></a>
@@ -124,24 +127,47 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="tab-pane fade" id="pills-surat-nobd" role="tabpanel" aria-labelledby="pills-surat-tab-nobd">
+                            <div class="card-body">
+                                <div class="col-md-12">
+                                    <h4><b>Surat Bupati</b></h4>
+                                    <hr>
+                                    <div class="table-responsive table-sales">
+                                        <table class="table">
+                                            <tr>
+                                                <td style="width: 5%">
+                                                    Surat Bupati
+                                                </td>
+                                                <td style="width: 0%">
+                                                    :
+                                                </td>
+                                                <td style="width: 20%">
+                                                    <a href="<?= base_url() ?>/media/surat/<?= $data['surat']; ?>" target="blank"><button class="btn btn-info btn-xs"><i class="fa fa-download"></i>&nbsp;&nbsp;Download</button></a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="tab-pane fade" id="pills-contact-nobd" role="tabpanel" aria-labelledby="pills-contact-tab-nobd">
-                            <form action="<?= base_url('perda-terverifikasi/verify/' . $data['id']) ?>" method="post">
+                            <form action="<?= base_url('perda-terverifikasi/verif/' . $data['id']) ?>" method="post">
                                 <?= csrf_field(); ?>
                                 <input type="hidden" name="id" value="<?= $data['id']; ?>">
                                 <div class="col-md-6 pr-0">
-                                    <div class="form-group <?= ($validation->hasError('jenis')) ? 'has-error' : ''; ?>">
-                                        <label>Tentukan Jenis Perda<span class="text-danger">*</span></label>
-                                        <select name="jenis" class="form-control">
-                                            <option selected disabled><?= (old('jenis')) ? old('jenis') : ".::Pilih Jenis::." ?></option>
-                                            <option value="Propemperda">Propemperda</option>
-                                            <option value="Non-Propemperda">Non-Propemperda</option>
+                                    <div class="form-group <?= ($validation->hasError('konfirm')) ? 'has-error' : ''; ?>">
+                                        <label>Konfirmasi Kelayakan<span class="text-danger">*</span></label>
+                                        <select name="konfirm" class="form-control">
+                                            <option selected disabled><?= (old('konfirm')) ? old('konfirm') : ".::Pilih Kelayakan::." ?></option>
+                                            <option value="3">Layak</option>
+                                            <option value="4">Tidak Layak</option>
                                         </select>
                                         <small class="form-text text-danger">
-                                            <?= $validation->getError('jenis'); ?></small>
+                                            <?= $validation->getError('konfirm'); ?></small>
                                     </div>
                                 </div>
                                 <div class="card-action">
-                                    <button type="submit" class="btn btn-success btn-sm"> <i class="fas fa-check-double"></i>&nbsp;&nbsp;Verifikasi</button>
+                                    <button type="submit" class="btn btn-success btn-sm"> <i class="fas fa-check-double"></i>&nbsp;&nbsp;Konfirmasi</button>
                                     <a href="<?= base_url('perda-terverifikasi') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Kembali</a>
                                 </div>
                             </form>

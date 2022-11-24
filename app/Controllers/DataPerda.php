@@ -49,7 +49,7 @@ class DataPerda extends BaseController
     }
     public function dataperdapv()
     {
-        $perda = $this->perdaModel->where('status =', 2)->where('jenis_perda =', 'Propemperda')->findAll();
+        $perda = $this->perdaModel->where('status =', 2)->orwhere('status =', 3)->findAll();
         $data = array(
             'title' => 'Perda Terverifikasi',
             'data' => $perda,
@@ -301,7 +301,7 @@ class DataPerda extends BaseController
         $data = [
             'id'             => $id,
             'jenis_perda'    => $this->request->getPost('jenis'),
-            'surat'       => $fileNameLampiran,
+            'surat'          => $fileNameLampiran,
             'status'         => 1,
         ];
         $this->perdaModel->save($data);
@@ -324,7 +324,7 @@ class DataPerda extends BaseController
     }
     public function verifikasipv($id)
     {
-        $perda = $this->perdaModel->where('status =', 2)->where('jenis_perda =', 'Propemperda')->where('id =', $id)->first();
+        $perda = $this->perdaModel->where('status =', 2)->where('id =', $id)->first();
         $data = array(
             'titlebar' => 'Verifikasi Perda',
             'title' => 'Verifikasi Perda',
@@ -344,6 +344,27 @@ class DataPerda extends BaseController
         $this->perdaModel->save($data);
         session()->setFlashdata('m', 'Data berhasil diverifikasi');
         return redirect()->to(base_url('verifikasi-perda'));
+    }
+    public function verifypv($id)
+    {
+        //Validasi input
+        if (!$this->validate([
+            'konfirm' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Pilih Kelayakan.',
+                ]
+            ]
+        ])) {
+            return redirect()->to(base_url('perda-terverifikasi/verifikasi/' . $this->request->getPost('id')))->withInput();
+        }
+        $data = [
+            'id'             => $id,
+            'status'         =>  $this->request->getPost('konfirm'),
+        ];
+        $this->perdaModel->save($data);
+        session()->setFlashdata('m', 'Data berhasil dikonfirmasi');
+        return redirect()->to(base_url('perda-terverifikasi'));
     }
     public function review($id)
     {
