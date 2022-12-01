@@ -89,7 +89,8 @@
                     </li>
                 <?php } ?>
                 <?php if (session()->get('level') == '1') { ?>
-                    <li class="nav-item <?= ($request->uri->getSegment(1) == 'slideshow') ? 'active' : ""; ?>">
+                    <li class="nav-item <?= ($request->uri->getSegment(1) == 'slideshow' or
+                                            $request->uri->getSegment(1) == 'data-anggota') ? 'active' : ""; ?>">
                         <a data-toggle="collapse" href="#setting">
                             <i class="fa fa-cog"></i>
                             <p>App Setting</p>
