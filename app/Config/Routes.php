@@ -17,7 +17,7 @@ if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Auth');
+$routes->setDefaultController('Front');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -35,67 +35,71 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/home', 'Home::index');
-//API
-$routes->resource('/api/data-instansi', ['controller' => 'Api\Instansi']);
-$routes->resource('/api/data-fraksi', ['controller' => 'Api\Fraksi']);
+$routes->get('/', 'Front::index');
+
+$routes->get('site-admin', 'Admin\Auth::index');
+$routes->add('auth/verify', 'Admin\Auth::cek');
+$routes->get('auth/logout', 'Admin\Auth::logout');
 //Routes Login
-$routes->get('/', 'Auth::index');
-$routes->add('/auth/verify', 'Auth::cek');
-$routes->get('/auth/logout', 'Auth::logout');
-//Routes User
-$routes->get('data-user', 'User::user');
-$routes->get('data-user/add', 'User::add');
-$routes->post('data-user/save', 'User::save');
-$routes->delete('data-user/(:num)', 'User::delete/$1');
-$routes->get('data-user/edit/(:segment)', 'User::edit/$1');
-$routes->add('data-user/update/(:segment)', 'User::update/$1');
-//Routes Data Instansi
-$routes->get('/data-instansi', 'DataInstansi::data');
-$routes->get('/data-instansi/add', 'DataInstansi::add');
-$routes->add('/data-instansi/save', 'DataInstansi::save');
-$routes->delete('/data-instansi/(:num)', 'DataInstansi::delete/$1');
-$routes->get('/data-instansi/edit/(:segment)', 'DataInstansi::edit/$1');
-$routes->add('/data-instansi/update/(:segment)', 'DataInstansi::update/$1');
-//Routes My Profil
-$routes->get('/my-profil', 'MyProfil::myprofil');
-$routes->get('/my-profil/edit/(:segment)', 'MyProfil::edit/$1');
-$routes->add('/my-profil/update/(:segment)', 'MyProfil::update/$1');
-//Routes Perda
-$routes->get('/perda', 'DataPerda::data');
-$routes->get('/perda/add', 'DataPerda::add');
-$routes->add('/perda/save', 'DataPerda::save');
-$routes->delete('/perda/(:num)', 'DataPerda::delete/$1');
-$routes->get('/perda/edit/(:segment)', 'DataPerda::edit/$1');
-$routes->add('/perda/update/(:segment)', 'DataPerda::update/$1');
-$routes->get('/perda/review/(:segment)', 'DataPerda::review/$1');
-// Routes Slideshow
-$routes->get('slideshow', 'Slideshow::slideshow');
-$routes->get('slideshow/add', 'Slideshow::add');
-$routes->add('slideshow/save', 'Slideshow::save');
-$routes->delete('slideshow/(:num)', 'Slideshow::delete/$1');
-$routes->get('slideshow/edit/(:segment)', 'Slideshow::edit/$1');
-$routes->add('slideshow/update/(:segment)', 'Slideshow::update/$1');
-// Routes Anggota
-$routes->get('data-anggota', 'Anggota::anggota');
-$routes->get('data-anggota/add', 'Anggota::add');
-$routes->add('data-anggota/save', 'Anggota::save');
-$routes->delete('data-anggota/(:num)', 'Anggota::delete/$1');
-$routes->get('data-anggota/edit/(:segment)', 'Anggota::edit/$1');
-$routes->add('data-anggota/update/(:segment)', 'Anggota::update/$1');
-//Routes Pengajuan Perda
-$routes->get('/pengajuan-perda', 'DataPerda::dataperda');
-$routes->get('/pengajuan-perda/verifikasi/(:segment)', 'DataPerda::verifikasi/$1');
-$routes->post('/pengajuan-perda/verify/(:segment)', 'DataPerda::verify/$1');
-$routes->get('/pengajuan-perda/review/(:segment)', 'DataPerda::reviewp/$1');
-//Routes Verifikasi Perda
-$routes->get('/verifikasi-perda', 'DataPerda::dataperdav');
-$routes->get('/verifikasi-perda/verifikasi/(:segment)', 'DataPerda::verifikasiv/$1');
-$routes->add('/verifikasi-perda/verif/(:segment)', 'DataPerda::verifyv/$1');
-//Routes Perda Terverifikasi
-$routes->get('/perda-terverifikasi', 'DataPerda::dataperdapv');
-$routes->get('/perda-terverifikasi/verifikasi/(:segment)', 'DataPerda::verifikasipv/$1');
-$routes->add('/perda-terverifikasi/verif/(:segment)', 'DataPerda::verifypv/$1');
+$routes->group('admin', function ($routes) {
+    $routes->get('home', 'Admin\Home::index');
+    //API
+    $routes->resource('api/data-instansi', ['controller' => 'Api\Instansi']);
+    //Routes User
+    $routes->get('data-user', 'Admin\User::user');
+    $routes->get('data-user/add', 'Admin\User::add');
+    $routes->post('data-user/save', 'Admin\User::save');
+    $routes->delete('data-user/(:num)', 'Admin\User::delete/$1');
+    $routes->get('data-user/edit/(:segment)', 'Admin\User::edit/$1');
+    $routes->add('data-user/update/(:segment)', 'Admin\User::update/$1');
+    //Routes Data Instansi
+    $routes->get('data-instansi', 'Admin\DataInstansi::data');
+    $routes->get('data-instansi/add', 'Admin\DataInstansi::add');
+    $routes->add('data-instansi/save', 'Admin\DataInstansi::save');
+    $routes->delete('data-instansi/(:num)', 'Admin\DataInstansi::delete/$1');
+    $routes->get('data-instansi/edit/(:segment)', 'Admin\DataInstansi::edit/$1');
+    $routes->add('data-instansi/update/(:segment)', 'Admin\DataInstansi::update/$1');
+    //Routes My Profil
+    $routes->get('my-profil', 'Admin\MyProfil::myprofil');
+    $routes->get('my-profil/edit/(:segment)', 'Admin\MyProfil::edit/$1');
+    $routes->add('my-profil/update/(:segment)', 'Admin\MyProfil::update/$1');
+    //Routes Perda
+    $routes->get('perda', 'Admin\DataPerda::data');
+    $routes->get('perda/add', 'Admin\DataPerda::add');
+    $routes->add('perda/save', 'Admin\DataPerda::save');
+    $routes->delete('/perda/(:num)', 'Admin\DataPerda::delete/$1');
+    $routes->get('perda/edit/(:segment)', 'Admin\DataPerda::edit/$1');
+    $routes->add('perda/update/(:segment)', 'Admin\DataPerda::update/$1');
+    $routes->get('perda/review/(:segment)', 'Admin\DataPerda::review/$1');
+    // Routes Slideshow
+    $routes->get('slideshow', 'Admin\Slideshow::slideshow');
+    $routes->get('slideshow/add', 'Admin\Slideshow::add');
+    $routes->add('slideshow/save', 'Admin\Slideshow::save');
+    $routes->delete('slideshow/(:num)', 'Admin\Slideshow::delete/$1');
+    $routes->get('slideshow/edit/(:segment)', 'Admin\Slideshow::edit/$1');
+    $routes->add('slideshow/update/(:segment)', 'Admin\Slideshow::update/$1');
+    // Routes Anggota
+    $routes->get('data-anggota', 'Admin\Anggota::anggota');
+    $routes->get('data-anggota/add', 'Admin\Anggota::add');
+    $routes->add('data-anggota/save', 'Admin\Anggota::save');
+    $routes->delete('data-anggota/(:num)', 'Admin\Anggota::delete/$1');
+    $routes->get('data-anggota/edit/(:segment)', 'Admin\Anggota::edit/$1');
+    $routes->add('data-anggota/update/(:segment)', 'Admin\Anggota::update/$1');
+    //Routes Pengajuan Perda
+    $routes->get('pengajuan-perda', 'Admin\DataPerda::dataperda');
+    $routes->get('pengajuan-perda/verifikasi/(:segment)', 'Admin\DataPerda::verifikasi/$1');
+    $routes->post('pengajuan-perda/verify/(:segment)', 'Admin\DataPerda::verify/$1');
+    $routes->get('pengajuan-perda/review/(:segment)', 'Admin\DataPerda::reviewp/$1');
+    //Routes Verifikasi Perda
+    $routes->get('verifikasi-perda', 'Admin\DataPerda::dataperdav');
+    $routes->get('verifikasi-perda/verifikasi/(:segment)', 'Admin\DataPerda::verifikasiv/$1');
+    $routes->add('verifikasi-perda/verif/(:segment)', 'Admin\DataPerda::verifyv/$1');
+    //Routes Perda Terverifikasi
+    $routes->get('perda-terverifikasi', 'Admin\DataPerda::dataperdapv');
+    $routes->get('perda-terverifikasi/verifikasi/(:segment)', 'Admin\DataPerda::verifikasipv/$1');
+    $routes->add('perda-terverifikasi/verif/(:segment)', 'Admin\DataPerda::verifypv/$1');
+});
+
 /*
 
 
