@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\AnggotaModel;
 use CodeIgniter\Config\Config;
+use CodeIgniter\HTTP\RequestInterface;
 
 class Anggota extends BaseController
 {
@@ -12,94 +13,66 @@ class Anggota extends BaseController
     {
         $this->anggotaModel = new AnggotaModel();
     }
-
     public function anggota()
     {
+        $anggota = $this->anggotaModel->findAll();
         $data = array(
-            'title'          => 'Anggota',
-            'appname'        => 'SISTEM INFORMASI PERATURAN DAERAH',
-            'anggota'        =>  $this->anggotaModel->orderBy('id', 'DESC')->findAll(),
-            'isi'            => 'setting/anggota/data',
+            'title' => 'Data Anggota Bapemperda',
+            'data' => $anggota,
+            'isi' => 'master/anggota/data',
         );
         return view('layout/wrapper', $data);
     }
 
     public function add()
     {
-        $fraksi = $this->fraksiModel->findAll();
         $data = array(
-            'titlebar'           => 'Data Anggota',
-            'title'              => 'Tambah Anggota',
-            'isi'                => 'setting/anggota/add',
-            'fraksi'             =>  $fraksi,
-            'validation'         => \Config\Services::validation()
+            'titlebar' => 'Data Anggota',
+            'title' => 'Tambah Anggota',
+            'isi' => 'master/anggota/add',
+            'validation' => \Config\Services::validation()
         );
         return view('layout/wrapper', $data);
     }
-
     public function save()
     {
-        //Validasi input
         if (!$this->validate([
-            'idfraksi' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Pilih Fraksi.',
-                ]
-            ],
             'nama' => [
-                'rules' => 'required',
+                'rules' => 'required|alpha_space',
                 'errors' => [
-                    'required' => 'Nama tidak boleh kosong',
-                ]
-            ],
-            'jabatan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'jabatan tidak boleh kosong.',
+                    'required' => 'Nama tidak boleh kosong.',
+                    'alpha_space' => 'Nama harus huruf dan spasi.'
                 ]
             ],
             'foto' => [
-                'rules' => 'uploaded[foto]|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]|max_size[foto,4098]',
+                'rules' => 'uploaded[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]|max_size[foto,1024]',
                 'errors' => [
-                    'uploaded' => 'Lupa ko ngupload Gambarnya kan???',
-                    'mime_in' => 'File Extention Harus Berupa jpg,jpeg,gif,png',
-                    'max_size' => 'Ukuran Gambar Maks. 4 MB'
+                    'uploaded' => 'Foto harus di upload.',
+                    'mime_in' => 'File extention hanya jpg, jpeg, png.',
+                    'is_image' => 'Upload hanya file foto.',
+                    'max_size' => 'Ukuran foto maksimal 1MB.'
                 ]
             ]
         ])) {
-            return redirect()->to('add')->withInput();
+            return redirect()->to('/data-anggota/add')->withInput();
         }
-
-        $foto   = $this->request->getFile('foto');
-        if ($foto->getError() == 4) {
-            $data = $this->anggotaModel->find();
-            $fileName = $data['foto'];
-        } else {
-            $fileName = $foto->getRandomName();
-
-            $foto   = $this->request->getFile('foto');
-            $fileName = $foto->getRandomName();
-            $data = [
-                'id_fraksi'            => $this->request->getPost('idfraksi'),
-                'fraksi'               => $this->request->getPost('fraksi'),
-                'nama'                 => $this->request->getPost('nama'),
-                'jabatan'              => $this->request->getPost('jabatan'),
-                'foto'                 => $fileName,
-            ];
-            $foto->move(ROOTPATH . 'public/media/fotoanggota/', $fileName);
-
-            $this->anggotaModel->save($data);
-            session()->setFlashdata('m', 'Data berhasil disimpan');
-            return redirect()->to(base_url('data-anggota'));
-        }
+        $foto = $this->request->getFile('foto');
+        $fileName = $foto->getRandomName();
+        $data = [
+            'nama'       => $this->request->getPost('nama'),
+            'foto'       => $fileName,
+        ];
+        $this->anggotaModel->save($data);
+        $foto->move(ROOTPATH . 'public/media/fotoanggota/', $fileName);
+        session()->setFlashdata('m', 'Data Berhasil Ditambahkan ke Database');
+        return redirect()->to(base_url('data-anggota'));
     }
     public function delete($id)
     {
         $data = $this->anggotaModel->find($id);
-        $foto = $data['foto'];
-        if (file_exists(ROOTPATH . 'public/media/fotoanggota/' . $foto)) {
-            unlink(ROOTPATH . 'public/media/fotoanggota/' . $foto);
+        $gambar = $data['foto'];
+        if (file_exists(ROOTPATH . 'public/media/fotoanggota/' . $gambar)) {
+            unlink(ROOTPATH . 'public/media/fotoanggota/' . $gambar);
         }
         $this->anggotaModel->delete($id);
         session()->setFlashdata('m', 'Data berhasil dihapus');
@@ -108,15 +81,58 @@ class Anggota extends BaseController
 
     public function edit($id)
     {
-        $fraksi = $this->fraksiModel->findAll();
         $data = array(
-            'titlebar' => 'Data User',
-            'title' => 'Form Edit User',
-            'isi' => 'setting/anggota/edit',
+            'titlebar' => 'Data Anggota',
+            'title' => 'Edit Data Anggota',
+            'isi' => 'master/anggota/edit',
             'validation' => \Config\Services::validation(),
-            'fraksi' => $fraksi,
-            'data' => $this->fraksiModel->where('id', $id)->first(),
+            'data' => $this->anggotaModel->where('id', $id)->first(),
         );
         return view('layout/wrapper', $data);
+    }
+
+    public function update($id)
+    {
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required|alpha_space',
+                'errors' => [
+                    'required' => 'Nama tidak boleh kosong.',
+                    'alpha_space' => 'Nama harus huruf dan spasi.'
+                ]
+            ],
+            'foto' => [
+                'rules' => 'mime_in[foto,image/jpg,image/jpeg,image/png]|max_size[foto,1024]',
+                'errors' => [
+                    'mime_in' => 'File extention hanya jpg, jpeg, png.',
+                    'is_image' => 'Upload hanya file foto.',
+                    'max_size' => 'Ukuran foto maksimal 1MB.'
+                ]
+            ]
+        ])) {
+            return redirect()->to(base_url('/data-anggota/edit/' . $this->request->getPost('id')))->withInput();
+        }
+        $foto   = $this->request->getFile('foto');
+        if ($foto->getError() == 4) {
+            $data = $this->anggotaModel->find($id);
+            $fileName = $data['foto'];
+        } else {
+            $fileName = $foto->getRandomName();
+            //move foto
+            $foto->move(ROOTPATH . 'public/media/fotoanggota/', $fileName);
+            $data = $this->anggotaModel->find($id);
+            $replace = $data['foto'];
+            if (file_exists(ROOTPATH . 'public/media/fotoanggota/' . $replace)) {
+                unlink(ROOTPATH . 'public/media/fotoanggota/' . $replace);
+            }
+        }
+        $data = [
+            'id'            => $id,
+            'nama'          => $this->request->getPost('nama'),
+            'foto'          => $fileName,
+        ];
+        $this->anggotaModel->save($data);
+        session()->setFlashdata('m', 'Data berhasil di update');
+        return redirect()->to(base_url('data-anggota'));
     }
 }

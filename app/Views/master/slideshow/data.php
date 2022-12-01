@@ -22,9 +22,9 @@
                         <table id="add-row" class="display table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>No</th>
+                                    <th style="width: 10%">No</th>
                                     <th>Keterangan</th>
-                                    <th>Gambar</th>
+                                    <th style="width: 10%">Gambar</th>
                                     <th style="width: 10%">Action</th>
                                 </tr>
                             </thead>
@@ -35,7 +35,7 @@
                                     <tr>
                                         <td><?= $i++; ?></td>
                                         <td><?= $value['keterangan']; ?></td>
-                                        <td><img src="<?= base_url('./media/slideshow/' . $value['gambar']) ?>" width="250px"></td>
+                                        <td><img src="<?= base_url('./media/slideshow/' . $value['gambar']) ?>" width="150px" class="img rounded"></td>
                                         <td>
                                             <div class="form-button-action">
                                                 <a href="<?= base_url('slideshow/edit/' . $value['id']); ?>" class="btn btn-primary btn-xs mr-2" title="Edit Data">

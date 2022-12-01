@@ -103,9 +103,8 @@ class Slideshow extends BaseController
                 ]
             ],
             'gambar' => [
-                'rules' => 'uploaded[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]|max_size[gambar,1024]',
+                'rules' => 'mime_in[gambar,image/jpg,image/jpeg,image/png]|max_size[gambar,1024]',
                 'errors' => [
-                    'uploaded' => 'Gambar harus di upload.',
                     'mime_in' => 'File extention hanya jpg, jpeg, png.',
                     'is_image' => 'Upload hanya file gambar.',
                     'max_size' => 'Ukuran gambar maksimal 1MB.'

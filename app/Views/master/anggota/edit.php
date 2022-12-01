@@ -27,14 +27,15 @@
                 <div class="card-header">
                     <div class="card-title"><?= $title ?></div>
                 </div>
-                <form action="<?= base_url('data-anggota/save') ?>" method="post" enctype="multipart/form-data">
+                <form action="<?= base_url('data-anggota/update/' . $data['id']) ?>" method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
+                    <input type="hidden" name="id" value="<?= $data['id'] ?>">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group <?= ($validation->hasError('nama')) ? 'has-error' : ''; ?>">
                                     <label>Nama<span class="text-danger">*</span></label>
-                                    <input name="nama" type="text" class="form-control" autocomplete="off" value="<?= old('nama'); ?>">
+                                    <input name="nama" type="text" class="form-control" autocomplete="off" value="<?= (old('nama')) ? old('nama') : $data['nama']; ?>">
                                     <small class="form-text text-danger">
                                         <?= $validation->getError('nama'); ?></small>
                                 </div>
@@ -49,13 +50,13 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <img id="show" src="<?= base_url('media/no_image.jpg'); ?>" class="" width="250" height="150" />
+                                    <img id="show" src="<?= base_url('media/fotoanggota/' . $data['foto']) ?>" class="" width="280" height="180" />
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-action">
-                        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Simpan</button>
+                        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Update</button>
                         <a href="<?= base_url('data-anggota') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i> Kembali</a>
                     </div>
                 </form>

@@ -81,6 +81,8 @@ $routes->get('data-anggota', 'Anggota::anggota');
 $routes->get('data-anggota/add', 'Anggota::add');
 $routes->add('data-anggota/save', 'Anggota::save');
 $routes->delete('data-anggota/(:num)', 'Anggota::delete/$1');
+$routes->get('data-anggota/edit/(:segment)', 'Anggota::edit/$1');
+$routes->add('data-anggota/update/(:segment)', 'Anggota::update/$1');
 //Routes Pengajuan Perda
 $routes->get('/pengajuan-perda', 'DataPerda::dataperda');
 $routes->get('/pengajuan-perda/verifikasi/(:segment)', 'DataPerda::verifikasi/$1');
