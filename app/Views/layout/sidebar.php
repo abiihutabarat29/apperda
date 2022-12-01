@@ -89,7 +89,7 @@
                     </li>
                 <?php } ?>
                 <?php if (session()->get('level') == '1') { ?>
-                    <li class="nav-item <?= ($request->uri->getSegment(1) == 'data-slideshow') ? 'active' : ""; ?>">
+                    <li class="nav-item <?= ($request->uri->getSegment(1) == 'slideshow') ? 'active' : ""; ?>">
                         <a data-toggle="collapse" href="#setting">
                             <i class="fa fa-cog"></i>
                             <p>App Setting</p>
@@ -98,18 +98,13 @@
                         <div class="collapse" id="setting">
                             <ul class="nav nav-collapse">
                                 <li>
-                                    <a href="<?= base_url('data-slideshow') ?>">
+                                    <a href="<?= base_url('slideshow') ?>">
                                         <span class="sub-item">Slideshow</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?= base_url('data-anggota') ?>">
                                         <span class="sub-item">Keangotaan</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url('data-fraksi') ?>">
-                                        <span class="sub-item">Fraksi</span>
                                     </a>
                                 </li>
                             </ul>

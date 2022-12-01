@@ -9,5 +9,5 @@ class AnggotaModel extends Model
     protected $table      = 'mod_anggota';
     protected $primaryKey = 'id';
     protected $useTimestamps = true;
-    protected $allowedFields = ['id_fraksi', 'fraksi', 'nama', 'jabatan', 'foto'];
+    protected $allowedFields = ['nama', 'foto'];
 }

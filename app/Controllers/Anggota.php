@@ -3,17 +3,14 @@
 namespace App\Controllers;
 
 use App\Models\AnggotaModel;
-use App\Models\FraksiModel;
 use CodeIgniter\Config\Config;
 
 class Anggota extends BaseController
 {
     protected $anggotaModel;
-    protected $fraksiModel;
     public function __construct()
     {
         $this->anggotaModel = new AnggotaModel();
-        $this->fraksiModel = new FraksiModel();
     }
 
     public function anggota()

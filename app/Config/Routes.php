@@ -70,24 +70,17 @@ $routes->get('/perda/edit/(:segment)', 'DataPerda::edit/$1');
 $routes->add('/perda/update/(:segment)', 'DataPerda::update/$1');
 $routes->get('/perda/review/(:segment)', 'DataPerda::review/$1');
 // Routes Slideshow
-$routes->get('data-slideshow', 'Slideshow::slideshow');
-$routes->get('data-slideshow/add', 'Slideshow::add');
-$routes->add('data-slideshow/save', 'SLideshow::save');
-$routes->delete('data-slideshow/(:num)', 'Slideshow::delete/$1');
-$routes->get('data-slideshow/edit/(:segment)', 'Slideshow::edit/$1');
-$routes->add('data-slideshow/update/(:segment)', 'Slideshow::update/$1');
+$routes->get('slideshow', 'Slideshow::slideshow');
+$routes->get('slideshow/add', 'Slideshow::add');
+$routes->add('slideshow/save', 'Slideshow::save');
+$routes->delete('slideshow/(:num)', 'Slideshow::delete/$1');
+$routes->get('slideshow/edit/(:segment)', 'Slideshow::edit/$1');
+$routes->add('slideshow/update/(:segment)', 'Slideshow::update/$1');
 // Routes Anggota
 $routes->get('data-anggota', 'Anggota::anggota');
 $routes->get('data-anggota/add', 'Anggota::add');
 $routes->add('data-anggota/save', 'Anggota::save');
 $routes->delete('data-anggota/(:num)', 'Anggota::delete/$1');
-//Routes Data Fraksi
-$routes->get('/data-fraksi', 'DataFraksi::data');
-$routes->get('/data-fraksi/add', 'DataFraksi::add');
-$routes->add('/data-fraksi/save', 'DataFraksi::save');
-$routes->delete('/data-fraksi/(:num)', 'DataFraksi::delete/$1');
-$routes->get('/data-fraksi/edit/(:segment)', 'DataFraksi::edit/$1');
-$routes->add('/data-fraksi/update/(:segment)', 'DataFraksi::update/$1');
 //Routes Pengajuan Perda
 $routes->get('/pengajuan-perda', 'DataPerda::dataperda');
 $routes->get('/pengajuan-perda/verifikasi/(:segment)', 'DataPerda::verifikasi/$1');
