@@ -57,7 +57,7 @@ class Filters extends BaseConfig
         'after' => [
             'toolbar',
             'filteradmin' => ['except' => [
-                'admin/home', 'admin/home/*',
+                'admin/home', 'home/*',
                 'admin/data-user',
                 'admin/data-user/*',
                 'admin/data-instansi',

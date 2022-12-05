@@ -19,7 +19,7 @@ class FilterHukum implements FilterInterface
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
         if (session()->get('level') == 3) {
-            return redirect()->to(base_url('home'));
+            return redirect()->to(base_url('admin/home'));
         }
     }
 }

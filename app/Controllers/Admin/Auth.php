@@ -60,7 +60,7 @@ class Auth extends BaseController
                     session()->set('foto', $cek['foto']);
                     session()->set('level', $cek['level']);
                     session()->set('status', $cek['status']);
-                    return redirect()->to(base_url('/admin/home'));
+                    return redirect()->to(base_url('admin/home'));
                 } else {
                     //jika tidak data cocok
                     session()->setFlashdata('m', 'PASSWORD SALAH.');
