@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Nov 2022 pada 07.26
+-- Waktu pembuatan: 05 Des 2022 pada 07.07
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.6
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `apperda_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `mod_anggota`
+--
+
+CREATE TABLE `mod_anggota` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `foto` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -47,7 +61,7 @@ INSERT INTO `mod_instansi` (`id`, `instansi`, `userentry`, `created_at`, `update
 (5, 'Bagian Hukum', 'Abii Hutabarat', '2022-09-22 23:30:58', '2022-09-22'),
 (6, 'Bagian Ekonomi', 'Abii Hutabarat', '2022-09-22 23:31:11', '2022-09-22'),
 (7, 'Bagian Organisasi', 'Abii Hutabarat', '2022-09-22 23:32:12', '2022-09-22'),
-(10, 'Dinas Komunikasi dan Informatika', 'Abii Hutabarat', '2022-10-08 12:08:42', '2022-10-08'),
+(10, 'Dinas Komunikasi dan Informatika', 'Abii Hutabarat', '2022-10-08 12:08:42', '2022-12-01'),
 (11, 'Sekretariat Dewan', 'Abii Hutabarat', '2022-10-12 16:29:26', '2022-10-12'),
 (12, 'Dinas Pekerjaan Umum dan Tata Ruang', 'Abii Hutabarat', '2022-11-21 14:37:03', '2022-11-21');
 
@@ -79,8 +93,21 @@ CREATE TABLE `mod_perda` (
 --
 
 INSERT INTO `mod_perda` (`id`, `id_instansi`, `instansi`, `judul_perda`, `dasar_hukum`, `draf_perda`, `naskah_akademik`, `dokumen`, `jenis_perda`, `surat`, `status`, `userentry`, `created_at`, `updated_at`) VALUES
-(7, 10, 'Dinas Komunikasi dan Informatika', 'Test', 'Test', '1669094451_6435b22da144532a97f6.pdf', '1669094451_2b7cdffe1be53bc05798.pdf', '1669094451_01944fca070bbc2c5785.pdf', 'Propemperda', '1669095898_2f78860332585b26b00e.pdf', 1, 'Putri', '2022-11-22 12:20:51', '2022-11-22 12:44:58'),
-(8, 10, 'Dinas Komunikasi dan Informatika', 'Test 2', 'Test 2', '1669094544_039fced50ce626bf3965.pdf', '1669094544_24ce728b2b5deca7eeef.pdf', '1669094544_f49da66d40c1c2ae6701.pdf', 'Non-Propemperda', '1669095905_b2c9fa54d03cc57b9202.pdf', 1, 'Putri', '2022-11-22 12:22:24', '2022-11-22 12:45:05');
+(9, 10, 'Dinas Komunikasi dan Informatika', 'Peraturan Tata Ruang', 'UUD 1945', '1669281797_71cf36c571bacd225bf3.pdf', '1669281797_06423efc75636a37586b.pdf', '1669281797_8ca87f7118be46850d79.pdf', 'Propemperda', '1669281955_11ab3bd457ee526e420c.pdf', 3, 'Putri', '2022-11-24 16:23:17', '2022-11-24 16:38:02');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `mod_slideshow`
+--
+
+CREATE TABLE `mod_slideshow` (
+  `id` int(11) NOT NULL,
+  `keterangan` varchar(255) NOT NULL,
+  `gambar` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -120,6 +147,12 @@ INSERT INTO `mod_user` (`id`, `id_instansi`, `instansi`, `nik`, `nama`, `nohp`, 
 --
 
 --
+-- Indeks untuk tabel `mod_anggota`
+--
+ALTER TABLE `mod_anggota`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `mod_instansi`
 --
 ALTER TABLE `mod_instansi`
@@ -129,6 +162,12 @@ ALTER TABLE `mod_instansi`
 -- Indeks untuk tabel `mod_perda`
 --
 ALTER TABLE `mod_perda`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `mod_slideshow`
+--
+ALTER TABLE `mod_slideshow`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -142,6 +181,12 @@ ALTER TABLE `mod_user`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `mod_anggota`
+--
+ALTER TABLE `mod_anggota`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT untuk tabel `mod_instansi`
 --
 ALTER TABLE `mod_instansi`
@@ -151,7 +196,13 @@ ALTER TABLE `mod_instansi`
 -- AUTO_INCREMENT untuk tabel `mod_perda`
 --
 ALTER TABLE `mod_perda`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT untuk tabel `mod_slideshow`
+--
+ALTER TABLE `mod_slideshow`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `mod_user`
