@@ -12,7 +12,7 @@ class FilterKetua implements FilterInterface
     {
         if (session()->get('level') == "") {
             session()->setFlashdata('m', 'Maaf anda belum login.');
-            return redirect()->to(base_url('/'));
+            return redirect()->to(base_url('site-admin'));
         }
     }
 
