@@ -98,6 +98,10 @@ $routes->group('admin', function ($routes) {
     $routes->get('perda-terverifikasi', 'Admin\DataPerda::dataperdapv');
     $routes->get('perda-terverifikasi/verifikasi/(:segment)', 'Admin\DataPerda::verifikasipv/$1');
     $routes->add('perda-terverifikasi/verif/(:segment)', 'Admin\DataPerda::verifypv/$1');
+    //Routes Verifikasi Perda Disposisi
+    $routes->get('verif-perda', 'Admin\DataPerda::dataperdavd');
+    $routes->get('verif-perda/verifikasi/(:segment)', 'Admin\DataPerda::verifikasivd/$1');
+    $routes->add('verif-perda/verif/(:segment)', 'Admin\DataPerda::verifyvd/$1');
 });
 
 /*

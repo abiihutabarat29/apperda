@@ -103,8 +103,8 @@ class Filters extends BaseConfig
                 'admin/home', 'admin/home/*',
                 'admin/my-profil',
                 'admin/my-profil/*',
-                'admin/perda-terverifikasi',
-                'admin/perda-terverifikasi/*',
+                'admin/verif-perda',
+                'admin/verif-perda/*',
             ]],
         ],
     ];

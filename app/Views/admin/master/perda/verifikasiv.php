@@ -153,18 +153,18 @@
                         <div class="tab-pane fade" id="pills-contact-nobd" role="tabpanel" aria-labelledby="pills-contact-tab-nobd">
                             <div class="card-body">
                                 <div class="col-md-12">
-                                    <h4><b>Konfirmasi Kelayakan Perda</b></h4>
+                                    <h4><b>Konfirmasi</b></h4>
                                     <hr>
                                     <div class="col-md-6 pr-0">
                                         <div class="form-group">
-                                            <p><b>Jika data perda sudah layak untuk diteruskan ke ketua bappemperda, tekan teruskan.</b></p>
+                                            <p><b>Jika data perda sudah layak untuk diteruskan kepada <b>Ketua Setwan</b>. Tekan teruskan.</b></p>
                                         </div>
                                     </div>
                                     <div class="card-action">
                                         <a href="#" class="btn btn-success btn-sm" title="Teruskan" data-toggle='modal' data-target='#activateModalV<?= $data['id'] ?>'>
                                             <i class="fas fa-check-double"></i>&nbsp;&nbsp;Teruskan
                                         </a>
-                                        <a href="<?= base_url('verifikasi-perda') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Kembali</a>
+                                        <a href="<?= base_url('admin/verifikasi-perda') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Kembali</a>
                                     </div>
                                 </div>
                             </div>
@@ -190,7 +190,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Apakah data Perda dari <span class="text-danger"><b><?= $data['instansi']; ?></b></span> sudah layak diteruskan ? <b>Konfirmasi</b> jika data sudah layak.
+                    Apakah data Perda dari <span class="text-danger"><b><?= $data['instansi']; ?></b></span> akan diteruskan kepada Ketua Setwan ? <b>Konfirmasi</b> untuk meneruskan.
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="_method" value="DELETE">

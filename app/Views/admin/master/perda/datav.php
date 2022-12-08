@@ -19,7 +19,7 @@
                                 <tr>
                                     <th style="width: 5%">No</th>
                                     <th style="width: 20%">Instansi</th>
-                                    <th style="width: 30%">Judul Perda</th>
+                                    <th style="width: 45%">Judul Perda</th>
                                     <th style="width: 10%">
                                         <center>
                                             Jenis Perda
@@ -53,13 +53,17 @@
                                                 </center>
                                             <?php } elseif ($r['status'] == 2) { ?>
                                                 <center>
-                                                    <span class="badge badge-warning">menunggu verifikasi ketua</span>
+                                                    <span class="badge badge-warning">menunggu verifikasi ketua setwan</span>
                                                 </center>
                                             <?php } elseif ($r['status'] == 3) { ?>
                                                 <center>
-                                                    <span class="badge badge-success">diterima</span>
+                                                    <span class="badge badge-warning">menunggu verifikasi ketua bapemperda</span>
                                                 </center>
                                             <?php } elseif ($r['status'] == 4) { ?>
+                                                <center>
+                                                    <span class="badge badge-success">diterima</span>
+                                                </center>
+                                            <?php } elseif ($r['status'] == 5) { ?>
                                                 <center>
                                                     <span class="badge badge-danger">ditolak</span>
                                                 </center>
@@ -74,14 +78,26 @@
                                                         </a>
                                                     <?php } elseif ($r['status'] == 2) { ?>
                                                         <center>
-                                                            <span class="badge badge-info">menunggu verifikasi ketua</span>
+                                                            <span class="badge badge-info">menunggu verifikasi ketua setwan</span>
                                                         </center>
                                                     <?php } elseif ($r['status'] == 3) { ?>
-                                                        <a href="#" class="btn btn-info btn-xs mr-2">
-                                                            <i class="fas fa-file"></i>&nbsp;&nbsp;Lengkapi Data
-                                                        </a>
+                                                        <center>
+                                                            <span class="badge badge-info">menunggu verifikasi ketua bapemperda</span>
+                                                        </center>
                                                     <?php } elseif ($r['status'] == 4) { ?>
-                                                        <p><i>no action</i></p>
+                                                        <?php if ($r['tgl_banmus'] != null) { ?>
+                                                            <a href="#" class="btn btn-info btn-xs mr-2">
+                                                                <i class="fas fa-file"></i>&nbsp;&nbsp;Lengkapi Data
+                                                            </a>
+                                                        <?php } else { ?>
+                                                            <center>
+                                                                <span class="badge badge-info">menunggu jadwal banmus</span>
+                                                            </center>
+                                                        <?php } ?>
+                                                    <?php } elseif ($r['status'] == 5) { ?>
+                                                        <center>
+                                                            <span><i>no action</i></span>
+                                                        </center>
                                                     <?php } ?>
                                                 </div>
                                             </center>

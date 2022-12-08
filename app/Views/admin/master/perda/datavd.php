@@ -47,9 +47,13 @@
                                         <td><?= $r['judul_perda']; ?></td>
                                         <td><?= $r['jenis_perda']; ?></td>
                                         <td>
-                                            <?php if ($r['status'] == 3) { ?>
+                                            <?php if ($r['status'] == 2) { ?>
                                                 <center>
                                                     <span class="badge badge-warning">menunggu verifikasi</span>
+                                                </center>
+                                            <?php } elseif ($r['status'] == 3) { ?>
+                                                <center>
+                                                    <span class="badge badge-warning">menunggu verifikasi ketua bapemperda</span>
                                                 </center>
                                             <?php } elseif ($r['status'] == 4) { ?>
                                                 <center>
@@ -64,20 +68,25 @@
                                         <td>
                                             <center>
                                                 <div class="form-button-action">
-                                                    <?php if ($r['status'] == 3) { ?>
-                                                        <a href="<?= base_url('admin/perda-terverifikasi/verifikasi/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
+                                                    <?php if ($r['status'] == 2) { ?>
+                                                        <a href="<?= base_url('admin/verif-perda/verifikasi/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
                                                             <i class="fas fa-check-double"></i>&nbsp;&nbsp;Verifikasi
                                                         </a>
-                                                    <?php } elseif ($r['status'] == 4) { ?>
+                                                    <?php } elseif ($r['status'] == 3) { ?>
                                                         <center>
-                                                            <a href="#" class="btn btn-info btn-xs mr-2">
-                                                                <i class="fas fa-calendar"></i>&nbsp;&nbsp;Jadwal Banmus
-                                                            </a>
+                                                            <span class="badge badge-warning">menunggu verifikasi admin bapemperda</span>
                                                         </center>
-                                                    <?php } elseif ($r['status'] == 5) { ?>
-                                                        <center>
-                                                            <span><i>no action</i></span>
-                                                        </center>
+                                                        </a>
+                                                    <?php } elseif ($r['status'] == 4 or $r['status'] == 5) { ?>
+                                                        <?php if ($r['tgl_banmus'] != null) { ?>
+                                                            <center>
+                                                                <span><i>no action</i></span>
+                                                            </center>
+                                                        <?php } else { ?>
+                                                            <center>
+                                                                <span class="badge badge-info">menunggu jadwal banmus</span>
+                                                            </center>
+                                                        <?php } ?>
                                                     <?php } ?>
                                                 </div>
                                             </center>

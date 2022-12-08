@@ -28,7 +28,7 @@ class DataPerda extends BaseController
     }
     public function dataperda()
     {
-        $perda = $this->perdaModel->where('status =', 0)->orWhere('status =', 1)->orWhere('status =', 2)->findAll();
+        $perda = $this->perdaModel->findAll();
         $data = array(
             'title' => 'Data Pengajuan Perda',
             'data' => $perda,
@@ -50,7 +50,7 @@ class DataPerda extends BaseController
     }
     public function dataperdapv()
     {
-        $perda = $this->perdaModel->where('status =', 2)->orwhere('status =', 3)->findAll();
+        $perda = $this->perdaModel->where('status =', 3)->orwhere('status =', 4)->orwhere('status =', 5)->findAll();
         $data = array(
             'title' => 'Perda Terverifikasi',
             'data' => $perda,
@@ -325,7 +325,7 @@ class DataPerda extends BaseController
     }
     public function verifikasipv($id)
     {
-        $perda = $this->perdaModel->where('status =', 2)->where('id =', $id)->first();
+        $perda = $this->perdaModel->where('status =', 3)->where('id =', $id)->first();
         $data = array(
             'titlebar' => 'Verifikasi Perda',
             'title' => 'Verifikasi Perda',
@@ -343,7 +343,7 @@ class DataPerda extends BaseController
             'status'         => 2,
         ];
         $this->perdaModel->save($data);
-        session()->setFlashdata('m', 'Data berhasil diverifikasi');
+        session()->setFlashdata('m', 'Data berhasil diteruskan');
         return redirect()->to(base_url('admin/verifikasi-perda'));
     }
     public function verifypv($id)
@@ -392,5 +392,50 @@ class DataPerda extends BaseController
         );
 
         return view('admin/layout/wrapper', $data);
+    }
+    public function dataperdavd()
+    {
+        $perda = $this->perdaModel->where('status =', 2)->orwhere('status =', 3)->orwhere('status =', 4)->orwhere('status =', 5)->findAll();
+        $data = array(
+            'title' => 'Verifikasi Perda',
+            'data' => $perda,
+            'isi' => 'admin/master/perda/datavd'
+        );
+
+        return view('admin/layout/wrapper', $data);
+    }
+    public function verifikasivd($id)
+    {
+        $perda = $this->perdaModel->where('status =', 2)->where('id =', $id)->first();
+        $data = array(
+            'titlebar' => 'Verifikasi Perda',
+            'title' => 'Verifikasi Perda',
+            'data' => $perda,
+            'isi' => 'admin/master/perda/verifikasivd',
+            'validation' => \Config\Services::validation(),
+        );
+
+        return view('admin/layout/wrapper', $data);
+    }
+    public function verifyvd($id)
+    {
+        //Validasi input
+        if (!$this->validate([
+            'dispo' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Harap pilih salah satu.',
+                ]
+            ]
+        ])) {
+            return redirect()->to(base_url('admin/verif-perda/verifikasi/' . $this->request->getPost('id')))->withInput();
+        }
+        $data = [
+            'id'             => $id,
+            'status'         =>  $this->request->getPost('dispo'),
+        ];
+        $this->perdaModel->save($data);
+        session()->setFlashdata('m', 'Data berhasil diteruskan');
+        return redirect()->to(base_url('admin/verif-perda'));
     }
 }

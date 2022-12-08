@@ -11,7 +11,7 @@
                 <i class="flaticon-right-arrow"></i>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url('admin/perda-terverifikasi') ?>"><?= $titlebar ?></a>
+                <a href="<?= base_url('admin/verif-perda') ?>"><?= $titlebar ?></a>
             </li>
             <li class="separator">
                 <i class="flaticon-right-arrow"></i>
@@ -151,24 +151,29 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-contact-nobd" role="tabpanel" aria-labelledby="pills-contact-tab-nobd">
-                            <form action="<?= base_url('admin/perda-terverifikasi/verif/' . $data['id']) ?>" method="post">
+                            <form action="<?= base_url('admin/verif-perda/verif/' . $data['id']) ?>" method="post">
                                 <?= csrf_field(); ?>
                                 <input type="hidden" name="id" value="<?= $data['id']; ?>">
                                 <div class="col-md-6 pr-0">
-                                    <div class="form-group <?= ($validation->hasError('konfirm')) ? 'has-error' : ''; ?>">
-                                        <label>Konfirmasi Kelayakan<span class="text-danger">*</span></label>
-                                        <select name="konfirm" class="form-control">
-                                            <option selected disabled><?= (old('konfirm')) ? old('konfirm') : ".::Pilih Kelayakan::." ?></option>
-                                            <option value="4">Layak</option>
-                                            <option value="5">Tidak Layak</option>
-                                        </select>
+                                    <div class="form-group <?= ($validation->hasError('dispo')) ? 'has-error' : ''; ?>">
+                                        <label>Teruskan/Kembalikan kepada<span class="text-danger">*</span></label>
+                                        <div class="form-check">
+                                            <label class="form-radio-label">
+                                                <input name="dispo" class="form-radio-input" type="radio" name="optionsRadios" value="3">
+                                                <span class="form-radio-sign">Ketua Bapemperda</span>
+                                            </label>
+                                            <label class="form-radio-label ml-3">
+                                                <input name="dispo" class="form-radio-input" type="radio" name="optionsRadios" value="1">
+                                                <span class="form-radio-sign">Admin Setwan</span>
+                                            </label>
+                                        </div>
                                         <small class="form-text text-danger">
-                                            <?= $validation->getError('konfirm'); ?></small>
+                                            <?= $validation->getError('dispo'); ?></small>
                                     </div>
                                 </div>
                                 <div class="card-action">
-                                    <button type="submit" class="btn btn-success btn-sm"> <i class="fas fa-check-double"></i>&nbsp;&nbsp;Konfirmasi</button>
-                                    <a href="<?= base_url('admin/perda-terverifikasi') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Kembali</a>
+                                    <button type="submit" class="btn btn-success btn-sm"> <i class="fas fa-check-double"></i>&nbsp;&nbsp;Teruskan</button>
+                                    <a href="<?= base_url('admin/verif-perda') ?>" class="btn btn-dark btn-sm"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Kembali</a>
                                 </div>
                             </form>
                         </div>

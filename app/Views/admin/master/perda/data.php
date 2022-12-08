@@ -58,21 +58,25 @@
                                         <td>
                                             <?php if ($r['status'] == 0) { ?>
                                                 <center>
-                                                    <span class="badge badge-info">menunggu verifikasi</span>
+                                                    <span class="badge badge-warning">menunggu verifikasi</span>
                                                 </center>
                                             <?php } elseif ($r['status'] == 1) { ?>
                                                 <center>
-                                                    <span class="badge badge-info">menunggu verifikasi admin setwan</span>
+                                                    <span class="badge badge-warning">menunggu verifikasi admin setwan</span>
                                                 </center>
                                             <?php } elseif ($r['status'] == 2) { ?>
                                                 <center>
-                                                    <span class="badge badge-info">menunggu verifikasi ketua bapemperda</span>
+                                                    <span class="badge badge-warning">menunggu verifikasi ketua setwan</span>
                                                 </center>
                                             <?php } elseif ($r['status'] == 3) { ?>
                                                 <center>
-                                                    <span class="badge badge-success">diterima</span>
+                                                    <span class="badge badge-warning">menunggu verifikasi ketua bapemperda</span>
                                                 </center>
                                             <?php } elseif ($r['status'] == 4) { ?>
+                                                <center>
+                                                    <span class="badge badge-success">diterima</span>
+                                                </center>
+                                            <?php } elseif ($r['status'] == 5) { ?>
                                                 <center>
                                                     <span class="badge badge-danger">ditolak</span>
                                                 </center>
@@ -97,6 +101,10 @@
                                                             <i class="fa fa-info-circle"></i>
                                                         </a>
                                                     <?php } elseif ($r['status'] == 3 || $r['status'] == 4) { ?>
+                                                        <a href="<?= base_url('admin/perda/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
+                                                            <i class="fa fa-info-circle"></i>
+                                                        </a>
+                                                    <?php } elseif ($r['status'] == 4 || $r['status'] == 5) { ?>
                                                         <a href="<?= base_url('admin/perda/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
                                                             <i class="fa fa-info-circle"></i>
                                                         </a>
