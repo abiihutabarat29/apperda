@@ -114,6 +114,7 @@
                                         <option value="2">Admin OPD</option>
                                         <option value="3">Admin Hukum</option>
                                         <option value="4">Admin Bapemperda</option>
+                                        <option value="5">Admin Ketua Setwan</option>
                                     </select>
                                     <small class="form-text text-danger">
                                         <?= $validation->getError('level'); ?></small>

@@ -25,6 +25,7 @@ class Filters extends BaseConfig
         'filteruser' => \App\Filters\FilterUser::class,
         'filterhukum' => \App\Filters\FilterHukum::class,
         'filterketua' => \App\Filters\FilterKetua::class,
+        'filtersetwan' => \App\Filters\FilterSetwan::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
     ];
@@ -50,6 +51,10 @@ class Filters extends BaseConfig
                 'site-admin', 'auth/*',
             ]],
             'filterketua' => ['except' => [
+                '/', 'front/*',
+                'site-admin', 'auth/*',
+            ]],
+            'filtersetwan' => ['except' => [
                 '/', 'front/*',
                 'site-admin', 'auth/*',
             ]],
@@ -88,6 +93,13 @@ class Filters extends BaseConfig
                 'admin/pengajuan-perda/*',
             ]],
             'filterketua' => ['except' => [
+                'admin/home', 'admin/home/*',
+                'admin/my-profil',
+                'admin/my-profil/*',
+                'admin/perda-terverifikasi',
+                'admin/perda-terverifikasi/*',
+            ]],
+            'filtersetwan' => ['except' => [
                 'admin/home', 'admin/home/*',
                 'admin/my-profil',
                 'admin/my-profil/*',

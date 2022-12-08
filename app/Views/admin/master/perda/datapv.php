@@ -64,7 +64,7 @@
                                                         <a href="<?= base_url('admin/perda-terverifikasi/verifikasi/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
                                                             <i class="fas fa-check-double"></i>&nbsp;&nbsp;Verifikasi
                                                         </a>
-                                                    <?php } else { ?>
+                                                    <?php } elseif ($r['status'] == 3) { ?>
                                                         <center>
                                                             <a href="#" class="btn btn-info btn-xs mr-2">
                                                                 <i class="fas fa-calendar"></i>&nbsp;&nbsp;Jadwal Banmus

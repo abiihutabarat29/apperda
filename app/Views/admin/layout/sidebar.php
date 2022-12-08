@@ -23,6 +23,8 @@
                                     echo "Admin Hukum";
                                 } elseif (session()->get('level') == '4') {
                                     echo "Admin Bapemperda";
+                                } elseif (session()->get('level') == '5') {
+                                    echo "Admin Ketua Setwan";
                                 }
                                 ?>
                             </span>
@@ -133,6 +135,14 @@
                         <a href="<?= base_url('admin/perda-terverifikasi') ?>">
                             <i class="fas fa-copy"></i>
                             <p>PERDA TERVERIFIKASI</p>
+                        </a>
+                    </li>
+                <?php } ?>
+                <?php if (session()->get('level') == '5') { ?>
+                    <li class="nav-item <?= ($request->uri->getSegment(2) == 'verif-perda') ? 'active' : ""; ?>">
+                        <a href="<?= base_url('admin/verif-perda') ?>">
+                            <i class="fas fa-copy"></i>
+                            <p>VERIFIKASI PERDA</p>
                         </a>
                     </li>
                 <?php } ?>

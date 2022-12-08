@@ -65,9 +65,13 @@
                                                 <center>
                                                     <span class="badge badge-info">menunggu verifikasi ketua bapemperda</span>
                                                 </center>
-                                            <?php } else { ?>
+                                            <?php } elseif ($r['status'] == 3) { ?>
                                                 <center>
-                                                    <span class="badge badge-success">terverfikasi</span>
+                                                    <span class="badge badge-success">diterima</span>
+                                                </center>
+                                            <?php } elseif ($r['status'] == 4) { ?>
+                                                <center>
+                                                    <span class="badge badge-danger">ditolak</span>
                                                 </center>
                                             <?php } ?>
                                         </td>

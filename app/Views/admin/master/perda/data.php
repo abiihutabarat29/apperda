@@ -68,9 +68,13 @@
                                                 <center>
                                                     <span class="badge badge-info">menunggu verifikasi ketua bapemperda</span>
                                                 </center>
-                                            <?php } else { ?>
+                                            <?php } elseif ($r['status'] == 3) { ?>
                                                 <center>
-                                                    <span class="badge badge-success">terverifikasi</span>
+                                                    <span class="badge badge-success">diterima</span>
+                                                </center>
+                                            <?php } elseif ($r['status'] == 4) { ?>
+                                                <center>
+                                                    <span class="badge badge-danger">ditolak</span>
                                                 </center>
                                             <?php } ?>
                                         </td>
@@ -92,7 +96,7 @@
                                                         <a href="<?= base_url('admin/perda/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
                                                             <i class="fa fa-info-circle"></i>
                                                         </a>
-                                                    <?php } else { ?>
+                                                    <?php } elseif ($r['status'] == 3 || $r['status'] == 4) { ?>
                                                         <a href="<?= base_url('admin/perda/review/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
                                                             <i class="fa fa-info-circle"></i>
                                                         </a>

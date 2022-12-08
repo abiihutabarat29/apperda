@@ -40,6 +40,8 @@
                                             echo "Admin Hukum";
                                         } elseif (session()->get('level') == '4') {
                                             echo "Admin Bapemperda";
+                                        } elseif (session()->get('level') == '5') {
+                                            echo "Admin Ketua Setwan";
                                         }
                                         ?>
                                     </p>

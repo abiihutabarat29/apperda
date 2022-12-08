@@ -114,6 +114,7 @@
                                         <option value="<?= $data['level'] ?>" <?= $data['level'] == 2 ? 'selected' : ''; ?>>Admin OPD</option>
                                         <option value="<?= $data['level'] ?>" <?= $data['level'] == 3 ? 'selected' : ''; ?>>Admin Hukum</option>
                                         <option value="<?= $data['level'] ?>" <?= $data['level'] == 4 ? 'selected' : ''; ?>>Admin Bapemperda</option>
+                                        <option value="<?= $data['level'] ?>" <?= $data['level'] == 5 ? 'selected' : ''; ?>>Admin Ketua Setwan</option>
                                     </select>
                                     <small class="form-text text-danger">
                                         <?= $validation->getError('level'); ?></small>
