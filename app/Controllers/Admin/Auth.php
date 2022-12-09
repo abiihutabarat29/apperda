@@ -74,7 +74,7 @@ class Auth extends BaseController
         } else {
             //Jika tidak valid
             $validation = \Config\Services::validation();
-            return redirect()->to('site-admin')->withInput()->with('validation', $validation);
+            return redirect()->to('/site-admin')->withInput()->with('validation', $validation);
         }
     }
     public function logout()

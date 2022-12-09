@@ -367,6 +367,17 @@ class DataPerda extends BaseController
         session()->setFlashdata('m', 'Data berhasil dikonfirmasi');
         return redirect()->to(base_url('admin/perda-terverifikasi'));
     }
+
+    public function jadwal($id)
+    {
+        $data = [
+            'id'             => $id,
+            'tgl_banmus'     =>  $this->request->getPost('jadwal'),
+        ];
+        $this->perdaModel->save($data);
+        session()->setFlashdata('m', 'Tanggal Banmus berhasil di posting');
+        return redirect()->to(base_url('admin/perda-terverifikasi'));
+    }
     public function review($id)
     {
         $perda = $this->perdaModel->where('id =', $id)->first();

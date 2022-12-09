@@ -70,9 +70,9 @@
                                 <div class="input-group input-group-merge">
                                     <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" required />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                                    <small class="form-text text-danger">
-                                        <?= $validation->getError('password'); ?></small>
                                 </div>
+                                <small class="form-text text-danger">
+                                    <?= $validation->getError('password'); ?></small>
                             </div>
                             <div class="mb-3">
                                 <button class="btn btn-primary d-grid w-100" type="submit">Login</button>

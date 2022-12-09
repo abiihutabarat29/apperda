@@ -80,7 +80,7 @@
                                                     <?php } elseif ($r['status'] == 4 or $r['status'] == 5) { ?>
                                                         <?php if ($r['tgl_banmus'] != null) { ?>
                                                             <center>
-                                                                <span><i>no action</i></span>
+                                                                <span class="badge badge-success">terjadwal</span>
                                                             </center>
                                                         <?php } else { ?>
                                                             <center>

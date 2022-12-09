@@ -69,11 +69,17 @@
                                                             <i class="fas fa-check-double"></i>&nbsp;&nbsp;Verifikasi
                                                         </a>
                                                     <?php } elseif ($r['status'] == 4) { ?>
-                                                        <center>
-                                                            <a href="#" class="btn btn-info btn-xs mr-2">
-                                                                <i class="fas fa-calendar"></i>&nbsp;&nbsp;Jadwal Banmus
-                                                            </a>
-                                                        </center>
+                                                        <?php if ($r['tgl_banmus'] != null) { ?>
+                                                            <center>
+                                                                <span class="badge badge-success">terjadwal</span>
+                                                            </center>
+                                                        <?php } else { ?>
+                                                            <center>
+                                                                <a href="#" class="btn btn-info btn-xs mr-2" title="Jadwal" data-toggle='modal' data-target='#activateModalJadwal<?= $r['id'] ?>'>
+                                                                    <i class="fas fa-calendar"></i>&nbsp;&nbsp;Jadwal Banmus
+                                                                </a>
+                                                            </center>
+                                                        <?php } ?>
                                                     <?php } elseif ($r['status'] == 5) { ?>
                                                         <center>
                                                             <span><i>no action</i></span>
@@ -93,3 +99,29 @@
     </div>
 </div>
 </div>
+<!-- Modal Verifikasi -->
+<form action="<?= base_url('admin/perda-terverifikasi/jadwal/' . $r['id']); ?>" method="post">
+    <?= csrf_field(); ?>
+    <input type="hidden" name="id" value="<?= $r['id']; ?>">
+    <div class="modal fade" id="activateModalJadwal<?= $r['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Jadwal Banmus</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="date" class="form-control" name="jadwal">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-check-double"></i>&nbsp;&nbsp;Jadwalkan</button>
+                    <button class="btn btn-default btn-sm" type="button" data-dismiss="modal"><i class="fas fa-undo-alt"></i>&nbsp;&nbsp;Kembali</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
