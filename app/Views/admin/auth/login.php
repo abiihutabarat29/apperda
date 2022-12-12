@@ -78,7 +78,7 @@
                                 <button class="btn btn-primary d-grid w-100" type="submit">Login</button>
                             </div>
                             <div class="mb-3">
-                                <a href="<?= base_url('/') ?>" class="btn btn-primary d-grid w-100">Home</a>
+                                <a href="<?= base_url('/') ?>" class="btn btn-primary d-grid w-100">Website</a>
                             </div>
                         </form>
                         <!-- <p class="text-center">
