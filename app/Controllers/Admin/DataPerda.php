@@ -493,6 +493,18 @@ class DataPerda extends BaseController
     }
     public function upfile2($id)
     {
+        //Validasi input
+        if (!$this->validate([
+            'file2' => [
+                'rules' => 'mime_in[file2,application/pdf]|max_size[file2,1024]',
+                'errors' => [
+                    'mime_in' => 'Extension file yang diperbolehkan .pdf',
+                    'max_size' => 'Ukuran File maksimal 5MB.'
+                ]
+            ]
+        ])) {
+            return redirect()->to(base_url('/admin/data-file/file/' . $this->request->getPost('id')))->withInput();
+        }
         $file2   = $this->request->getFile('file2');
         $fileNamefile2 = $file2->getRandomName();
         $data = [
@@ -507,6 +519,18 @@ class DataPerda extends BaseController
     }
     public function upfile3($id)
     {
+        //Validasi input
+        if (!$this->validate([
+            'file3' => [
+                'rules' => 'mime_in[file3,application/pdf]|max_size[file3,1024]',
+                'errors' => [
+                    'mime_in' => 'Extension file yang diperbolehkan .pdf',
+                    'max_size' => 'Ukuran File maksimal 5MB.'
+                ]
+            ]
+        ])) {
+            return redirect()->to(base_url('/admin/data-file/file/' . $this->request->getPost('id')))->withInput();
+        }
         $file3   = $this->request->getFile('file3');
         $fileNamefile3 = $file3->getRandomName();
         $data = [
@@ -521,6 +545,18 @@ class DataPerda extends BaseController
     }
     public function upfile4($id)
     {
+        //Validasi input
+        if (!$this->validate([
+            'file4' => [
+                'rules' => 'mime_in[file4,application/pdf]|max_size[file4,1024]',
+                'errors' => [
+                    'mime_in' => 'Extension file yang diperbolehkan .pdf',
+                    'max_size' => 'Ukuran File maksimal 5MB.'
+                ]
+            ]
+        ])) {
+            return redirect()->to(base_url('/admin/data-file/file/' . $this->request->getPost('id')))->withInput();
+        }
         $file4   = $this->request->getFile('file4');
         $fileNamefile4 = $file4->getRandomName();
         $data = [
@@ -535,6 +571,18 @@ class DataPerda extends BaseController
     }
     public function upfile5($id)
     {
+        //Validasi input
+        if (!$this->validate([
+            'file5' => [
+                'rules' => 'mime_in[file5,application/pdf]|max_size[file5,1024]',
+                'errors' => [
+                    'mime_in' => 'Extension file yang diperbolehkan .pdf',
+                    'max_size' => 'Ukuran File maksimal 5MB.'
+                ]
+            ]
+        ])) {
+            return redirect()->to(base_url('/admin/data-file/file/' . $this->request->getPost('id')))->withInput();
+        }
         $file5   = $this->request->getFile('file5');
         $fileNamefile5 = $file5->getRandomName();
         $data = [
@@ -549,6 +597,18 @@ class DataPerda extends BaseController
     }
     public function upfile6($id)
     {
+        //Validasi input
+        if (!$this->validate([
+            'file6' => [
+                'rules' => 'mime_in[file6,application/pdf]|max_size[file6,1024]',
+                'errors' => [
+                    'mime_in' => 'Extension file yang diperbolehkan .pdf',
+                    'max_size' => 'Ukuran File maksimal 5MB.'
+                ]
+            ]
+        ])) {
+            return redirect()->to(base_url('/admin/data-file/file/' . $this->request->getPost('id')))->withInput();
+        }
         $file6   = $this->request->getFile('file6');
         $fileNamefile6 = $file6->getRandomName();
         $data = [
@@ -563,6 +623,18 @@ class DataPerda extends BaseController
     }
     public function upfile7($id)
     {
+        //Validasi input
+        if (!$this->validate([
+            'file7' => [
+                'rules' => 'mime_in[file7,application/pdf]|max_size[file7,1024]',
+                'errors' => [
+                    'mime_in' => 'Extension file yang diperbolehkan .pdf',
+                    'max_size' => 'Ukuran File maksimal 5MB.'
+                ]
+            ]
+        ])) {
+            return redirect()->to(base_url('/admin/data-file/file/' . $this->request->getPost('id')))->withInput();
+        }
         $file7   = $this->request->getFile('file7');
         $fileNamefile7 = $file7->getRandomName();
         $data = [
@@ -577,6 +649,18 @@ class DataPerda extends BaseController
     }
     public function upfile8($id)
     {
+        //Validasi input
+        if (!$this->validate([
+            'file8' => [
+                'rules' => 'mime_in[file8,application/pdf]|max_size[file8,1024]',
+                'errors' => [
+                    'mime_in' => 'Extension file yang diperbolehkan .pdf',
+                    'max_size' => 'Ukuran File maksimal 5MB.'
+                ]
+            ]
+        ])) {
+            return redirect()->to(base_url('/admin/data-file/file/' . $this->request->getPost('id')))->withInput();
+        }
         $file8   = $this->request->getFile('file8');
         $fileNamefile8 = $file8->getRandomName();
         $data = [
@@ -591,6 +675,18 @@ class DataPerda extends BaseController
     }
     public function upfile9($id)
     {
+        //Validasi input
+        if (!$this->validate([
+            'file9' => [
+                'rules' => 'mime_in[file9,application/pdf]|max_size[file9,1024]',
+                'errors' => [
+                    'mime_in' => 'Extension file yang diperbolehkan .pdf',
+                    'max_size' => 'Ukuran File maksimal 5MB.'
+                ]
+            ]
+        ])) {
+            return redirect()->to(base_url('/admin/data-file/file/' . $this->request->getPost('id')))->withInput();
+        }
         $file9   = $this->request->getFile('file9');
         $fileNamefile9 = $file9->getRandomName();
         $data = [

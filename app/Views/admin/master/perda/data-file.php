@@ -33,7 +33,7 @@
                                             <i class="fa fa-check"></i>
                                         </button>
                                     <?php } else { ?>
-                                        <button href="#" class="btn btn-icon btn-primary btn-round btn-xs" title="Penyampaian Nota" data-toggle='modal' data-target='#activateModalF1<?= $data['id'] ?>'>
+                                        <button href="#" class="btn btn-icon btn-danger btn-round btn-xs" title="Penyampaian Nota" data-toggle='modal' data-target='#activateModalF1<?= $data['id'] ?>'>
                                             <i class="fa fa-plus"></i>
                                         </button>
                                     <?php } ?>
@@ -44,13 +44,15 @@
                                     </div>
                                     <div class="info-user ml-3">
                                         <h6 class="text-uppercase fw-bold mb-1">Pandangan Fraksi atas nota Ranperda</h6>
+                                        <small class="form-text text-danger">
+                                            <?= $validation->getError('file2'); ?></small>
                                     </div>
                                     <?php if ($data['pdg_nota'] != null) { ?>
                                         <button class="btn btn-icon btn-success btn-round btn-xs">
                                             <i class="fa fa-check"></i>
                                         </button>
                                     <?php } else { ?>
-                                        <button href="#" class="btn btn-icon btn-primary btn-round btn-xs" title="Pandangan Fraksi atas nota Ranperda" data-toggle='modal' data-target='#activateModalF2<?= $data['id'] ?>'>
+                                        <button href="#" class="btn btn-icon btn-danger btn-round btn-xs" title="Pandangan Fraksi atas nota Ranperda" data-toggle='modal' data-target='#activateModalF2<?= $data['id'] ?>'>
                                             <i class="fa fa-plus"></i>
                                         </button>
                                     <?php } ?>
@@ -61,13 +63,15 @@
                                     </div>
                                     <div class="info-user ml-3">
                                         <h6 class="text-uppercase fw-bold mb-1">Jawaban Bupati atas pandangan Fraksi</h6>
+                                        <small class="form-text text-danger">
+                                            <?= $validation->getError('file3'); ?></small>
                                     </div>
                                     <?php if ($data['jwb_bupati'] != null) { ?>
                                         <button class="btn btn-icon btn-success btn-round btn-xs">
                                             <i class="fa fa-check"></i>
                                         </button>
                                     <?php } else { ?>
-                                        <button href="#" class="btn btn-icon btn-primary btn-round btn-xs" title="Jawaban Bupati atas pandangan Fraksi" data-toggle='modal' data-target='#activateModalF3<?= $data['id'] ?>'>
+                                        <button href="#" class="btn btn-icon btn-danger btn-round btn-xs" title="Jawaban Bupati atas pandangan Fraksi" data-toggle='modal' data-target='#activateModalF3<?= $data['id'] ?>'>
                                             <i class="fa fa-plus"></i>
                                         </button>
                                     <?php } ?>
@@ -78,13 +82,15 @@
                                     </div>
                                     <div class="info-user ml-3">
                                         <h6 class="text-uppercase fw-bold mb-1">Pembahasan Ranperda</h6>
+                                        <small class="form-text text-danger">
+                                            <?= $validation->getError('file4'); ?></small>
                                     </div>
                                     <?php if ($data['pbhs_ranperda'] != null) { ?>
                                         <button class="btn btn-icon btn-success btn-round btn-xs">
                                             <i class="fa fa-check"></i>
                                         </button>
                                     <?php } else { ?>
-                                        <button href="#" class="btn btn-icon btn-primary btn-round btn-xs" title="Pembahasan Ranperda" data-toggle='modal' data-target='#activateModalF4<?= $data['id'] ?>'>
+                                        <button href="#" class="btn btn-icon btn-danger btn-round btn-xs" title="Pembahasan Ranperda" data-toggle='modal' data-target='#activateModalF4<?= $data['id'] ?>'>
                                             <i class="fa fa-plus"></i>
                                         </button>
                                     <?php } ?>
@@ -95,13 +101,15 @@
                                     </div>
                                     <div class="info-user ml-3">
                                         <h6 class="text-uppercase fw-bold mb-1">Pansus / Bapemperda</h6>
+                                        <small class="form-text text-danger">
+                                            <?= $validation->getError('file5'); ?></small>
                                     </div>
                                     <?php if ($data['pansus_bapemperda'] != null) { ?>
                                         <button class="btn btn-icon btn-success btn-round btn-xs">
                                             <i class="fa fa-check"></i>
                                         </button>
                                     <?php } else { ?>
-                                        <button href="#" class="btn btn-icon btn-primary btn-round btn-xs" title="Pansus / Bapemperda" data-toggle='modal' data-target='#activateModalF5<?= $data['id'] ?>'>
+                                        <button href="#" class="btn btn-icon btn-danger btn-round btn-xs" title="Pansus / Bapemperda" data-toggle='modal' data-target='#activateModalF5<?= $data['id'] ?>'>
                                             <i class="fa fa-plus"></i>
                                         </button>
                                     <?php } ?>
@@ -112,13 +120,15 @@
                                     </div>
                                     <div class="info-user ml-3">
                                         <h6 class="text-uppercase fw-bold mb-1">Hasil Pembahasan Ranperda</h6>
+                                        <small class="form-text text-danger">
+                                            <?= $validation->getError('file6'); ?></small>
                                     </div>
                                     <?php if ($data['hsl_pembahasan'] != null) { ?>
                                         <button class="btn btn-icon btn-success btn-round btn-xs">
                                             <i class="fa fa-check"></i>
                                         </button>
                                     <?php } else { ?>
-                                        <button href="#" class="btn btn-icon btn-primary btn-round btn-xs" title="Hasil Pembahasan Ranperda" data-toggle='modal' data-target='#activateModalF6<?= $data['id'] ?>'>
+                                        <button href="#" class="btn btn-icon btn-danger btn-round btn-xs" title="Hasil Pembahasan Ranperda" data-toggle='modal' data-target='#activateModalF6<?= $data['id'] ?>'>
                                             <i class="fa fa-plus"></i>
                                         </button>
                                     <?php } ?>
@@ -129,13 +139,15 @@
                                     </div>
                                     <div class="info-user ml-3">
                                         <h6 class="text-uppercase fw-bold mb-1">Laporan Pembahasan Ranperda</h6>
+                                        <small class="form-text text-danger">
+                                            <?= $validation->getError('file7'); ?></small>
                                     </div>
                                     <?php if ($data['lap_pembahasan'] != null) { ?>
                                         <button class="btn btn-icon btn-success btn-round btn-xs">
                                             <i class="fa fa-check"></i>
                                         </button>
                                     <?php } else { ?>
-                                        <button href="#" class="btn btn-icon btn-primary btn-round btn-xs" title="Laporan Pembahasan Ranperda" data-toggle='modal' data-target='#activateModalF7<?= $data['id'] ?>'>
+                                        <button href="#" class="btn btn-icon btn-danger btn-round btn-xs" title="Laporan Pembahasan Ranperda" data-toggle='modal' data-target='#activateModalF7<?= $data['id'] ?>'>
                                             <i class="fa fa-plus"></i>
                                         </button>
                                     <?php } ?>
@@ -146,13 +158,15 @@
                                     </div>
                                     <div class="info-user ml-3">
                                         <h6 class="text-uppercase fw-bold mb-1">Pendapat Akhir Fraksi</h6>
+                                        <small class="form-text text-danger">
+                                            <?= $validation->getError('file8'); ?></small>
                                     </div>
                                     <?php if ($data['pendapat_fraksi'] != null) { ?>
                                         <button class="btn btn-icon btn-success btn-round btn-xs">
                                             <i class="fa fa-check"></i>
                                         </button>
                                     <?php } else { ?>
-                                        <button href="#" class="btn btn-icon btn-primary btn-round btn-xs" title="Pendapat Akhir Fraksi" data-toggle='modal' data-target='#activateModalF8<?= $data['id'] ?>'>
+                                        <button href="#" class="btn btn-icon btn-danger btn-round btn-xs" title="Pendapat Akhir Fraksi" data-toggle='modal' data-target='#activateModalF8<?= $data['id'] ?>'>
                                             <i class="fa fa-plus"></i>
                                         </button>
                                     <?php } ?>
@@ -163,13 +177,15 @@
                                     </div>
                                     <div class="info-user ml-3">
                                         <h6 class="text-uppercase fw-bold mb-1">Penandatangan Persetujuan Bersama</h6>
+                                        <small class="form-text text-danger">
+                                            <?= $validation->getError('file9'); ?></small>
                                     </div>
                                     <?php if ($data['penandatangan'] != null) { ?>
                                         <button class="btn btn-icon btn-success btn-round btn-xs">
                                             <i class="fa fa-check"></i>
                                         </button>
                                     <?php } else { ?>
-                                        <button href="#" class="btn btn-icon btn-primary btn-round btn-xs" title="Penandatangan Persetujuan Bersama" data-toggle='modal' data-target='#activateModalF9<?= $data['id'] ?>'>
+                                        <button href="#" class="btn btn-icon btn-danger btn-round btn-xs" title="Penandatangan Persetujuan Bersama" data-toggle='modal' data-target='#activateModalF9<?= $data['id'] ?>'>
                                             <i class="fa fa-plus"></i>
                                         </button>
                                     <?php } ?>
