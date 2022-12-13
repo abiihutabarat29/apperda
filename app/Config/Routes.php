@@ -104,8 +104,16 @@ $routes->group('admin', function ($routes) {
     $routes->get('verif-perda/verifikasi/(:segment)', 'Admin\DataPerda::verifikasivd/$1');
     $routes->add('verif-perda/verif/(:segment)', 'Admin\DataPerda::verifyvd/$1');
     //Routes Data File / Timeline
-    $routes->get('data-file/file/(:segment)', 'Admin\DataFile::addfile/$1');
-    $routes->add('data-file/up/(:segment)', 'Admin\DataFile::upfile/$1');
+    $routes->get('data-file/file/(:segment)', 'Admin\DataPerda::addfile/$1');
+    $routes->add('data-file/up1/(:segment)', 'Admin\DataPerda::upfile1/$1');
+    $routes->add('data-file/up2/(:segment)', 'Admin\DataPerda::upfile2/$1');
+    $routes->add('data-file/up3/(:segment)', 'Admin\DataPerda::upfile3/$1');
+    $routes->add('data-file/up4/(:segment)', 'Admin\DataPerda::upfile4/$1');
+    $routes->add('data-file/up5/(:segment)', 'Admin\DataPerda::upfile5/$1');
+    $routes->add('data-file/up6/(:segment)', 'Admin\DataPerda::upfile6/$1');
+    $routes->add('data-file/up7/(:segment)', 'Admin\DataPerda::upfile7/$1');
+    $routes->add('data-file/up8/(:segment)', 'Admin\DataPerda::upfile8/$1');
+    $routes->add('data-file/up9/(:segment)', 'Admin\DataPerda::upfile9/$1');
 });
 
 /*

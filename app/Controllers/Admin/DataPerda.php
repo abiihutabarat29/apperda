@@ -449,4 +449,158 @@ class DataPerda extends BaseController
         session()->setFlashdata('m', 'Data berhasil diteruskan');
         return redirect()->to(base_url('admin/verif-perda'));
     }
+    // Update File
+    public function addfile($id)
+    {
+        $ins = $this->perdaModel->where('id =', $id)->where('status', 4)->first();
+        $id_instansi = $ins['id_instansi'];
+        $perda = $this->perdaModel->where('id =', $id)->where('id_instansi =', $id_instansi)->where('status', 4)->first();
+        $data = array(
+            'titlebar' => 'Arsip Data Ranperda',
+            'title' => 'Arsip Data Ranperda',
+            'data' => $perda,
+            'isi' => 'admin/master/perda/data-file',
+            'validation' => \Config\Services::validation(),
+        );
+
+        return view('admin/layout/wrapper', $data);
+    }
+    public function upfile1($id)
+    {
+        //Validasi input
+        if (!$this->validate([
+            'file1' => [
+                'rules' => 'mime_in[file1,application/pdf]|max_size[file1,1024]',
+                'errors' => [
+                    'mime_in' => 'Extension file yang diperbolehkan .pdf',
+                    'max_size' => 'Ukuran File maksimal 5MB.'
+                ]
+            ]
+        ])) {
+            return redirect()->to(base_url('/admin/data-file/file/' . $this->request->getPost('id')))->withInput();
+        }
+        $file1   = $this->request->getFile('file1');
+        $fileNamefile1 = $file1->getRandomName();
+        $data = [
+            'id'          => $id,
+            'nota'        => $fileNamefile1
+        ];
+        $this->perdaModel->save($data);
+        //move file
+        $file1->move(ROOTPATH . 'public/media/nota/', $fileNamefile1);
+        session()->setFlashdata('m', 'upload completed');
+        return redirect()->to(base_url('admin/data-file/file/' . $this->request->getPost('id')));
+    }
+    public function upfile2($id)
+    {
+        $file2   = $this->request->getFile('file2');
+        $fileNamefile2 = $file2->getRandomName();
+        $data = [
+            'id'          => $id,
+            'pdg_nota'    => $fileNamefile2
+        ];
+        $this->perdaModel->save($data);
+        //move file
+        $file2->move(ROOTPATH . 'public/media/pandangan_nota/', $fileNamefile2);
+        session()->setFlashdata('m', 'upload completed');
+        return redirect()->to(base_url('admin/data-file/file/' . $this->request->getPost('id')));
+    }
+    public function upfile3($id)
+    {
+        $file3   = $this->request->getFile('file3');
+        $fileNamefile3 = $file3->getRandomName();
+        $data = [
+            'id'            => $id,
+            'jwb_bupati'    => $fileNamefile3
+        ];
+        $this->perdaModel->save($data);
+        //move file
+        $file3->move(ROOTPATH . 'public/media/jawaban_bupati/', $fileNamefile3);
+        session()->setFlashdata('m', 'upload completed');
+        return redirect()->to(base_url('admin/data-file/file/' . $this->request->getPost('id')));
+    }
+    public function upfile4($id)
+    {
+        $file4   = $this->request->getFile('file4');
+        $fileNamefile4 = $file4->getRandomName();
+        $data = [
+            'id'            => $id,
+            'pbhs_ranperda'    => $fileNamefile4
+        ];
+        $this->perdaModel->save($data);
+        //move file
+        $file4->move(ROOTPATH . 'public/media/pembahasan_renperda/', $fileNamefile4);
+        session()->setFlashdata('m', 'upload completed');
+        return redirect()->to(base_url('admin/data-file/file/' . $this->request->getPost('id')));
+    }
+    public function upfile5($id)
+    {
+        $file5   = $this->request->getFile('file5');
+        $fileNamefile5 = $file5->getRandomName();
+        $data = [
+            'id'                   => $id,
+            'pansus_bapemperda'    => $fileNamefile5
+        ];
+        $this->perdaModel->save($data);
+        //move file
+        $file5->move(ROOTPATH . 'public/media/pansus_bapemperda/', $fileNamefile5);
+        session()->setFlashdata('m', 'upload completed');
+        return redirect()->to(base_url('admin/data-file/file/' . $this->request->getPost('id')));
+    }
+    public function upfile6($id)
+    {
+        $file6   = $this->request->getFile('file6');
+        $fileNamefile6 = $file6->getRandomName();
+        $data = [
+            'id'                => $id,
+            'hsl_pembahasan'    => $fileNamefile6
+        ];
+        $this->perdaModel->save($data);
+        //move file
+        $file6->move(ROOTPATH . 'public/media/hasil_pembahasan/', $fileNamefile6);
+        session()->setFlashdata('m', 'upload completed');
+        return redirect()->to(base_url('admin/data-file/file/' . $this->request->getPost('id')));
+    }
+    public function upfile7($id)
+    {
+        $file7   = $this->request->getFile('file7');
+        $fileNamefile7 = $file7->getRandomName();
+        $data = [
+            'id'                => $id,
+            'lap_pembahasan'    => $fileNamefile7
+        ];
+        $this->perdaModel->save($data);
+        //move file
+        $file7->move(ROOTPATH . 'public/media/laporan_pembahasan/', $fileNamefile7);
+        session()->setFlashdata('m', 'upload completed');
+        return redirect()->to(base_url('admin/data-file/file/' . $this->request->getPost('id')));
+    }
+    public function upfile8($id)
+    {
+        $file8   = $this->request->getFile('file8');
+        $fileNamefile8 = $file8->getRandomName();
+        $data = [
+            'id'                 => $id,
+            'pendapat_fraksi'    => $fileNamefile8
+        ];
+        $this->perdaModel->save($data);
+        //move file
+        $file8->move(ROOTPATH . 'public/media/pendapat_fraksi/', $fileNamefile8);
+        session()->setFlashdata('m', 'upload completed');
+        return redirect()->to(base_url('admin/data-file/file/' . $this->request->getPost('id')));
+    }
+    public function upfile9($id)
+    {
+        $file9   = $this->request->getFile('file9');
+        $fileNamefile9 = $file9->getRandomName();
+        $data = [
+            'id'                 => $id,
+            'penandatangan'      => $fileNamefile9
+        ];
+        $this->perdaModel->save($data);
+        //move file
+        $file9->move(ROOTPATH . 'public/media/penandatangan/', $fileNamefile9);
+        session()->setFlashdata('m', 'upload completed');
+        return redirect()->to(base_url('admin/data-file/file/' . $this->request->getPost('id')));
+    }
 }

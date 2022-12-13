@@ -87,7 +87,7 @@
                                                     <?php } elseif ($r['status'] == 4) { ?>
                                                         <?php if ($r['tgl_banmus'] != null) { ?>
                                                             <a href="<?= base_url('admin/data-file/file/' . $r['id']); ?>" class="btn btn-info btn-xs mr-2">
-                                                                <i class="fas fa-file"></i>&nbsp;&nbsp;Lengkapi Data
+                                                                <i class="fas fa-file"></i>&nbsp;&nbsp;Arsip Data
                                                             </a>
                                                         <?php } else { ?>
                                                             <center>
