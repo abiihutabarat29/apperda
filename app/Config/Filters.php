@@ -77,6 +77,8 @@ class Filters extends BaseConfig
                 'admin/slideshow/*',
                 'admin/data-anggota',
                 'admin/data-anggota/*',
+                'admin/data-file',
+                'admin/data-file/*',
             ]],
             'filteruser' => ['except' => [
                 'admin/home', 'admin/home/*',

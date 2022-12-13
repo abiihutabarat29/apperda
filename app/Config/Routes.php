@@ -103,6 +103,9 @@ $routes->group('admin', function ($routes) {
     $routes->get('verif-perda', 'Admin\DataPerda::dataperdavd');
     $routes->get('verif-perda/verifikasi/(:segment)', 'Admin\DataPerda::verifikasivd/$1');
     $routes->add('verif-perda/verif/(:segment)', 'Admin\DataPerda::verifyvd/$1');
+    //Routes Data File / Timeline
+    $routes->get('data-file/file/(:segment)', 'Admin\DataFile::addfile/$1');
+    $routes->add('data-file/up/(:segment)', 'Admin\DataFile::upfile/$1');
 });
 
 /*
