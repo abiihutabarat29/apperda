@@ -11,11 +11,12 @@
           <nav id="navbar" class="navbar">
               <ul>
                   <li><a class="nav-link scrollto active" href="<?= base_url('/') ?>">Beranda</a></li>
-                  <li><a class="nav-link scrollto" href="<?= base_url('/jadwal') ?>">Jadwal</a></li>
+                  <li><a class="nav-link scrollto" href="<?= base_url('jadwal') ?>">Jadwal</a></li>
                   <li><a class="cta-btn" href="<?= base_url('site-admin') ?>">Login</a></li>
               </ul>
               <i class="bi bi-list mobile-nav-toggle"></i>
           </nav><!-- .navbar -->
 
       </div>
-  </header><!-- End Header -->
+  </header>
+  <!-- End Header -->

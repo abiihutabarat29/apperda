@@ -1171,7 +1171,7 @@ section {
 .team .member {
   text-align: center;
   margin-bottom: 20px;
-  background: #343a40;
+  /* background: #343a40; */
   border-radius: 20px;
   position: relative;
   overflow: hidden;
@@ -1255,6 +1255,11 @@ section {
 .team .member:hover .social {
   bottom: 0;
   transition: bottom ease-in-out 0.4s;
+}
+
+.member{
+  box-shadow: 0 0 29px 0 rgba(247, 244, 244, 0.12);
+  padding: 20px;
 }
 
 /*--------------------------------------------------------------
@@ -1425,16 +1430,25 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #344341;
+  border-top: 2px solid #565656;
+  background-color: #242424;
   padding: 0 0 30px 0;
   color: #fff;
   font-size: 14px;
 }
 
 #footer .footer-top {
-  background: #3d4f4c;
+  background-image: url(../../assets/img/bg-header.svg), linear-gradient(90deg, rgba(198,45,94,1) 50%, rgba(171,26,48,1) 100%)!important;
   border-bottom: 1px solid #4d635f;
-  padding: 60px 0 30px 0;
+  background-size: cover;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+}
+
+#footer .footer-top .landing-single-bg {
+  padding: 30px 0;
+  background-color: rgba(149, 0, 5, 0.5);
 }
 
 #footer .footer-top .footer-info {

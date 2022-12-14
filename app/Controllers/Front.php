@@ -16,6 +16,7 @@ class Front extends BaseController
 
         $this->SlideshowModel = new SlideshowModel();
         $this->AnggotaModel = new AnggotaModel();
+        $this->PerdaModel = new PerdaModel();
     }
 
     public function index()
