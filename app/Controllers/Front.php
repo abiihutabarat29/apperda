@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\SlideshowModel;
 use App\Models\AnggotaModel;
+use App\Models\PerdaModel;
 
 // use App\Models\InstansiModel;
 
@@ -26,5 +27,15 @@ class Front extends BaseController
             'isi'           => 'front/index',
         );
         echo view('front/layout/wrapper', $data);
+    }
+
+
+    public function jadwal()
+    {
+        $data = array(
+            'title'         => 'jadwal',
+            'jadwal'        => $this->PerdaModel->orderBy('id', 'Desc')->findAll(3),
+            'isi'           =>'front/jadwal',
+        );
     }
 }

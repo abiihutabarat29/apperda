@@ -27,20 +27,13 @@
                         <strong>Email:</strong> info@example.com<br>
                     </p>
                 </div>
-                <div class="col-lg-4 col-md-6 footer-newsletter">
-                    <h4>Our Newsletter</h4>
-                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                    <form action="" method="post">
-                        <input type="email" name="email"><input type="submit" value="Subscribe">
-                    </form>
-                </div>
             </div>
         </div>
     </div>
 
     <div class="container">
         <div class="copyright">
-            &copy; Copyright <strong><span>Shuffle</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Sekretariat Dewan Kabupaten Batu Bara</span></strong>. All Rights Reserved
         </div>
     </div>
 </footer>

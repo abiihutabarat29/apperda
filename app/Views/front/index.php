@@ -27,7 +27,7 @@
 </section><!-- End Hero -->
 
 
-<main id="main">s
+<main id="main">
     <!-- ======= Our Services Section ======= -->
     <section id="services" class="services counts">
         <div class="container">

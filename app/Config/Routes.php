@@ -36,6 +36,7 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Front::index');
+$routes->get('/jadwal', 'Front::jadwal');
 
 $routes->get('site-admin', 'Admin\Auth::index');
 $routes->add('auth/verify', 'Admin\Auth::cek');
