@@ -242,7 +242,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group form-group-default">
-                        <input type="file" name="file1" class="form-control-file">
+                        <input type="file" name="file1" class="form-control-file" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -267,7 +267,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group form-group-default">
-                        <input type="file" name="file2" class="form-control-file">
+                        <input type="file" name="file2" class="form-control-file" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -292,7 +292,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group form-group-default">
-                        <input type="file" name="file3" class="form-control-file">
+                        <input type="file" name="file3" class="form-control-file" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -317,7 +317,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group form-group-default">
-                        <input type="file" name="file4" class="form-control-file">
+                        <input type="file" name="file4" class="form-control-file" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -342,7 +342,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group form-group-default">
-                        <input type="file" name="file5" class="form-control-file">
+                        <input type="file" name="file5" class="form-control-file" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -367,7 +367,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group form-group-default">
-                        <input type="file" name="file6" class="form-control-file">
+                        <input type="file" name="file6" class="form-control-file" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -392,7 +392,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group form-group-default">
-                        <input type="file" name="file7" class="form-control-file">
+                        <input type="file" name="file7" class="form-control-file" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -417,7 +417,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group form-group-default">
-                        <input type="file" name="file8" class="form-control-file">
+                        <input type="file" name="file8" class="form-control-file" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -442,7 +442,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group form-group-default">
-                        <input type="file" name="file9" class="form-control-file">
+                        <input type="file" name="file9" class="form-control-file" required>
                     </div>
                 </div>
                 <div class="modal-footer">
