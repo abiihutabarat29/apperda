@@ -35,7 +35,7 @@ class Front extends BaseController
     {
         $data = array(
             'title'         => 'jadwal',
-            'jadwal'        => $this->PerdaModel->orderBy('id', 'Desc')->findAll(3),
+            // 'jadwal'        => $this->PerdaModel->orderBy('id', 'Desc')->findAll(3),
             'isi'           =>'front/jadwal',
         );
     }

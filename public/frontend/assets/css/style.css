@@ -95,7 +95,8 @@ h6 {
 #header .logo img {
   padding: 0;
   margin: 0;
-  max-height: 40px;
+  width: 100%;
+  height: 58px;
 }
 
 .scrolled-offset {
@@ -699,7 +700,7 @@ section {
 .services .icon-box::before {
   content: "";
   position: absolute;
-  background: #aff4e9;
+  background: #f4afaf;
   right: -60px;
   top: -40px;
   width: 100px;
@@ -710,7 +711,7 @@ section {
 }
 
 .services .icon-box:hover::before {
-  background: #1bbca3;
+  background: #e21313;
   right: 0;
   top: 0;
   width: 100%;
@@ -726,7 +727,7 @@ section {
   border-radius: 50%;
   width: 60px;
   height: 60px;
-  background: #1bbca3;
+  background: #e21313;
   transition: all 0.3s ease-in-out;
 }
 
@@ -1583,6 +1584,88 @@ section {
   color: #fff;
 }
 
+/* Timeline */
+@mixin tablet-and-up {
+  @media screen and (min-width: 769px) { @content; }
+}
+@mixin mobile-and-up {
+  @media screen and (min-width: 601px) { @content; }
+}
+@mixin tablet-and-down  {
+  @media screen and (max-width: 768px) { @content; }
+}
+@mixin mobile-only {
+  @media screen and (max-width: 600px) { @content; }
+}
+
+
+ul, li{
+list-style: none;
+padding: 0;
+}
+
+.container-timeline{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  background: linear-gradient(45deg, #209cff, #68e0cf);
+  padding: 3rem 0;
+}
+
+.wrapper{
+  background: #eaf6ff;
+  padding: 2rem;
+  border-radius: 15px;
+}
+
+.sessions{
+  margin-top: 2rem;
+  border-radius: 12px;
+  position: relative;
+}
+
+.timeline li{
+  padding-bottom: 1.5rem;
+  border-left: 1px solid #abaaed;
+  position: relative;
+  padding-left: 20px;
+  margin-left: 10px;
+
+  &:last-child {
+    border: 0px;
+    padding-bottom: 0;
+  }
+
+  &:before{
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: white;
+    border: 1px solid #4e5ed3;
+    box-shadow: 3px 3px 0px #bab5f8;
+    box-shadow: 3px 3px 0px #bab5f8;
+    border-radius: 50%;
+    position: absolute;
+    left: -10px;
+    top: 0px;
+  }
+}
+
+.time{
+  color: #2a2839;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  @include mobile-and-up{
+    font-size: .9rem;
+  }
+  @include mobile-only{
+    margin-bottom: .3rem;
+    font-size: 0.85rem;
+  }
+
+}
+
 /* .bg-color{
   position: relative;
   background: #fff;
@@ -1593,3 +1676,5 @@ section {
   border-radius: 20px;
   z-index: 10;
 } */
+
+
