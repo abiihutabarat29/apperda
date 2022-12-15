@@ -40,22 +40,27 @@ class Filters extends BaseConfig
         'before' => [
             'filteradmin' => ['except' => [
                 '/', 'front/*',
+                'jadwal',
                 'site-admin', 'auth/*',
             ]],
             'filteruser' => ['except' => [
                 '/', 'front/*',
+                'jadwal',
                 'site-admin', 'auth/*',
             ]],
             'filterhukum' => ['except' => [
                 '/', 'front/*',
+                'jadwal',
                 'site-admin', 'auth/*',
             ]],
             'filterketua' => ['except' => [
                 '/', 'front/*',
+                'jadwal',
                 'site-admin', 'auth/*',
             ]],
             'filtersetwan' => ['except' => [
                 '/', 'front/*',
+                'jadwal',
                 'site-admin', 'auth/*',
             ]],
         ],

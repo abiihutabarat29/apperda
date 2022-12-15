@@ -33,10 +33,11 @@ class Front extends BaseController
 
     public function jadwal()
     {
-        $data = array(
-            'title'         => 'jadwal',
-            // 'jadwal'        => $this->PerdaModel->orderBy('id', 'Desc')->findAll(3),
-            'isi'           =>'front/jadwal',
-        );
+        echo 'Jadwal';
+        // $data = array(
+        //     'title'         => 'jadwal',
+        //     // 'jadwal'        => $this->PerdaModel->orderBy('id', 'Desc')->findAll(3),
+        //     'isi'           => 'front/jadwal',
+        // );
     }
 }
