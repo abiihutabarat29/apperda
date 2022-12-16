@@ -1,10 +1,8 @@
-<!-- ======= Hero Section ======= -->
 <section id="hero">
     <div class="hero-container">
         <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
             <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
             <div class="carousel-inner" role="listbox">
-                <!-- Slide 1 -->
                 <?php foreach ($slideshow as $key => $value) { ?>
                     <div class="carousel-item active" style="background-image: url(<?= base_url() ?>/media/slideshow/<?= $value['gambar']; ?>">
                         <div class="carousel-container">
@@ -24,11 +22,10 @@
             </a>
         </div>
     </div>
-</section><!-- End Hero -->
+</section>
 
 
 <main id="main">
-    <!-- ======= Our Services Section ======= -->
     <section id="services" class="services counts">
         <div class="container">
             <div class="bg-color">
@@ -37,29 +34,28 @@
                         <div class="icon-box count-box text-center">
                             <div class="icon"><i class="bx bx-file"></i></div>
                             <h4 class="title"><a href="">Instansi</a></h4>
-                            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter mb-3"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="<?= $instansi ?>" data-purecounter-duration="1" class="purecounter mb-3"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
                         <div class="icon-box count-box text-center">
                             <div class="icon"><i class="bx bx-file"></i></div>
                             <h4 class="title"><a href="">Propemperda</a></h4>
-                            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter mb-3"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="<?= $perdap ?>" data-purecounter-duration="1" class="purecounter mb-3"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
                         <div class="icon-box count-box text-center">
                             <div class="icon"><i class="bx bx-file"></i></div>
                             <h4 class="title"><a href="">Non-Propemperda</a></h4>
-                            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter mb-3"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="<?= $perdanp ?>" data-purecounter-duration="1" class="purecounter mb-3"></span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section><!-- End Our Services Section -->
+    </section>
 
-    <!-- ======= Cta Section ======= -->
     <section id="services" class="cta">
         <div class="container">
             <div class="text-center">
@@ -69,9 +65,8 @@
             </div>
         </div>
     </section>
-    <!-- End Cta Section -->
 
-    <!-- ======= Our Team Section ======= -->
+
     <section id="team" class="team">
         <div class="container">
             <div class="section-title">
@@ -93,59 +88,5 @@
                 <?php } ?>
             </div>
         </div>
-    </section><!-- End Our Team Section -->
-
-    <section class="timeline">
-    <div class="container-timeline">
-  <div class="wrapper">
-    <h1>Timeline Progres</h1>
-    <ul class="sessions">
-      <li>
-        <div class="time">09:00 AM</div>
-        <p>How is it already 9:00? Just how??? 🤯🤯</p>
-      </li>
-      <li>
-        <div class="time">09:05 AM</div>
-        <p>Few more minutes of sleep won't do anyone any harm 🤷..</p>
-      </li>
-      <li>
-        <div class="time">09:30 AM</div>
-        <p>Get up 🙄</p>
-      </li>
-      <li>
-        <div class="time">1:00 PM</div>
-        <p>How can I feel sleepy again?😵</p>
-      </li>
-      <li>
-        <div class="time">01:30 PM</div>
-        <p>Lunch time after which sleep just doesn't want to let go of me. 🤝</p>
-      </li>
-      <li>
-        <div class="time">3:30 PM</div>
-        <p>Drink the magical chai, it will ward off sleep they said. 🤷‍</p>
-      </li>
-      <li>
-        <div class="time">4:30 PM </div>
-        <p>The only time I don't feel sleepy cause it's work out time. I mean walking time. 😹</p>
-      </li>
-      <li>
-        <div class="time">07:00 PM </div>
-        <p>Food my tummy needs, sleep my body needs.👿</p>
-      </li>
-      <li>
-        <div class="time">07:30 PM </div>
-        <p>My tummy's happy time 🍝</p>
-      </li>
-      <li>
-        <div class="time">10:00 PM </div>
-        <p>uh oh!!! fuel low, get some snacks but wait should I just take a quick nap?🤓 </p>
-      </li>
-      <li>
-        <div class="time">2:30 PM </div>
-        <p>All hail! The time to sleep has finally arrived.😴😴😴😴😴 </p>
-      </li>
-    </ul>
-  </div>
-</div>
-</section>
-</main><!-- End #main -->
+    </section>
+</main>

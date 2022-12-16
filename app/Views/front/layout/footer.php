@@ -1,7 +1,7 @@
 <footer id="footer">
-        <div class="footer-top">
-            <div class="landing-single-bg">
-              <div class="container">
+    <div class="footer-top">
+        <div class="landing-single-bg">
+            <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 footer-info">
                         <h3>Shuffle</h3>
@@ -32,8 +32,8 @@
                     </div>
                 </div>
             </div>
-          </div>
-      </div>
+        </div>
+    </div>
 
     <div class="container">
         <div class="copyright">
@@ -53,7 +53,15 @@
 <script src="<?= base_url(); ?>/frontend/assets/vendor/waypoints/noframework.waypoints.js"></script>
 <script src="<?= base_url(); ?>/frontend/assets/vendor/php-email-form/validate.js"></script>
 <script src="<?= base_url(); ?>/frontend/assets/js/main.js"></script>
+<script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 
+
+
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+</script>
 </body>
 
 </html>

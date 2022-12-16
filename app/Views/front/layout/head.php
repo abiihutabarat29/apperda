@@ -26,6 +26,9 @@
 
   <!-- Template Main CSS File -->
   <link href="<?= base_url(); ?>/frontend/assets/css/style.css" rel="stylesheet">
+  <link href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet">
+
+
 
   <!-- =======================================================
   * Template Name: Shuffle - v4.9.1
