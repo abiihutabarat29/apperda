@@ -72,7 +72,7 @@
             <div class="section-title">
                 <h2>Anggota</h2>
             </div>
-            <div class="row">
+            <div class="row slider">
                 <?php foreach ($anggota as $key => $value) { ?>
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="member">

@@ -26,16 +26,11 @@
 
   <!-- Template Main CSS File -->
   <link href="<?= base_url(); ?>/frontend/assets/css/style.css" rel="stylesheet">
-  <link href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet">
 
+  <!-- Datatables CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
 
-
-  <!-- =======================================================
-  * Template Name: Shuffle - v4.9.1
-  * Template URL: https://bootstrapmade.com/bootstrap-3-one-page-template-free-shuffle/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>

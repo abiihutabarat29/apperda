@@ -34,7 +34,6 @@
             </div>
         </div>
     </div>
-
     <div class="container">
         <div class="copyright">
             &copy; Copyright <strong><span>Sekretariat Dewan Kabupaten Batu Bara</span></strong>. All Rights Reserved
@@ -53,13 +52,17 @@
 <script src="<?= base_url(); ?>/frontend/assets/vendor/waypoints/noframework.waypoints.js"></script>
 <script src="<?= base_url(); ?>/frontend/assets/vendor/php-email-form/validate.js"></script>
 <script src="<?= base_url(); ?>/frontend/assets/js/main.js"></script>
-<script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 
+<!-- DataTables -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 
 
 <script>
     $(document).ready(function() {
-        $('#myTable').DataTable();
+        $('#example').DataTable();
     });
 </script>
 </body>

@@ -8,8 +8,12 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   color: #334240;
 }
 
@@ -134,7 +138,7 @@ h6 {
   font-family: "Roboto", sans-serif;
   font-size: 13px;
   font-weight: 500;
-  color: #637f7b;
+  color: #e21313;
   white-space: nowrap;
   transition: 0.3s;
   letter-spacing: 0.3px;
@@ -152,12 +156,12 @@ h6 {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #1bbca3;
+  /* color: #e21313; */
 }
 
 .navbar .getstarted,
 .navbar .getstarted:focus {
-  background: #1bbca3;
+  background: #e21313;
   padding: 8px 20px;
   margin-left: 30px;
   border-radius: 4px;
@@ -763,7 +767,7 @@ section {
 }
 
 .services .icon-box:hover .icon i {
-  color: #1bbca3;
+  color: #e21313;
 }
 
 /*--------------------------------------------------------------
@@ -1597,5 +1601,6 @@ section {
   border-radius: 20px;
   z-index: 10;
 } */
+
 
 
