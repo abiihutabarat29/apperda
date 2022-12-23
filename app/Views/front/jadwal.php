@@ -9,97 +9,38 @@
                                 <thead>
                                     <tr>
                                         <th>Instansi</th>
-                                        <th>Judul Perda</th>
-                                        <th>tgl Banmus</th>
-                                        <th>tgl diajukan</th>
-                                        <th>Status</th>
+                                        <th>Judul</th>
+                                        <th>Tanggal Pengajuan</th>
+                                        <th>Jadwal Banmus</th>
+                                        <th>
+                                            <center>
+                                                Status
+                                            </center>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td><span class="badge bg-success">DONE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Garrett Winters</td>
-                                        <td>Accountant</td>
-                                        <td>Tokyo</td>
-                                        <td>63</td>
-                                        <td><span class="badge bg-success">DONE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ashton Cox</td>
-                                        <td>Junior Technical Author</td>
-                                        <td>San Francisco</td>
-                                        <td>66</td>
-                                        <td><span class="badge bg-success">DONE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cedric Kelly</td>
-                                        <td>Senior Javascript Developer</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td><span class="badge bg-success">DONE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cedric Kelly</td>
-                                        <td>Senior Javascript Developer</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td><span class="badge bg-success">DONE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cedric Kelly</td>
-                                        <td>Senior Javascript Developer</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td><span class="badge bg-success">DONE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cedric Kelly</td>
-                                        <td>Senior Javascript Developer</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td><span class="badge bg-success">DONE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cedric Kelly</td>
-                                        <td>Senior Javascript Developer</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td><span class="badge bg-success">DONE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cedric Kelly</td>
-                                        <td>Senior Javascript Developer</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td><span class="badge bg-success">DONE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cedric Kelly</td>
-                                        <td>Senior Javascript Developer</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td><span class="badge bg-warning">PROGRESS</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cedric Kelly</td>
-                                        <td>Senior Javascript Developer</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td><span class="badge bg-success">DONE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cedric Kelly</td>
-                                        <td>Senior Javascript Developer</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td><span class="badge bg-success">DONE</span></td>
-                                    </tr>
+                                    <?php $i = 1;
+                                    foreach ($data as $key => $r) :
+                                    ?>
+                                        <tr>
+                                            <td><?= $r['instansi'] ?></td>
+                                            <td><?= $r['judul_perda'] ?></td>
+                                            <td><?= $r['created_at'] ?></td>
+                                            <td><?= $r['tgl_banmus'] ?></td>
+                                            <td>
+                                                <?php if ($r['status'] == 4 && $r['nota'] != null && $r['pdg_nota'] != null && $r['jwb_bupati'] != null && $r['pbhs_ranperda'] != null && $r['pansus_bapemperda'] != null && $r['hsl_pembahasan'] != null && $r['lap_pembahasan'] != null && $r['pendapat_fraksi'] != null && $r['penandatangan'] != null) { ?>
+                                                    <center>
+                                                        <span class="badge bg-success">selesai</span>
+                                                    </center>
+                                                <?php } else { ?>
+                                                    <center>
+                                                        <span class="badge bg-warning">sedang berlangsung</span>
+                                                    </center>
+                                                <?php } ?>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

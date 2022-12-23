@@ -82,6 +82,8 @@ class Filters extends BaseConfig
                 'admin/slideshow/*',
                 'admin/data-anggota',
                 'admin/data-anggota/*',
+                'admin/profil',
+                'admin/profil/*',
                 'admin/data-file',
                 'admin/data-file/*',
             ]],

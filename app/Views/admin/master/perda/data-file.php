@@ -201,7 +201,7 @@
                             <div class="card-list">
                                 <div class="item-list">
                                     <div class="info-user ml-3">
-                                        <span class="text-muted">1. Ekstensi File yang diupload wajib pdf.</span>
+                                        <span class="text-muted">1. Ekstensi file yang diupload wajib pdf.</span>
                                     </div>
                                     <button class="btn btn-icon btn-success btn-round btn-xs">
                                         <i class="fa fa-check"></i>
@@ -209,7 +209,15 @@
                                 </div>
                                 <div class="item-list">
                                     <div class="info-user ml-3">
-                                        <span class="text-muted">2. Ukuran File yang diupload maksimal 5MB.</span>
+                                        <span class="text-muted">2. Ukuran file yang diupload maksimal 5MB.</span>
+                                    </div>
+                                    <button class="btn btn-icon btn-success btn-round btn-xs">
+                                        <i class="fa fa-check"></i>
+                                    </button>
+                                </div>
+                                <div class="item-list">
+                                    <div class="info-user ml-3">
+                                        <span class="text-muted">3. File yang sudah diupload tidak bisa diubah kembali.</span>
                                     </div>
                                     <button class="btn btn-icon btn-success btn-round btn-xs">
                                         <i class="fa fa-check"></i>

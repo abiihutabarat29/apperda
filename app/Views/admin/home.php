@@ -1,9 +1,10 @@
 <div class="panel-header bg-primary-gradient">
     <div class="page-inner py-5">
-        <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
-            <div>
-                <h2 class="text-white pb-2 fw-bold"><?= $title ?> <?= session()->get('instansi'); ?>
-                </h2>
+        <div class="row align-items-center justify-content-center text-center">
+            <div class="col-12">
+                <img src="<?= base_url("template/assets/img/icon-logo.png") ?>" class="mb-0" alt="" width="70px">
+                <h2 class="text-white mb-1 fw-bold"><?= $title ?></h2>
+                <h2 class="text-white mb-1 fw-bold"><?= session()->get('instansi'); ?></h2>
                 <h5 class="text-white op-7 mb-2"><?= $appname ?></h5>
             </div>
         </div>

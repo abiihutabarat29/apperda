@@ -79,6 +79,13 @@ $routes->group('admin', function ($routes) {
     $routes->delete('slideshow/(:num)', 'Admin\Slideshow::delete/$1');
     $routes->get('slideshow/edit/(:segment)', 'Admin\Slideshow::edit/$1');
     $routes->add('slideshow/update/(:segment)', 'Admin\Slideshow::update/$1');
+    // Routes Profil
+    $routes->get('profil', 'Admin\Profil::profil');
+    $routes->get('profil/add', 'Admin\Profil::add');
+    $routes->add('profil/save', 'Admin\Profil::save');
+    $routes->delete('profil/(:num)', 'Admin\Profil::delete/$1');
+    $routes->get('profil/edit/(:segment)', 'Admin\Profil::edit/$1');
+    $routes->add('profil/update/(:segment)', 'Admin\Profil::update/$1');
     // Routes Anggota
     $routes->get('data-anggota', 'Admin\Anggota::anggota');
     $routes->get('data-anggota/add', 'Admin\Anggota::add');

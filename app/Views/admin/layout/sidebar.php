@@ -92,7 +92,8 @@
                 <?php } ?>
                 <?php if (session()->get('level') == '1') { ?>
                     <li class="nav-item <?= ($request->uri->getSegment(2) == 'slideshow' or
-                                            $request->uri->getSegment(2) == 'data-anggota') ? 'active' : ""; ?>">
+                                            $request->uri->getSegment(2) == 'data-anggota' or
+                                            $request->uri->getSegment(2) == 'profil') ? 'active' : ""; ?>">
                         <a data-toggle="collapse" href="#setting">
                             <i class="fa fa-cog"></i>
                             <p>App Setting</p>
@@ -100,6 +101,11 @@
                         </a>
                         <div class="collapse" id="setting">
                             <ul class="nav nav-collapse">
+                                <li>
+                                    <a href="<?= base_url('admin/profil') ?>">
+                                        <span class="sub-item">Profil</span>
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="<?= base_url('admin/slideshow') ?>">
                                         <span class="sub-item">Slideshow</span>

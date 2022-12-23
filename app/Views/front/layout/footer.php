@@ -2,35 +2,24 @@
     <div class="footer-top">
         <div class="landing-single-bg">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 footer-info">
-                        <h3>Shuffle</h3>
-                        <p>
-                            A108 Adam Street <br>
-                            NY 535022, USA<br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
-                        </p>
+                <?php foreach ($profil as $key => $r) { ?>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <a href="<?= base_url('/') ?>">
+                                <img src="<?= base_url('/media/icon/' . $r['icon']) ?>" class="mb-0 mt-2" alt="" width="120px">
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-6 footer-info">
+                            <h3><?= $r['nama_app'] ?></h3>
+                            <h5><?= $r['deskripsi_app'] ?></h5>
+                            <p>
+                                <strong>Phone:</strong> <?= $r['nohp'] ?><br>
+                                <strong>Email:</strong> <?= $r['email'] ?><br>
+                                <strong>Alamat:</strong> <?= $r['alamat'] ?><br>
+                            </p>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 footer-info">
-                        <h3>Shuffle</h3>
-                        <p>
-                            A108 Adam Street <br>
-                            NY 535022, USA<br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
-                        </p>
-                    </div>
-                    <div class="col-lg-4 col-md-6 footer-info">
-                        <h3>Shuffle</h3>
-                        <p>
-                            A108 Adam Street <br>
-                            NY 535022, USA<br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
-                        </p>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </div>

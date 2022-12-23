@@ -92,7 +92,7 @@ class Auth extends BaseController
         session()->remove('level');
         session()->remove('status');
         session()->setFlashdata('ml', 'LOGOUT BERHASIL');
-        return redirect()->to(base_url('site-admin'));
+        return redirect()->to(base_url('/'));
     }
 
     //--------------------------------------------------------------------

@@ -7,7 +7,7 @@
                     <div class="carousel-item active" style="background-image: url(<?= base_url() ?>/media/slideshow/<?= $value['gambar']; ?>">
                         <div class="carousel-container">
                             <div class="carousel-content">
-                                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Shuffle</span></h2>
+                                <h2 class="animate__animated animate__fadeInDown">SIPENBARA</span></h2>
                                 <h2 class="animate__animated animate__fadeInDown"></h2>
                             </div>
                         </div>
@@ -23,8 +23,6 @@
         </div>
     </div>
 </section>
-
-
 <main id="main">
     <section id="services" class="services counts">
         <div class="container">
@@ -55,18 +53,15 @@
             </div>
         </div>
     </section>
-
     <section id="services" class="cta">
         <div class="container">
             <div class="text-center">
-                <h3>Call To Action</h3>
-                <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <a class="cta-btn" href="#">Call To Action</a>
+                <h3>JADWAL</h3>
+                <p>Informasi Jadwal Rapat Paripurna</p>
+                <a class="cta-btn" href="<?= base_url('jadwal') ?>">LIHAT</a>
             </div>
         </div>
     </section>
-
-
     <section id="team" class="team">
         <div class="container">
             <div class="section-title">
@@ -79,8 +74,8 @@
                             <img src="<?= base_url() ?>/media/fotoanggota/<?= $value['foto']; ?>" class="img-fluid" alt="">
                             <div class="member-info">
                                 <div class="member-info-content">
-                                    <h4>Walter White</h4>
-                                    <span>Chief Executive Officer</span>
+                                    <h4><?= $value['nama'] ?></h4>
+                                    <span>Anggota Bapemperda</span>
                                 </div>
                             </div>
                         </div>

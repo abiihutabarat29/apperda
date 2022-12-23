@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 13 Des 2022 pada 11.34
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 8.1.6
+-- Host: localhost:3306
+-- Generation Time: Dec 23, 2022 at 08:49 AM
+-- Server version: 5.7.33
+-- PHP Version: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mod_anggota`
+-- Table structure for table `mod_anggota`
 --
 
 CREATE TABLE `mod_anggota` (
@@ -35,10 +35,20 @@ CREATE TABLE `mod_anggota` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `mod_anggota`
+--
+
+INSERT INTO `mod_anggota` (`id`, `nama`, `foto`, `created_at`, `updated_at`) VALUES
+(1, 'Abii Hutabarat', '1671769270_94f3aeca7c292927ad0f.png', '2022-12-23 11:21:10', '2022-12-23 11:21:10'),
+(2, 'Agung Surya Bahari', '1671769287_e78841c01584d8df6375.png', '2022-12-23 11:21:27', '2022-12-23 11:21:27'),
+(3, 'Zulfahmi', '1671769297_0553f871324f3c6a85b9.png', '2022-12-23 11:21:37', '2022-12-23 11:21:37'),
+(4, 'Kurnia Candra Wiguna', '1671769310_d42ba92e38d301703d78.png', '2022-12-23 11:21:50', '2022-12-23 11:21:50');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mod_instansi`
+-- Table structure for table `mod_instansi`
 --
 
 CREATE TABLE `mod_instansi` (
@@ -50,7 +60,7 @@ CREATE TABLE `mod_instansi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `mod_instansi`
+-- Dumping data for table `mod_instansi`
 --
 
 INSERT INTO `mod_instansi` (`id`, `instansi`, `userentry`, `created_at`, `updated_at`) VALUES
@@ -68,7 +78,7 @@ INSERT INTO `mod_instansi` (`id`, `instansi`, `userentry`, `created_at`, `update
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mod_perda`
+-- Table structure for table `mod_perda`
 --
 
 CREATE TABLE `mod_perda` (
@@ -99,17 +109,43 @@ CREATE TABLE `mod_perda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `mod_perda`
+-- Dumping data for table `mod_perda`
 --
 
 INSERT INTO `mod_perda` (`id`, `id_instansi`, `instansi`, `judul_perda`, `dasar_hukum`, `draf_perda`, `naskah_akademik`, `dokumen`, `jenis_perda`, `surat`, `tgl_banmus`, `nota`, `pdg_nota`, `jwb_bupati`, `pbhs_ranperda`, `pansus_bapemperda`, `hsl_pembahasan`, `lap_pembahasan`, `pendapat_fraksi`, `penandatangan`, `status`, `userentry`, `created_at`, `updated_at`) VALUES
-(10, 10, 'Dinas Komunikasi dan Informatika', 'Test Perda', 'Test Perda', '1670477066_5bd6c297c216c7e1e2d1.pdf', '1670477066_aa588271f4b57793c127.pdf', '1670477066_ef5bcddae062bc03cc23.pdf', 'Propemperda', '1670477714_6e8497e6a2894a6bf98c.pdf', '2022-12-14', '1670927286_3e03c1f55f0e7333ffed.pdf', '1670927292_a7ce5a953b43f321810e.pdf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 'Putri', '2022-12-08 12:24:26', '2022-12-13 17:28:12'),
+(10, 10, 'Dinas Komunikasi dan Informatika', 'Test Perda', 'Test Perda', '1670477066_5bd6c297c216c7e1e2d1.pdf', '1670477066_aa588271f4b57793c127.pdf', '1670477066_ef5bcddae062bc03cc23.pdf', 'Propemperda', '1670477714_6e8497e6a2894a6bf98c.pdf', '2022-12-14', '1670927286_3e03c1f55f0e7333ffed.pdf', '1670927292_a7ce5a953b43f321810e.pdf', '1671676244_5b331a3f02bed9533c0d.pdf', '1671767954_12e36514895b3993bd12.pdf', '1671767962_b7803c6b1b7f8fd8b8e5.pdf', '1671767968_da80675be2e078837cd5.pdf', '1671767974_4ab48e742847a67dc928.pdf', '1671767979_96269257b4c0e31b394a.pdf', '1671775645_7fe99e4d676925b667cd.pdf', 4, 'Putri', '2022-12-08 12:24:26', '2022-12-23 13:07:25'),
 (11, 10, 'Dinas Komunikasi dan Informatika', 'Test again', 'Test again', '1670477683_c7442889368c4ad49aac.pdf', '1670477683_da0cc19c6d12b84fa6cd.pdf', '1670477683_cff267539aa6c438d5bc.pdf', 'Non-Propemperda', '1670477726_23b9568c0ebb94494a9a.pdf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 'Putri', '2022-12-08 12:34:43', '2022-12-08 12:35:26');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mod_slideshow`
+-- Table structure for table `mod_profil`
+--
+
+CREATE TABLE `mod_profil` (
+  `id` int(11) NOT NULL,
+  `nama_app` varchar(255) NOT NULL,
+  `link_app` varchar(255) NOT NULL,
+  `deskripsi_app` varchar(255) NOT NULL,
+  `icon` varchar(255) NOT NULL,
+  `alamat` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `nohp` varchar(12) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mod_profil`
+--
+
+INSERT INTO `mod_profil` (`id`, `nama_app`, `link_app`, `deskripsi_app`, `icon`, `alamat`, `email`, `nohp`, `created_at`, `updated_at`) VALUES
+(3, 'SIPENBARA', 'https://sipenbara.batubarakab.go.id', 'Aplikasi Pengajuan Peraturan Daerah', '1671784147_564cd7e323e881f510b5.png', 'Lima Puluh Kota', 'sipenbara@gmail.com', '082245548800', '2022-12-23 15:09:53', '2022-12-23 15:29:07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mod_slideshow`
 --
 
 CREATE TABLE `mod_slideshow` (
@@ -120,10 +156,19 @@ CREATE TABLE `mod_slideshow` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `mod_slideshow`
+--
+
+INSERT INTO `mod_slideshow` (`id`, `keterangan`, `gambar`, `created_at`, `updated_at`) VALUES
+(1, 'title', '1671769170_271f8c11a35e1e32e209.jpg', '2022-12-23 11:19:30', '2022-12-23 11:19:30'),
+(2, 'title', '1671769179_dfd1b61d414f2f9baffc.jpg', '2022-12-23 11:19:39', '2022-12-23 11:19:39'),
+(3, 'title', '1671769189_d673937dac21fc7c1095.jpg', '2022-12-23 11:19:49', '2022-12-23 11:19:49');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mod_user`
+-- Table structure for table `mod_user`
 --
 
 CREATE TABLE `mod_user` (
@@ -144,7 +189,7 @@ CREATE TABLE `mod_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `mod_user`
+-- Dumping data for table `mod_user`
 --
 
 INSERT INTO `mod_user` (`id`, `id_instansi`, `instansi`, `nik`, `nama`, `nohp`, `email`, `username`, `password`, `foto`, `level`, `status`, `created_at`, `updated_at`) VALUES
@@ -159,65 +204,77 @@ INSERT INTO `mod_user` (`id`, `id_instansi`, `instansi`, `nik`, `nama`, `nohp`, 
 --
 
 --
--- Indeks untuk tabel `mod_anggota`
+-- Indexes for table `mod_anggota`
 --
 ALTER TABLE `mod_anggota`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `mod_instansi`
+-- Indexes for table `mod_instansi`
 --
 ALTER TABLE `mod_instansi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `mod_perda`
+-- Indexes for table `mod_perda`
 --
 ALTER TABLE `mod_perda`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `mod_slideshow`
+-- Indexes for table `mod_profil`
+--
+ALTER TABLE `mod_profil`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mod_slideshow`
 --
 ALTER TABLE `mod_slideshow`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `mod_user`
+-- Indexes for table `mod_user`
 --
 ALTER TABLE `mod_user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `mod_anggota`
+-- AUTO_INCREMENT for table `mod_anggota`
 --
 ALTER TABLE `mod_anggota`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `mod_instansi`
+-- AUTO_INCREMENT for table `mod_instansi`
 --
 ALTER TABLE `mod_instansi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `mod_perda`
+-- AUTO_INCREMENT for table `mod_perda`
 --
 ALTER TABLE `mod_perda`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `mod_slideshow`
+-- AUTO_INCREMENT for table `mod_profil`
 --
-ALTER TABLE `mod_slideshow`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `mod_profil`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `mod_user`
+-- AUTO_INCREMENT for table `mod_slideshow`
+--
+ALTER TABLE `mod_slideshow`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `mod_user`
 --
 ALTER TABLE `mod_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
