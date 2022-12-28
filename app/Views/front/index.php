@@ -31,21 +31,21 @@
                     <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
                         <div class="icon-box count-box text-center">
                             <div class="icon"><i class="bx bx-file"></i></div>
-                            <h4 class="title"><a href="">Instansi</a></h4>
+                            <h4 class="title">Instansi</h4>
                             <span data-purecounter-start="0" data-purecounter-end="<?= $instansi ?>" data-purecounter-duration="1" class="purecounter mb-3"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
                         <div class="icon-box count-box text-center">
                             <div class="icon"><i class="bx bx-file"></i></div>
-                            <h4 class="title"><a href="">Propemperda</a></h4>
+                            <h4 class="title">Propemperda</a></h4>
                             <span data-purecounter-start="0" data-purecounter-end="<?= $perdap ?>" data-purecounter-duration="1" class="purecounter mb-3"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
                         <div class="icon-box count-box text-center">
                             <div class="icon"><i class="bx bx-file"></i></div>
-                            <h4 class="title"><a href="">Non-Propemperda</a></h4>
+                            <h4 class="title">Non-Propemperda</h4>
                             <span data-purecounter-start="0" data-purecounter-end="<?= $perdanp ?>" data-purecounter-duration="1" class="purecounter mb-3"></span>
                         </div>
                     </div>
