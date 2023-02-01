@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 23, 2022 at 08:49 AM
+-- Generation Time: Feb 01, 2023 at 06:19 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -40,10 +40,10 @@ CREATE TABLE `mod_anggota` (
 --
 
 INSERT INTO `mod_anggota` (`id`, `nama`, `foto`, `created_at`, `updated_at`) VALUES
-(1, 'Abii Hutabarat', '1671769270_94f3aeca7c292927ad0f.png', '2022-12-23 11:21:10', '2022-12-23 11:21:10'),
-(2, 'Agung Surya Bahari', '1671769287_e78841c01584d8df6375.png', '2022-12-23 11:21:27', '2022-12-23 11:21:27'),
-(3, 'Zulfahmi', '1671769297_0553f871324f3c6a85b9.png', '2022-12-23 11:21:37', '2022-12-23 11:21:37'),
-(4, 'Kurnia Candra Wiguna', '1671769310_d42ba92e38d301703d78.png', '2022-12-23 11:21:50', '2022-12-23 11:21:50');
+(1, 'Anggota I', '1671769270_94f3aeca7c292927ad0f.png', '2022-12-23 11:21:10', '2023-01-24 12:20:19'),
+(2, 'Anggota II', '1671769287_e78841c01584d8df6375.png', '2022-12-23 11:21:27', '2023-01-24 12:20:26'),
+(3, 'Anggota III', '1671769297_0553f871324f3c6a85b9.png', '2022-12-23 11:21:37', '2023-01-24 12:20:31'),
+(4, 'Anggota IV', '1671769310_d42ba92e38d301703d78.png', '2022-12-23 11:21:50', '2023-01-24 12:20:36');
 
 -- --------------------------------------------------------
 
@@ -193,7 +193,7 @@ CREATE TABLE `mod_user` (
 --
 
 INSERT INTO `mod_user` (`id`, `id_instansi`, `instansi`, `nik`, `nama`, `nohp`, `email`, `username`, `password`, `foto`, `level`, `status`, `created_at`, `updated_at`) VALUES
-(1, 11, 'Sekretariat Dewan', '1209152911970001', 'Abii Hutabarat', '082274884828', 'abiihutabarat29@gmail.com', 'abiihtb29', '$2y$10$q5SR/bgb8n9kekESBM/yQO9B1vgK6zQqsiPWIY715PZrI9lyO1/iC', '1669095205_91effdfcf8a8578e9caf.png', 1, 1, '2022-09-22 10:12:46', '2022-11-22 12:33:25'),
+(1, 11, 'Sekretariat Dewan', '1209152911970001', 'admin', '082274884828', 'admin@gmail.com', 'admin-setwan', '$2y$10$bm0x/fyFkMRhQFoHcrbhQu3GcMY5tajb9ViNmwjTRjlLrlvGEv/w6', '1669095205_91effdfcf8a8578e9caf.png', 1, 1, '2022-09-22 10:12:46', '2023-01-24 12:15:15'),
 (4, 10, 'Dinas Komunikasi dan Informatika', '1209151223343434', 'Putri', '082275678998', 'putri@gmail.com', 'putri2022', '$2y$10$TODKOJuFYOBHxrfNaMHtr.IOHJWuLD1RyfnZohmkCNWdpSGGJ6ddm', '1669094410_f0e8a9f12c7d7dd1cb5c.png', 2, 1, '2022-10-08 12:10:06', '2022-11-22 12:20:10'),
 (5, 5, 'Bagian Hukum', '1212141445454545', 'Sonia', '082265789898', 'sonia@gmail.com', 'sonia2022', '$2y$10$RY2qtcCTsHznqCKFZSaHYuT8/Qw2WnY2v.ersZWqzKioWtfeUDkNO', '1669090104_73d908a4802a4d367786.png', 3, 1, '2022-10-10 14:02:34', '2022-11-22 11:08:24'),
 (7, 11, 'Sekretariat Dewan', '1212121212191919', 'Ketua Bapemperda', '082676676534', 'ketua@gmail.com', 'ketua2022', '$2y$10$W46IiqIj8za4OOcFHXa04.ThQ.U9/kBioF5rGIf3lKCv4.zgNC3ri', '1669095652_ec0ff3312cd803747a39.png', 4, 1, '2022-11-21 14:32:15', '2022-11-22 12:40:52'),
